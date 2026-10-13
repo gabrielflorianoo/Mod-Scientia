@@ -286,58 +286,6 @@
   "simplification": "The game uses a sharp threshold temperature (1170 K); the real reaction rate rises gradually with temperature."
  },
  {
-  "id": "water_electrolysis",
-  "name": "Electrolysis of water",
-  "type": "electrolysis",
-  "reactants": [
-   {
-    "substance": "water",
-    "coefficient": 2,
-    "state": "l"
-   }
-  ],
-  "products": [
-   {
-    "substance": "hydrogen",
-    "coefficient": 2,
-    "state": "g"
-   },
-   {
-    "substance": "oxygen",
-    "coefficient": 1,
-    "state": "g"
-   }
-  ],
-  "conditions": {
-   "minTemperatureK": null,
-   "maxTemperatureK": null,
-   "requires": [
-    "electrolysis",
-    "aqueous"
-   ],
-   "catalyst": null
-  },
-  "deltaHkJ": 571.6,
-  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
-  "reversible": false,
-  "electrons": 4,
-  "ratePerSecond": 0.0,
-  "observations": [
-   "Bubbles at both electrodes",
-   "About twice as much gas forms at the cathode (hydrogen) as at the anode (oxygen)"
-  ],
-  "explanation": {
-   "intuition": "Electricity can split water into hydrogen and oxygen gases.",
-   "science": "At the cathode, water gains electrons and forms H₂; at the anode, water loses electrons and forms O₂. Four electrons are transferred for every two water molecules split.",
-   "technical": "Faraday's law: moles of reaction = Q / (4F). The minimum voltage is about 1.23 V (ΔG°/zF); real cells need more because of overpotentials. An electrolyte is needed to carry current."
-  },
-  "references": [
-   "OpenStax Chemistry 2e (openstax.org), chapter 17 (Electrochemistry)",
-   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)"
-  ],
-  "simplification": "The electrolyte is assumed present; the amount produced follows Faraday's law exactly, but cell voltage requirements are simplified to 'at least 1.23 V'."
- },
- {
   "id": "brine_electrolysis",
   "name": "Electrolysis of brine (chlor-alkali process)",
   "type": "electrolysis",
@@ -398,6 +346,58 @@
    "Euro Chlor, 'The chlor-alkali process' (eurochlor.org)"
   ],
   "simplification": "Gases are collected automatically into sealed canisters; brine electrolysis is chosen over water electrolysis when enough chloride is present."
+ },
+ {
+  "id": "water_electrolysis",
+  "name": "Electrolysis of water",
+  "type": "electrolysis",
+  "reactants": [
+   {
+    "substance": "water",
+    "coefficient": 2,
+    "state": "l"
+   }
+  ],
+  "products": [
+   {
+    "substance": "hydrogen",
+    "coefficient": 2,
+    "state": "g"
+   },
+   {
+    "substance": "oxygen",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "electrolysis",
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": 571.6,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 4,
+  "ratePerSecond": 0.0,
+  "observations": [
+   "Bubbles at both electrodes",
+   "About twice as much gas forms at the cathode (hydrogen) as at the anode (oxygen)"
+  ],
+  "explanation": {
+   "intuition": "Electricity can split water into hydrogen and oxygen gases.",
+   "science": "At the cathode, water gains electrons and forms H₂; at the anode, water loses electrons and forms O₂. Four electrons are transferred for every two water molecules split.",
+   "technical": "Faraday's law: moles of reaction = Q / (4F). The minimum voltage is about 1.23 V (ΔG°/zF); real cells need more because of overpotentials. An electrolyte is needed to carry current."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 17 (Electrochemistry)",
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)"
+  ],
+  "simplification": "The electrolyte is assumed present; the amount produced follows Faraday's law exactly, but cell voltage requirements are simplified to 'at least 1.23 V'."
  },
  {
   "id": "hydrogen_chlorine",

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  R",
+    " RP",
+    "PPP"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:rail"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "scientia:motion_track",
+    "count": 1
+  }
+}

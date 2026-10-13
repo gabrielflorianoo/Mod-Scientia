@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "scientia:block/optical_bench"
+    },
+    "facing=east": {
+      "model": "scientia:block/optical_bench",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "scientia:block/optical_bench",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scientia:block/optical_bench",
+      "y": 270
+    }
+  }
+}

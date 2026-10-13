@@ -1,0 +1,96 @@
+{
+  "variants": {
+    "closed=false,facing=north,powered=false": {
+      "model": "scientia:block/circuit_switch_open"
+    },
+    "closed=false,facing=north,powered=true": {
+      "model": "scientia:block/circuit_switch_closed"
+    },
+    "closed=true,facing=north,powered=false": {
+      "model": "scientia:block/circuit_switch_closed"
+    },
+    "closed=true,facing=north,powered=true": {
+      "model": "scientia:block/circuit_switch_closed"
+    },
+    "closed=false,facing=east,powered=false": {
+      "model": "scientia:block/circuit_switch_open",
+      "y": 90
+    },
+    "closed=false,facing=east,powered=true": {
+      "model": "scientia:block/circuit_switch_closed",
+      "y": 90
+    },
+    "closed=true,facing=east,powered=false": {
+      "model": "scientia:block/circuit_switch_closed",
+      "y": 90
+    },
+    "closed=true,facing=east,powered=true": {
+      "model": "scientia:block/circuit_switch_closed",
+      "y": 90
+    },
+    "closed=false,facing=south,powered=false": {
+      "model": "scientia:block/circuit_switch_open",
+      "y": 180
+    },
+    "closed=false,facing=south,powered=true": {
+      "model": "scientia:block/circuit_switch_closed",
+      "y": 180
+    },
+    "closed=true,facing=south,powered=false": {
+      "model": "scientia:block/circuit_switch_closed",
+      "y": 180
+    },
+    "closed=true,facing=south,powered=true": {
+      "model": "scientia:block/circuit_switch_closed",
+      "y": 180
+    },
+    "closed=false,facing=west,powered=false": {
+      "model": "scientia:block/circuit_switch_open",
+      "y": 270
+    },
+    "closed=false,facing=west,powered=true": {
+      "model": "scientia:block/circuit_switch_closed",
+      "y": 270
+    },
+    "closed=true,facing=west,powered=false": {
+      "model": "scientia:block/circuit_switch_closed",
+      "y": 270
+    },
+    "closed=true,facing=west,powered=true": {
+      "model": "scientia:block/circuit_switch_closed",
+      "y": 270
+    },
+    "closed=false,facing=up,powered=false": {
+      "model": "scientia:block/circuit_switch_open",
+      "x": 270
+    },
+    "closed=false,facing=up,powered=true": {
+      "model": "scientia:block/circuit_switch_closed",
+      "x": 270
+    },
+    "closed=true,facing=up,powered=false": {
+      "model": "scientia:block/circuit_switch_closed",
+      "x": 270
+    },
+    "closed=true,facing=up,powered=true": {
+      "model": "scientia:block/circuit_switch_closed",
+      "x": 270
+    },
+    "closed=false,facing=down,powered=false": {
+      "model": "scientia:block/circuit_switch_open",
+      "x": 90
+    },
+    "closed=false,facing=down,powered=true": {
+      "model": "scientia:block/circuit_switch_closed",
+      "x": 90
+    },
+    "closed=true,facing=down,powered=false": {
+      "model": "scientia:block/circuit_switch_closed",
+      "x": 90
+    },
+    "closed=true,facing=down,powered=true": {
+      "model": "scientia:block/circuit_switch_closed",
+      "x": 90
+    }
+  }
+}

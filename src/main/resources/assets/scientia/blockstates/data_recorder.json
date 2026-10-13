@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "active=false,facing=north": {
+      "model": "scientia:block/data_recorder"
+    },
+    "active=true,facing=north": {
+      "model": "scientia:block/data_recorder"
+    },
+    "active=false,facing=east": {
+      "model": "scientia:block/data_recorder",
+      "y": 90
+    },
+    "active=true,facing=east": {
+      "model": "scientia:block/data_recorder",
+      "y": 90
+    },
+    "active=false,facing=south": {
+      "model": "scientia:block/data_recorder",
+      "y": 180
+    },
+    "active=true,facing=south": {
+      "model": "scientia:block/data_recorder",
+      "y": 180
+    },
+    "active=false,facing=west": {
+      "model": "scientia:block/data_recorder",
+      "y": 270
+    },
+    "active=true,facing=west": {
+      "model": "scientia:block/data_recorder",
+      "y": 270
+    },
+    "active=false,facing=up": {
+      "model": "scientia:block/data_recorder",
+      "x": 270
+    },
+    "active=true,facing=up": {
+      "model": "scientia:block/data_recorder",
+      "x": 270
+    },
+    "active=false,facing=down": {
+      "model": "scientia:block/data_recorder",
+      "x": 90
+    },
+    "active=true,facing=down": {
+      "model": "scientia:block/data_recorder",
+      "x": 90
+    }
+  }
+}

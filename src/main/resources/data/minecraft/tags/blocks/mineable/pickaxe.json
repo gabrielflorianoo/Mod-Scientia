@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "scientia:battery",
+    "scientia:circuit_switch",
+    "scientia:condenser",
+    "scientia:copper_wire",
+    "scientia:data_recorder",
+    "scientia:electric_motor",
+    "scientia:electrolysis_station",
+    "scientia:filament_lamp",
+    "scientia:graduated_cylinder",
+    "scientia:insulated_kiln",
+    "scientia:lab_heater",
+    "scientia:material_analyzer",
+    "scientia:microscope",
+    "scientia:optical_bench",
+    "scientia:precision_balance",
+    "scientia:reaction_vessel",
+    "scientia:resistor",
+    "scientia:solar_panel",
+    "scientia:thermal_generator"
+  ]
+}

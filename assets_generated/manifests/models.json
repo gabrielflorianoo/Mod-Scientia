@@ -1,0 +1,834 @@
+{
+ "models": {
+  "scientific_workbench": {
+   "vertices": 236,
+   "faces": 238,
+   "min": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "max": [
+    1.0,
+    1.1625,
+    1.0
+   ],
+   "translucent": true,
+   "tiles": [
+    "glass",
+    "graphite",
+    "label_12v",
+    "lens",
+    "paper",
+    "red_plastic",
+    "steel_dark",
+    "white_enamel",
+    "wood",
+    "wood_dark"
+   ]
+  },
+  "graduated_cylinder": {
+   "vertices": 250,
+   "faces": 262,
+   "min": [
+    0.272668,
+    0.0,
+    0.2375
+   ],
+   "max": [
+    0.727332,
+    0.9625,
+    0.7625
+   ],
+   "translucent": true,
+   "tiles": [
+    "blue_plastic",
+    "glass",
+    "glass_frost",
+    "white_enamel"
+   ]
+  },
+  "precision_balance": {
+   "vertices": 184,
+   "faces": 192,
+   "min": [
+    0.0625,
+    0.0,
+    0.05625
+   ],
+   "max": [
+    0.9375,
+    0.86875,
+    0.9375
+   ],
+   "translucent": true,
+   "tiles": [
+    "chrome",
+    "emissive_green",
+    "glass",
+    "graphite",
+    "knob",
+    "rubber",
+    "screen",
+    "steel"
+   ]
+  },
+  "precision_balance_pan": {
+   "vertices": 136,
+   "faces": 156,
+   "min": [
+    0.203694,
+    0.4625,
+    0.297443
+   ],
+   "max": [
+    0.796306,
+    0.5875,
+    0.890056
+   ],
+   "translucent": false,
+   "tiles": [
+    "chrome",
+    "steel"
+   ]
+  },
+  "reaction_vessel": {
+   "vertices": 416,
+   "faces": 444,
+   "min": [
+    0.125,
+    0.0,
+    0.125
+   ],
+   "max": [
+    0.875,
+    0.96875,
+    0.875
+   ],
+   "translucent": true,
+   "tiles": [
+    "chrome",
+    "dial",
+    "glass",
+    "red_plastic",
+    "steel",
+    "steel_dark"
+   ]
+  },
+  "lab_heater": {
+   "vertices": 180,
+   "faces": 191,
+   "min": [
+    0.0625,
+    0.0,
+    -0.01875
+   ],
+   "max": [
+    0.9375,
+    0.91875,
+    0.95
+   ],
+   "translucent": true,
+   "tiles": [
+    "ceramic",
+    "emissive_amber",
+    "glass",
+    "glass_frost",
+    "graphite",
+    "knob",
+    "vent",
+    "white_enamel"
+   ]
+  },
+  "lab_heater_coil": {
+   "vertices": 240,
+   "faces": 240,
+   "min": [
+    0.166655,
+    0.4875,
+    0.166655
+   ],
+   "max": [
+    0.833345,
+    0.496875,
+    0.833345
+   ],
+   "translucent": false,
+   "tiles": [
+    "emissive_red"
+   ]
+  },
+  "reaction_vessel_stopper": {
+   "vertices": 24,
+   "faces": 32,
+   "min": [
+    0.406426,
+    0.85,
+    0.406426
+   ],
+   "max": [
+    0.593574,
+    0.96875,
+    0.593574
+   ],
+   "translucent": false,
+   "tiles": [
+    "rubber"
+   ]
+  },
+  "condenser": {
+   "vertices": 394,
+   "faces": 410,
+   "min": [
+    0.09375,
+    0.0,
+    0.09375
+   ],
+   "max": [
+    0.977646,
+    0.9875,
+    0.973686
+   ],
+   "translucent": true,
+   "tiles": [
+    "chrome",
+    "glass",
+    "glass_frost",
+    "rubber",
+    "steel",
+    "steel_dark"
+   ]
+  },
+  "electrolysis_station": {
+   "vertices": 264,
+   "faces": 306,
+   "min": [
+    0.0625,
+    0.0,
+    0.0
+   ],
+   "max": [
+    0.9375,
+    1.01875,
+    1.0
+   ],
+   "translucent": true,
+   "tiles": [
+    "copper",
+    "glass",
+    "glass_frost",
+    "graphite",
+    "graphite_rod",
+    "label_minus",
+    "label_plus",
+    "red_plastic",
+    "white_enamel"
+   ]
+  },
+  "material_analyzer": {
+   "vertices": 112,
+   "faces": 106,
+   "min": [
+    0.0625,
+    0.0,
+    0.0625
+   ],
+   "max": [
+    0.9375,
+    0.95,
+    0.9375
+   ],
+   "translucent": true,
+   "tiles": [
+    "chrome",
+    "emissive_green",
+    "glass_amber",
+    "graphite",
+    "knob",
+    "pcb",
+    "screen_spectrum",
+    "steel",
+    "steel_dark",
+    "vent"
+   ]
+  },
+  "microscope": {
+   "vertices": 244,
+   "faces": 288,
+   "min": [
+    0.25,
+    0.0,
+    0.21875
+   ],
+   "max": [
+    0.75,
+    1.022013,
+    0.84375
+   ],
+   "translucent": false,
+   "tiles": [
+    "chrome",
+    "emissive_amber",
+    "graphite",
+    "knob",
+    "white_enamel"
+   ]
+  },
+  "resistor_10": {
+   "vertices": 252,
+   "faces": 324,
+   "min": [
+    0.359854,
+    0.25,
+    0.0
+   ],
+   "max": [
+    0.640146,
+    0.64375,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "band_black",
+    "band_brown",
+    "band_gold",
+    "copper",
+    "graphite",
+    "resistor_body"
+   ]
+  },
+  "resistor_47": {
+   "vertices": 252,
+   "faces": 324,
+   "min": [
+    0.359854,
+    0.25,
+    0.0
+   ],
+   "max": [
+    0.640146,
+    0.64375,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "band_black",
+    "band_gold",
+    "band_violet",
+    "band_yellow",
+    "copper",
+    "graphite",
+    "resistor_body"
+   ]
+  },
+  "resistor_100": {
+   "vertices": 252,
+   "faces": 324,
+   "min": [
+    0.359854,
+    0.25,
+    0.0
+   ],
+   "max": [
+    0.640146,
+    0.64375,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "band_black",
+    "band_brown",
+    "band_gold",
+    "copper",
+    "graphite",
+    "resistor_body"
+   ]
+  },
+  "resistor_470": {
+   "vertices": 252,
+   "faces": 324,
+   "min": [
+    0.359854,
+    0.25,
+    0.0
+   ],
+   "max": [
+    0.640146,
+    0.64375,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "band_brown",
+    "band_gold",
+    "band_violet",
+    "band_yellow",
+    "copper",
+    "graphite",
+    "resistor_body"
+   ]
+  },
+  "resistor_1000": {
+   "vertices": 252,
+   "faces": 324,
+   "min": [
+    0.359854,
+    0.25,
+    0.0
+   ],
+   "max": [
+    0.640146,
+    0.64375,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "band_black",
+    "band_brown",
+    "band_gold",
+    "band_red",
+    "copper",
+    "graphite",
+    "resistor_body"
+   ]
+  },
+  "circuit_switch_open": {
+   "vertices": 56,
+   "faces": 42,
+   "min": [
+    0.28125,
+    -0.053958,
+    0.0
+   ],
+   "max": [
+    0.71875,
+    0.541988,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "brass",
+    "copper",
+    "red_plastic",
+    "wood_dark"
+   ]
+  },
+  "circuit_switch_closed": {
+   "vertices": 56,
+   "faces": 42,
+   "min": [
+    0.28125,
+    0.25,
+    0.0
+   ],
+   "max": [
+    0.71875,
+    0.6875,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "brass",
+    "copper",
+    "red_plastic",
+    "wood_dark"
+   ]
+  },
+  "filament_lamp_off": {
+   "vertices": 184,
+   "faces": 164,
+   "min": [
+    0.267063,
+    0.1875,
+    -0.000625
+   ],
+   "max": [
+    0.732937,
+    0.925,
+    1.000625
+   ],
+   "translucent": true,
+   "tiles": [
+    "brass",
+    "filament",
+    "glass",
+    "graphite"
+   ]
+  },
+  "filament_lamp_on": {
+   "vertices": 184,
+   "faces": 164,
+   "min": [
+    0.267063,
+    0.1875,
+    -0.000625
+   ],
+   "max": [
+    0.732937,
+    0.925,
+    1.000625
+   ],
+   "translucent": true,
+   "tiles": [
+    "brass",
+    "emissive_amber",
+    "glass_amber",
+    "graphite"
+   ]
+  },
+  "battery": {
+   "vertices": 112,
+   "faces": 106,
+   "min": [
+    0.125,
+    0.0,
+    0.0
+   ],
+   "max": [
+    0.875,
+    0.79375,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "copper",
+    "graphite",
+    "label_12v",
+    "label_minus",
+    "label_plus",
+    "red_plastic",
+    "steel",
+    "steel_dark",
+    "white_enamel"
+   ]
+  },
+  "electric_motor": {
+   "vertices": 424,
+   "faces": 450,
+   "min": [
+    0.125,
+    0.0,
+    0.0
+   ],
+   "max": [
+    0.875,
+    0.675,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "graphite",
+    "label_minus",
+    "label_plus",
+    "red_plastic",
+    "steel",
+    "steel_dark"
+   ]
+  },
+  "electric_motor_rotor": {
+   "vertices": 64,
+   "faces": 76,
+   "min": [
+    0.15,
+    0.675,
+    0.15
+   ],
+   "max": [
+    0.85,
+    0.875,
+    0.85
+   ],
+   "translucent": false,
+   "tiles": [
+    "chrome",
+    "steel"
+   ]
+  },
+  "thermal_generator": {
+   "vertices": 276,
+   "faces": 284,
+   "min": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "max": [
+    1.0,
+    1.03125,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "ash_grate",
+    "copper",
+    "dial",
+    "graphite",
+    "label_minus",
+    "label_plus",
+    "red_plastic",
+    "steel",
+    "steel_dark",
+    "vent"
+   ]
+  },
+  "thermal_generator_rotor": {
+   "vertices": 100,
+   "faces": 118,
+   "min": [
+    0.4375,
+    0.24028,
+    0.17778
+   ],
+   "max": [
+    0.5375,
+    0.8875,
+    0.82222
+   ],
+   "translucent": false,
+   "tiles": [
+    "chrome",
+    "hazard",
+    "steel",
+    "steel_dark"
+   ]
+  },
+  "solar_panel": {
+   "vertices": 40,
+   "faces": 30,
+   "min": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "max": [
+    1.0,
+    0.349991,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "graphite",
+    "label_minus",
+    "label_plus",
+    "solar_cell",
+    "steel",
+    "steel_dark"
+   ]
+  },
+  "optical_bench": {
+   "vertices": 152,
+   "faces": 148,
+   "min": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "max": [
+    1.0,
+    1.072358,
+    1.0
+   ],
+   "translucent": true,
+   "tiles": [
+    "emissive_amber",
+    "graphite",
+    "lens",
+    "paper",
+    "steel",
+    "steel_dark",
+    "white_enamel",
+    "wood"
+   ]
+  },
+  "data_recorder": {
+   "vertices": 128,
+   "faces": 118,
+   "min": [
+    0.125,
+    0.0,
+    0.1625
+   ],
+   "max": [
+    1.0,
+    0.884519,
+    0.8125
+   ],
+   "translucent": false,
+   "tiles": [
+    "emissive_green",
+    "emissive_red",
+    "graphite",
+    "knob",
+    "paper",
+    "rubber",
+    "screen_graph",
+    "steel",
+    "vent"
+   ]
+  },
+  "insulated_kiln": {
+   "vertices": 108,
+   "faces": 97,
+   "min": [
+    -0.0125,
+    0.0,
+    -0.075
+   ],
+   "max": [
+    1.0125,
+    1.1875,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "brick",
+    "chrome",
+    "dial",
+    "graphite",
+    "steel",
+    "steel_dark"
+   ]
+  },
+  "insulated_kiln_active": {
+   "vertices": 108,
+   "faces": 97,
+   "min": [
+    -0.0125,
+    0.0,
+    -0.075
+   ],
+   "max": [
+    1.0125,
+    1.1875,
+    1.0
+   ],
+   "translucent": false,
+   "tiles": [
+    "brick",
+    "chrome",
+    "dial",
+    "emissive_amber",
+    "graphite",
+    "steel",
+    "steel_dark"
+   ]
+  },
+  "motion_track": {
+   "vertices": 176,
+   "faces": 170,
+   "min": [
+    0.0,
+    0.0,
+    0.125
+   ],
+   "max": [
+    1.0,
+    0.624372,
+    0.875
+   ],
+   "translucent": false,
+   "tiles": [
+    "emissive_red",
+    "graphite",
+    "red_plastic",
+    "rubber",
+    "screen_digits",
+    "steel",
+    "steel_dark",
+    "wood",
+    "wood_dark"
+   ]
+  }
+ },
+ "parts": {
+  "precision_balance_pan": {
+   "type": "translate",
+   "axis": "y",
+   "range_px": [
+    -1.5,
+    0
+   ],
+   "driver": "mass (0\u2013500 g)"
+  },
+  "thermal_generator_rotor": {
+   "type": "rotate",
+   "axis": "x",
+   "pivot_px": [
+    8,
+    9,
+    8
+   ],
+   "driver": "electrical output"
+  },
+  "electric_motor_rotor": {
+   "type": "rotate",
+   "axis": "y",
+   "pivot_px": [
+    8,
+    0,
+    8
+   ],
+   "driver": "voltage"
+  },
+  "lab_heater_coil": {
+   "type": "emissive",
+   "driver": "heater burning"
+  },
+  "reaction_vessel_stopper": {
+   "type": "toggle",
+   "driver": "sealed"
+  }
+ },
+ "atlas": {
+  "size": 256,
+  "tiles": [
+   "graphite",
+   "steel",
+   "steel_dark",
+   "chrome",
+   "white_enamel",
+   "ceramic",
+   "glass",
+   "glass_frost",
+   "copper",
+   "brass",
+   "rubber",
+   "wood",
+   "brick",
+   "emissive_cyan",
+   "emissive_amber",
+   "emissive_red",
+   "emissive_green",
+   "screen",
+   "screen_graph",
+   "screen_spectrum",
+   "screen_digits",
+   "dial",
+   "vent",
+   "hazard",
+   "resistor_body",
+   "band_black",
+   "band_brown",
+   "band_red",
+   "band_yellow",
+   "band_violet",
+   "band_gold",
+   "solar_cell",
+   "coil",
+   "pcb",
+   "knob",
+   "label_12v",
+   "label_plus",
+   "label_minus",
+   "lens",
+   "paper",
+   "wood_dark",
+   "filament",
+   "blue_plastic",
+   "red_plastic",
+   "graphite_rod",
+   "glass_amber",
+   "ash_grate"
+  ]
+ }
+}

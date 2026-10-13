@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "active=false,facing=north": {
+      "model": "scientia:block/electrolysis_station"
+    },
+    "active=true,facing=north": {
+      "model": "scientia:block/electrolysis_station"
+    },
+    "active=false,facing=east": {
+      "model": "scientia:block/electrolysis_station",
+      "y": 90
+    },
+    "active=true,facing=east": {
+      "model": "scientia:block/electrolysis_station",
+      "y": 90
+    },
+    "active=false,facing=south": {
+      "model": "scientia:block/electrolysis_station",
+      "y": 180
+    },
+    "active=true,facing=south": {
+      "model": "scientia:block/electrolysis_station",
+      "y": 180
+    },
+    "active=false,facing=west": {
+      "model": "scientia:block/electrolysis_station",
+      "y": 270
+    },
+    "active=true,facing=west": {
+      "model": "scientia:block/electrolysis_station",
+      "y": 270
+    },
+    "active=false,facing=up": {
+      "model": "scientia:block/electrolysis_station",
+      "x": 270
+    },
+    "active=true,facing=up": {
+      "model": "scientia:block/electrolysis_station",
+      "x": 270
+    },
+    "active=false,facing=down": {
+      "model": "scientia:block/electrolysis_station",
+      "x": 90
+    },
+    "active=true,facing=down": {
+      "model": "scientia:block/electrolysis_station",
+      "x": 90
+    }
+  }
+}

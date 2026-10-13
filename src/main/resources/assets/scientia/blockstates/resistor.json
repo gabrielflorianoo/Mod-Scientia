@@ -1,0 +1,119 @@
+{
+  "variants": {
+    "facing=north,value=0": {
+      "model": "scientia:block/resistor_10"
+    },
+    "facing=north,value=1": {
+      "model": "scientia:block/resistor_47"
+    },
+    "facing=north,value=2": {
+      "model": "scientia:block/resistor_100"
+    },
+    "facing=north,value=3": {
+      "model": "scientia:block/resistor_470"
+    },
+    "facing=north,value=4": {
+      "model": "scientia:block/resistor_1000"
+    },
+    "facing=east,value=0": {
+      "model": "scientia:block/resistor_10",
+      "y": 90
+    },
+    "facing=east,value=1": {
+      "model": "scientia:block/resistor_47",
+      "y": 90
+    },
+    "facing=east,value=2": {
+      "model": "scientia:block/resistor_100",
+      "y": 90
+    },
+    "facing=east,value=3": {
+      "model": "scientia:block/resistor_470",
+      "y": 90
+    },
+    "facing=east,value=4": {
+      "model": "scientia:block/resistor_1000",
+      "y": 90
+    },
+    "facing=south,value=0": {
+      "model": "scientia:block/resistor_10",
+      "y": 180
+    },
+    "facing=south,value=1": {
+      "model": "scientia:block/resistor_47",
+      "y": 180
+    },
+    "facing=south,value=2": {
+      "model": "scientia:block/resistor_100",
+      "y": 180
+    },
+    "facing=south,value=3": {
+      "model": "scientia:block/resistor_470",
+      "y": 180
+    },
+    "facing=south,value=4": {
+      "model": "scientia:block/resistor_1000",
+      "y": 180
+    },
+    "facing=west,value=0": {
+      "model": "scientia:block/resistor_10",
+      "y": 270
+    },
+    "facing=west,value=1": {
+      "model": "scientia:block/resistor_47",
+      "y": 270
+    },
+    "facing=west,value=2": {
+      "model": "scientia:block/resistor_100",
+      "y": 270
+    },
+    "facing=west,value=3": {
+      "model": "scientia:block/resistor_470",
+      "y": 270
+    },
+    "facing=west,value=4": {
+      "model": "scientia:block/resistor_1000",
+      "y": 270
+    },
+    "facing=up,value=0": {
+      "model": "scientia:block/resistor_10",
+      "x": 270
+    },
+    "facing=up,value=1": {
+      "model": "scientia:block/resistor_47",
+      "x": 270
+    },
+    "facing=up,value=2": {
+      "model": "scientia:block/resistor_100",
+      "x": 270
+    },
+    "facing=up,value=3": {
+      "model": "scientia:block/resistor_470",
+      "x": 270
+    },
+    "facing=up,value=4": {
+      "model": "scientia:block/resistor_1000",
+      "x": 270
+    },
+    "facing=down,value=0": {
+      "model": "scientia:block/resistor_10",
+      "x": 90
+    },
+    "facing=down,value=1": {
+      "model": "scientia:block/resistor_47",
+      "x": 90
+    },
+    "facing=down,value=2": {
+      "model": "scientia:block/resistor_100",
+      "x": 90
+    },
+    "facing=down,value=3": {
+      "model": "scientia:block/resistor_470",
+      "x": 90
+    },
+    "facing=down,value=4": {
+      "model": "scientia:block/resistor_1000",
+      "x": 90
+    }
+  }
+}

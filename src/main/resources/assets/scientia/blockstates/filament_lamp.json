@@ -1,0 +1,372 @@
+{
+  "variants": {
+    "facing=north,level=0": {
+      "model": "scientia:block/filament_lamp_off"
+    },
+    "facing=north,level=1": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=2": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=3": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=4": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=5": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=6": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=7": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=8": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=9": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=10": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=11": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=12": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=13": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=14": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=north,level=15": {
+      "model": "scientia:block/filament_lamp_on"
+    },
+    "facing=east,level=0": {
+      "model": "scientia:block/filament_lamp_off",
+      "y": 90
+    },
+    "facing=east,level=1": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=2": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=3": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=4": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=5": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=6": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=7": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=8": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=9": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=10": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=11": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=12": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=13": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=14": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=east,level=15": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 90
+    },
+    "facing=south,level=0": {
+      "model": "scientia:block/filament_lamp_off",
+      "y": 180
+    },
+    "facing=south,level=1": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=2": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=3": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=4": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=5": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=6": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=7": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=8": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=9": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=10": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=11": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=12": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=13": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=14": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=south,level=15": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 180
+    },
+    "facing=west,level=0": {
+      "model": "scientia:block/filament_lamp_off",
+      "y": 270
+    },
+    "facing=west,level=1": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=2": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=3": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=4": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=5": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=6": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=7": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=8": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=9": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=10": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=11": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=12": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=13": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=14": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=west,level=15": {
+      "model": "scientia:block/filament_lamp_on",
+      "y": 270
+    },
+    "facing=up,level=0": {
+      "model": "scientia:block/filament_lamp_off",
+      "x": 270
+    },
+    "facing=up,level=1": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=2": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=3": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=4": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=5": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=6": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=7": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=8": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=9": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=10": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=11": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=12": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=13": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=14": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=up,level=15": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 270
+    },
+    "facing=down,level=0": {
+      "model": "scientia:block/filament_lamp_off",
+      "x": 90
+    },
+    "facing=down,level=1": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=2": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=3": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=4": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=5": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=6": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=7": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=8": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=9": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=10": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=11": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=12": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=13": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=14": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    },
+    "facing=down,level=15": {
+      "model": "scientia:block/filament_lamp_on",
+      "x": 90
+    }
+  }
+}

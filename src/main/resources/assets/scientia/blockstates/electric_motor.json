@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "active=false,facing=north": {
+      "model": "scientia:block/electric_motor"
+    },
+    "active=true,facing=north": {
+      "model": "scientia:block/electric_motor"
+    },
+    "active=false,facing=east": {
+      "model": "scientia:block/electric_motor",
+      "y": 90
+    },
+    "active=true,facing=east": {
+      "model": "scientia:block/electric_motor",
+      "y": 90
+    },
+    "active=false,facing=south": {
+      "model": "scientia:block/electric_motor",
+      "y": 180
+    },
+    "active=true,facing=south": {
+      "model": "scientia:block/electric_motor",
+      "y": 180
+    },
+    "active=false,facing=west": {
+      "model": "scientia:block/electric_motor",
+      "y": 270
+    },
+    "active=true,facing=west": {
+      "model": "scientia:block/electric_motor",
+      "y": 270
+    },
+    "active=false,facing=up": {
+      "model": "scientia:block/electric_motor",
+      "x": 270
+    },
+    "active=true,facing=up": {
+      "model": "scientia:block/electric_motor",
+      "x": 270
+    },
+    "active=false,facing=down": {
+      "model": "scientia:block/electric_motor",
+      "x": 90
+    },
+    "active=true,facing=down": {
+      "model": "scientia:block/electric_motor",
+      "x": 90
+    }
+  }
+}

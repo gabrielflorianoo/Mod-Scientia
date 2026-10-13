@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:calcite"
+    },
+    {
+      "item": "scientia:mortar_and_pestle"
+    }
+  ],
+  "result": {
+    "item": "scientia:calcite_powder",
+    "count": 10
+  }
+}

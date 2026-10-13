@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "active=false,facing=north": {
+      "model": "scientia:block/solar_panel"
+    },
+    "active=true,facing=north": {
+      "model": "scientia:block/solar_panel"
+    },
+    "active=false,facing=east": {
+      "model": "scientia:block/solar_panel",
+      "y": 90
+    },
+    "active=true,facing=east": {
+      "model": "scientia:block/solar_panel",
+      "y": 90
+    },
+    "active=false,facing=south": {
+      "model": "scientia:block/solar_panel",
+      "y": 180
+    },
+    "active=true,facing=south": {
+      "model": "scientia:block/solar_panel",
+      "y": 180
+    },
+    "active=false,facing=west": {
+      "model": "scientia:block/solar_panel",
+      "y": 270
+    },
+    "active=true,facing=west": {
+      "model": "scientia:block/solar_panel",
+      "y": 270
+    },
+    "active=false,facing=up": {
+      "model": "scientia:block/solar_panel",
+      "x": 270
+    },
+    "active=true,facing=up": {
+      "model": "scientia:block/solar_panel",
+      "x": 270
+    },
+    "active=false,facing=down": {
+      "model": "scientia:block/solar_panel",
+      "x": 90
+    },
+    "active=true,facing=down": {
+      "model": "scientia:block/solar_panel",
+      "x": 90
+    }
+  }
+}

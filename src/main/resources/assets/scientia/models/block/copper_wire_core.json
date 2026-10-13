@@ -1,0 +1,73 @@
+{
+  "textures": {
+    "particle": "scientia:block/copper_wire",
+    "wire": "scientia:block/copper_wire",
+    "insulation": "scientia:block/wire_insulation"
+  },
+  "elements": [
+    {
+      "from": [
+        6,
+        6,
+        6
+      ],
+      "to": [
+        10,
+        10,
+        10
+      ],
+      "faces": {
+        "north": {
+          "texture": "#insulation"
+        },
+        "south": {
+          "texture": "#insulation"
+        },
+        "east": {
+          "texture": "#insulation"
+        },
+        "west": {
+          "texture": "#insulation"
+        },
+        "up": {
+          "texture": "#insulation"
+        },
+        "down": {
+          "texture": "#insulation"
+        }
+      }
+    },
+    {
+      "from": [
+        6.5,
+        6.5,
+        6.5
+      ],
+      "to": [
+        9.5,
+        9.5,
+        9.5
+      ],
+      "faces": {
+        "north": {
+          "texture": "#wire"
+        },
+        "south": {
+          "texture": "#wire"
+        },
+        "east": {
+          "texture": "#wire"
+        },
+        "west": {
+          "texture": "#wire"
+        },
+        "up": {
+          "texture": "#wire"
+        },
+        "down": {
+          "texture": "#wire"
+        }
+      }
+    }
+  ]
+}

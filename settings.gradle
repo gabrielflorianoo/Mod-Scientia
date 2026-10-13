@@ -15,6 +15,14 @@ plugins {
 
 rootProject.name = 'scientia'
 
+// Minecraft 1.20.1 + ForgeGradle 6 need Gradle itself to run on JDK 17 (not Java 8).
+if (!JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_17)) {
+    throw new GradleException(
+        "Scientia needs JDK 17, but Gradle is running on Java ${JavaVersion.current()} (${System.getProperty('java.home')}).\n" +
+        "Install a JDK 17 (e.g. Eclipse Temurin 17: https://adoptium.net/temurin/releases/?version=17) and set JAVA_HOME to it,\n" +
+        "or add  org.gradle.java.home=C:\\\\Path\\\\To\\\\jdk-17  to your user gradle.properties (~/.gradle/gradle.properties).")
+}
+
 // The pure-Java science engine in science-core/ is compiled straight into the mod (see build.gradle).
 // It is also a standalone Gradle build that needs no Minecraft download:
 //   ./gradlew -p science-core test

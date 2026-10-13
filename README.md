@@ -69,6 +69,10 @@ See [docs/GAMEPLAY.md](docs/GAMEPLAY.md).
 
 ## Building and running
 
+**Requirement: JDK 17.** Gradle must run on Java 17 or newer, and the mod is compiled for Java 17 (Java 8 will not work).
+On Windows: install [Eclipse Temurin 17](https://adoptium.net/temurin/releases/?version=17) (MSI, tick
+"Set JAVA_HOME"), open a new terminal and check with `java -version`.
+
 Requires internet access to `maven.minecraftforge.net`, `piston-meta.mojang.com`,
 `piston-data.mojang.com`, `libraries.minecraft.net`, `resources.download.minecraft.net`,
 `services.gradle.org`, `plugins.gradle.org` and Maven Central.

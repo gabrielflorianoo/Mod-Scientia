@@ -1,0 +1,965 @@
+[
+ {
+  "id": "water",
+  "name": "Water",
+  "formula": "H2O",
+  "kind": "molecular",
+  "phase": "liquid",
+  "density": 0.997,
+  "meltingPointK": 273.15,
+  "boilingPointK": 373.15,
+  "specificHeat": 4.18,
+  "solubility": null,
+  "acidBase": null,
+  "conductivity": "very poor conductor when pure",
+  "description": {
+   "intuition": "Water is the liquid that covers most of Earth and is needed by every living thing.",
+   "science": "Each water molecule has one oxygen atom bonded to two hydrogen atoms. The bent shape and polar bonds make water an excellent solvent for ionic substances.",
+   "technical": "Density 0.997 g/cm³ at 25 °C (maximum 1.000 g/cm³ near 4 °C). Specific heat about 4.18 J/(g·K). Pure water conducts electricity poorly; dissolved ions make it conductive."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)",
+   "NIST Chemistry WebBook (webbook.nist.gov)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "ice",
+  "name": "Ice (solid water)",
+  "formula": "H2O",
+  "kind": "molecular",
+  "phase": "solid",
+  "density": 0.917,
+  "meltingPointK": 273.15,
+  "boilingPointK": 373.15,
+  "specificHeat": 2.09,
+  "solubility": null,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Ice is frozen water, and it floats because it is less dense than liquid water.",
+   "science": "In ice, hydrogen bonds hold water molecules in an open hexagonal lattice, which takes up more space than the liquid.",
+   "technical": "Density about 0.917 g/cm³ at 0 °C; melting requires 334 J/g (latent heat of fusion). Same substance as water, different physical state."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": "Ice and water are one substance (H2O) in two states; the database keeps a separate entry only so the solid's density and heat capacity can be shown."
+ },
+ {
+  "id": "carbon_dioxide",
+  "name": "Carbon dioxide",
+  "formula": "CO2",
+  "kind": "molecular",
+  "phase": "gas",
+  "density": null,
+  "meltingPointK": null,
+  "boilingPointK": 194.7,
+  "specificHeat": 0.844,
+  "solubility": 0.033,
+  "acidBase": {
+   "strongCation": 0,
+   "strongAnion": 0,
+   "system": "carbonate",
+   "systemMoles": 1
+  },
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Carbon dioxide is the gas you breathe out and the bubbles in fizzy drinks.",
+   "science": "A linear molecule with one carbon atom double-bonded to two oxygen atoms. It dissolves slightly in water, forming a weakly acidic solution.",
+   "technical": "Sublimes at −78.5 °C (194.7 K) at 1 atm; it has no liquid phase below 5.1 atm. Molar mass 44.01 g/mol, so it is denser than air."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)",
+   "NIST Chemistry WebBook (webbook.nist.gov)"
+  ],
+  "notes": "boilingPointK holds the sublimation point at 1 atm. Solubility about 0.033 mol/L at 25 °C under 1 atm of pure CO2."
+ },
+ {
+  "id": "oxygen",
+  "name": "Oxygen",
+  "formula": "O2",
+  "kind": "element",
+  "phase": "gas",
+  "density": null,
+  "meltingPointK": 54.36,
+  "boilingPointK": 90.19,
+  "specificHeat": 0.918,
+  "solubility": 0.00126,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Oxygen is the part of the air that we, and fires, need.",
+   "science": "O₂ molecules make up about 21 % of air. Oxygen is highly electronegative and takes part in combustion and corrosion.",
+   "technical": "Boils at 90.19 K. Supports combustion: materials burn much more vigorously in pure oxygen than in air."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)",
+   "NIST Chemistry WebBook (webbook.nist.gov)"
+  ],
+  "notes": "Solubility in water at 25 °C under 1 atm of the pure gas."
+ },
+ {
+  "id": "hydrogen",
+  "name": "Hydrogen",
+  "formula": "H2",
+  "kind": "element",
+  "phase": "gas",
+  "density": null,
+  "meltingPointK": 13.99,
+  "boilingPointK": 20.27,
+  "specificHeat": 14.3,
+  "solubility": 0.00078,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Hydrogen is the lightest gas.",
+   "science": "H₂ molecules are made of two hydrogen atoms sharing a pair of electrons. Hydrogen burns with oxygen to form water, releasing a lot of energy.",
+   "technical": "Boils at 20.27 K. Flammable over a very wide range of concentrations in air, which is why real hydrogen handling requires strict safety controls."
+  },
+  "hazard": "Extremely flammable gas in reality.",
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)",
+   "NIST Chemistry WebBook (webbook.nist.gov)"
+  ],
+  "notes": "Solubility in water at 25 °C under 1 atm of the pure gas."
+ },
+ {
+  "id": "nitrogen",
+  "name": "Nitrogen",
+  "formula": "N2",
+  "kind": "element",
+  "phase": "gas",
+  "density": null,
+  "meltingPointK": 63.15,
+  "boilingPointK": 77.36,
+  "specificHeat": 1.04,
+  "solubility": 0.00064,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Nitrogen is the main gas in air.",
+   "science": "N₂ molecules are held together by a strong triple bond, which makes nitrogen unreactive under ordinary conditions.",
+   "technical": "About 78 % of dry air by volume. Boils at 77.36 K."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)",
+   "NIST Chemistry WebBook (webbook.nist.gov)"
+  ],
+  "notes": "Solubility in water at 25 °C under 1 atm of the pure gas."
+ },
+ {
+  "id": "chlorine",
+  "name": "Chlorine",
+  "formula": "Cl2",
+  "kind": "element",
+  "phase": "gas",
+  "density": null,
+  "meltingPointK": 171.6,
+  "boilingPointK": 239.1,
+  "specificHeat": 0.479,
+  "solubility": 0.09,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Chlorine is a pale green-yellow gas used to make water safe to drink.",
+   "science": "Cl₂ is a reactive halogen and a strong oxidising agent. It is produced industrially by electrolysis of brine (the chlor-alkali process).",
+   "technical": "Boils at 239.1 K. Toxic: in this game it only appears as a sealed product of brine electrolysis that can be converted to hydrochloric acid."
+  },
+  "hazard": "Toxic gas in reality. The game never uses it outside a sealed apparatus.",
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": "Solubility in water at 25 °C under 1 atm of the pure gas."
+ },
+ {
+  "id": "hydrogen_chloride",
+  "name": "Hydrogen chloride (hydrochloric acid when dissolved)",
+  "formula": "HCl",
+  "kind": "molecular",
+  "phase": "gas",
+  "density": null,
+  "meltingPointK": 158.97,
+  "boilingPointK": 188.0,
+  "specificHeat": 0.8,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 0,
+   "strongAnion": 1,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "conducts in solution",
+  "description": {
+   "intuition": "Dissolved in water, hydrogen chloride forms hydrochloric acid, a strong acid also found in your stomach.",
+   "science": "HCl ionises completely in water into H⁺ (as H₃O⁺) and Cl⁻ ions, so it is a strong acid.",
+   "technical": "In the game, acid reagents are dilute (1 mol/L). Concentrated hydrochloric acid is corrosive and gives off choking fumes."
+  },
+  "hazard": "Corrosive. The game uses only dilute solutions.",
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": "Very soluble in water (about 720 g/L at 20 °C); in the game it stays dissolved whenever liquid water is present."
+ },
+ {
+  "id": "sodium_chloride",
+  "name": "Sodium chloride (salt)",
+  "formula": "NaCl",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 2.165,
+  "meltingPointK": 1074.0,
+  "boilingPointK": 1686.0,
+  "specificHeat": 0.864,
+  "solubility": 6.14,
+  "acidBase": {
+   "strongCation": 1,
+   "strongAnion": 1,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "conducts when molten or dissolved",
+  "description": {
+   "intuition": "Table salt. It dissolves in water and gives seawater its taste.",
+   "science": "An ionic compound: a lattice of Na⁺ and Cl⁻ ions held together by electrostatic attraction. Dissolving salt is a physical change; the ions separate but no new substance forms.",
+   "technical": "Melts at 801 °C. Solubility about 360 g per litre of water at 25 °C (≈6.1 mol/L). Crystals are cubic."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "iron",
+  "name": "Iron",
+  "formula": "Fe",
+  "kind": "metallic",
+  "phase": "solid",
+  "density": 7.874,
+  "meltingPointK": 1811.0,
+  "boilingPointK": 3134.0,
+  "specificHeat": 0.449,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "conductor",
+  "description": {
+   "intuition": "Iron is a strong, magnetic metal used to make steel.",
+   "science": "A transition metal; its atoms are held together by metallic bonding (a lattice of ions in a 'sea' of shared electrons), which makes it conduct electricity and heat.",
+   "technical": "Density 7.874 g/cm³; melts at 1538 °C. Ferromagnetic below 770 °C (the Curie temperature). Real ingots usually contain small amounts of carbon and other elements."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "copper",
+  "name": "Copper",
+  "formula": "Cu",
+  "kind": "metallic",
+  "phase": "solid",
+  "density": 8.96,
+  "meltingPointK": 1357.77,
+  "boilingPointK": 2835.0,
+  "specificHeat": 0.385,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "excellent conductor",
+  "description": {
+   "intuition": "Copper is the reddish metal used in electrical wires.",
+   "science": "Metallic bonding with one loosely held outer electron per atom gives copper very high electrical conductivity.",
+   "technical": "Density 8.96 g/cm³, resistivity 1.68×10⁻⁸ Ω·m at 20 °C, thermal conductivity about 400 W/(m·K)."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "gold",
+  "name": "Gold",
+  "formula": "Au",
+  "kind": "metallic",
+  "phase": "solid",
+  "density": 19.3,
+  "meltingPointK": 1337.33,
+  "boilingPointK": 3129.0,
+  "specificHeat": 0.129,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "excellent conductor",
+  "description": {
+   "intuition": "Gold is a heavy, shiny metal that never rusts.",
+   "science": "Gold is very unreactive (a 'noble' metal), so it is found uncombined in nature.",
+   "technical": "Density 19.3 g/cm³ — much denser than iron or lead — which is why density testing can reveal fake gold."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "silicon_dioxide",
+  "name": "Silicon dioxide (silica, quartz)",
+  "formula": "SiO2",
+  "kind": "network_covalent",
+  "phase": "solid",
+  "density": 2.65,
+  "meltingPointK": 1986.0,
+  "boilingPointK": 2503.0,
+  "specificHeat": 0.74,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Silica is what most sand and quartz crystals are made of.",
+   "science": "A giant covalent network: every silicon atom is bonded to four oxygen atoms and every oxygen to two silicon atoms. This makes quartz hard and gives it a high melting point.",
+   "technical": "Density 2.65 g/cm³ for quartz. Glass is made mainly from silica, usually with sodium and calcium oxides added to lower the melting temperature."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": "Melting point given for quartz/cristobalite (~1713 °C); boiling point is approximate."
+ },
+ {
+  "id": "calcium_carbonate",
+  "name": "Calcium carbonate (calcite)",
+  "formula": "CaCO3",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 2.71,
+  "meltingPointK": null,
+  "boilingPointK": null,
+  "specificHeat": 0.82,
+  "solubility": 0.00013,
+  "acidBase": {
+   "strongCation": 2,
+   "strongAnion": 0,
+   "system": "carbonate",
+   "systemMoles": 1
+  },
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Calcium carbonate is limestone, chalk, calcite and seashells.",
+   "science": "An ionic compound of Ca²⁺ and carbonate (CO₃²⁻) ions. It reacts with acids to release carbon dioxide and decomposes into lime when strongly heated.",
+   "technical": "Density 2.71 g/cm³ (calcite). Practically insoluble in pure water (≈0.013 g/L). Decomposes above about 825 °C rather than melting at atmospheric pressure."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "calcium_oxide",
+  "name": "Calcium oxide (quicklime)",
+  "formula": "CaO",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 3.34,
+  "meltingPointK": 2886.0,
+  "boilingPointK": 3123.0,
+  "specificHeat": 0.75,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 2,
+   "strongAnion": 0,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Quicklime is made by baking limestone and is used to make cement and mortar.",
+   "science": "An ionic oxide that reacts with water to form calcium hydroxide, releasing a lot of heat.",
+   "technical": "Melts at about 2613 °C. Reacts exothermically with water (slaking)."
+  },
+  "hazard": "Caustic; reacts strongly with water.",
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "calcium_hydroxide",
+  "name": "Calcium hydroxide (slaked lime)",
+  "formula": "Ca(OH)2",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 2.21,
+  "meltingPointK": null,
+  "boilingPointK": null,
+  "specificHeat": 1.18,
+  "solubility": 0.023,
+  "acidBase": {
+   "strongCation": 2,
+   "strongAnion": 0,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Slaked lime dissolves a little in water to make limewater, which turns milky with carbon dioxide.",
+   "science": "A strong base with low solubility: the dissolved part is fully ionised into Ca²⁺ and OH⁻ ions.",
+   "technical": "Solubility about 1.7 g/L at 20 °C (≈0.023 mol/L); a saturated solution has a pH of about 12.4. Decomposes to CaO above about 580 °C."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "calcium_chloride",
+  "name": "Calcium chloride",
+  "formula": "CaCl2",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 2.15,
+  "meltingPointK": 1045.0,
+  "boilingPointK": 2208.0,
+  "specificHeat": 0.67,
+  "solubility": 6.7,
+  "acidBase": {
+   "strongCation": 2,
+   "strongAnion": 2,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "conducts when dissolved",
+  "description": {
+   "intuition": "Calcium chloride is a salt used to melt ice on roads.",
+   "science": "An ionic compound that dissolves readily in water to give Ca²⁺ and Cl⁻ ions; its solution is neutral.",
+   "technical": "Dissolving anhydrous CaCl₂ releases heat. Very soluble (about 745 g/L at 20 °C)."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "sodium_hydroxide",
+  "name": "Sodium hydroxide",
+  "formula": "NaOH",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 2.13,
+  "meltingPointK": 591.0,
+  "boilingPointK": 1661.0,
+  "specificHeat": 1.49,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 1,
+   "strongAnion": 0,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "conducts when dissolved",
+  "description": {
+   "intuition": "Sodium hydroxide is a strong base used to make soap.",
+   "science": "It dissociates completely in water into Na⁺ and OH⁻ ions, so even dilute solutions are strongly basic.",
+   "technical": "The game uses only dilute (1 mol/L) solutions. Concentrated sodium hydroxide is highly corrosive to skin and eyes."
+  },
+  "hazard": "Corrosive. The game uses only dilute solutions.",
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "acetic_acid",
+  "name": "Acetic acid (in vinegar)",
+  "formula": "CH3COOH",
+  "kind": "molecular",
+  "phase": "liquid",
+  "density": 1.049,
+  "meltingPointK": 289.8,
+  "boilingPointK": 391.1,
+  "specificHeat": 2.05,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 0,
+   "strongAnion": 0,
+   "system": "acetate",
+   "systemMoles": 1
+  },
+  "conductivity": "weak conductor in solution",
+  "description": {
+   "intuition": "Acetic acid gives vinegar its sour taste and smell.",
+   "science": "A weak acid: in water only a small fraction of molecules give up an H⁺ ion (pKa = 4.76 at 25 °C).",
+   "technical": "Household vinegar is roughly 5 % acetic acid by mass (≈0.8 mol/L), with a pH near 2.4–2.5."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "sodium_acetate",
+  "name": "Sodium acetate",
+  "formula": "CH3COONa",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 1.528,
+  "meltingPointK": 597.0,
+  "boilingPointK": null,
+  "specificHeat": 1.23,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 1,
+   "strongAnion": 0,
+   "system": "acetate",
+   "systemMoles": 1
+  },
+  "conductivity": "conducts when dissolved",
+  "description": {
+   "intuition": "Sodium acetate is the salt formed when vinegar is neutralised by sodium hydroxide; it is used in reusable hand warmers.",
+   "science": "It contains acetate, the conjugate base of acetic acid, so its solution is slightly basic.",
+   "technical": "A 0.1 mol/L solution has a pH of about 8.9."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "calcium_acetate",
+  "name": "Calcium acetate",
+  "formula": "Ca(CH3COO)2",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 1.51,
+  "meltingPointK": null,
+  "boilingPointK": null,
+  "specificHeat": null,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 2,
+   "strongAnion": 0,
+   "system": "acetate",
+   "systemMoles": 2
+  },
+  "conductivity": "conducts when dissolved",
+  "description": {
+   "intuition": "Calcium acetate forms when vinegar dissolves limestone or eggshells.",
+   "science": "An ionic salt of Ca²⁺ and acetate ions; acetate is a weak base.",
+   "technical": "Decomposes on strong heating rather than melting. Density approximate."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "iron_iii_oxide",
+  "name": "Iron(III) oxide (hematite)",
+  "formula": "Fe2O3",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 5.25,
+  "meltingPointK": 1838.0,
+  "boilingPointK": null,
+  "specificHeat": 0.65,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "poor conductor",
+  "description": {
+   "intuition": "Iron(III) oxide is the red-brown material in rust and in many iron ores.",
+   "science": "Each formula unit contains two Fe³⁺ ions and three O²⁻ ions. Carbon or carbon monoxide can remove the oxygen to produce iron metal (reduction).",
+   "technical": "Density about 5.25 g/cm³ (hematite). Melts at about 1565 °C."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "iron_ii_iii_oxide",
+  "name": "Iron(II,III) oxide (magnetite)",
+  "formula": "Fe3O4",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 5.17,
+  "meltingPointK": 1870.0,
+  "boilingPointK": null,
+  "specificHeat": 0.62,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "semiconductor-like conductor",
+  "description": {
+   "intuition": "Magnetite is a black, naturally magnetic iron ore.",
+   "science": "It contains both Fe²⁺ and Fe³⁺ ions; it is the most magnetic naturally occurring mineral.",
+   "technical": "Density about 5.17 g/cm³. Lodestones are naturally magnetised magnetite."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "copper_ii_oxide",
+  "name": "Copper(II) oxide",
+  "formula": "CuO",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 6.31,
+  "meltingPointK": 1599.0,
+  "boilingPointK": null,
+  "specificHeat": 0.53,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "semiconductor",
+  "description": {
+   "intuition": "Copper(II) oxide is the black coating that forms when copper is heated in air.",
+   "science": "Copper atoms lose two electrons to oxygen, forming Cu²⁺ and O²⁻ ions. Heated copper gains mass as it combines with oxygen from the air.",
+   "technical": "Density about 6.3 g/cm³; decomposes near 1326 °C."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "carbon_graphite",
+  "name": "Carbon (graphite)",
+  "formula": "C",
+  "kind": "element",
+  "phase": "solid",
+  "density": 2.26,
+  "meltingPointK": null,
+  "boilingPointK": null,
+  "specificHeat": 0.709,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "conductor (along layers)",
+  "description": {
+   "intuition": "Graphite is the soft, grey form of carbon in pencils.",
+   "science": "Carbon atoms form flat sheets of hexagons. Electrons can move along the sheets, so graphite conducts electricity, while weak forces between sheets make it slippery.",
+   "technical": "Sublimes at about 3900 K at atmospheric pressure. Density 2.09–2.26 g/cm³ depending on form."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "carbon_diamond",
+  "name": "Carbon (diamond)",
+  "formula": "C",
+  "kind": "element",
+  "phase": "solid",
+  "density": 3.51,
+  "meltingPointK": null,
+  "boilingPointK": null,
+  "specificHeat": 0.509,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Diamond is the hardest natural material, made only of carbon.",
+   "science": "Each carbon atom is bonded to four others in a rigid 3-D network. There are no free electrons, so diamond is an electrical insulator, but it conducts heat extremely well.",
+   "technical": "Density 3.51 g/cm³. Diamond and graphite are allotropes: the same element with different structures."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "carbon_monoxide",
+  "name": "Carbon monoxide",
+  "formula": "CO",
+  "kind": "molecular",
+  "phase": "gas",
+  "density": null,
+  "meltingPointK": 68.15,
+  "boilingPointK": 81.6,
+  "specificHeat": 1.04,
+  "solubility": 0.00093,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Carbon monoxide is an invisible gas formed when fuel burns with too little oxygen.",
+   "science": "In a blast furnace, carbon monoxide removes oxygen from iron ore (it acts as a reducing agent).",
+   "technical": "Toxic because it binds to haemoglobin much more strongly than oxygen. In the game it is only an intermediate inside smelting equipment."
+  },
+  "hazard": "Toxic gas in reality.",
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": "Solubility in water at 25 °C under 1 atm of the pure gas."
+ },
+ {
+  "id": "chalcopyrite",
+  "name": "Chalcopyrite",
+  "formula": "CuFeS2",
+  "kind": "mineral",
+  "phase": "solid",
+  "density": 4.19,
+  "meltingPointK": 1223.0,
+  "boilingPointK": null,
+  "specificHeat": 0.54,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "semiconductor",
+  "description": {
+   "intuition": "Chalcopyrite is a brassy-yellow mineral and the most important copper ore.",
+   "science": "A copper iron sulfide. Copper is extracted by roasting and smelting, which also removes the sulfur.",
+   "technical": "Density 4.1–4.3 g/cm³; Mohs hardness 3.5–4. Melting value approximate."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "sucrose",
+  "name": "Sucrose (table sugar)",
+  "formula": "C12H22O11",
+  "kind": "molecular",
+  "phase": "solid",
+  "density": 1.587,
+  "meltingPointK": 459.0,
+  "boilingPointK": null,
+  "specificHeat": 1.24,
+  "solubility": null,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Sucrose is ordinary table sugar.",
+   "science": "A molecular compound made of glucose and fructose units. Dissolving sugar is a physical change; the solution does not conduct because no ions form.",
+   "technical": "Decomposes (caramelises) at about 186 °C instead of boiling. Very soluble in water."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "ethanol",
+  "name": "Ethanol",
+  "formula": "C2H5OH",
+  "kind": "molecular",
+  "phase": "liquid",
+  "density": 0.789,
+  "meltingPointK": 159.0,
+  "boilingPointK": 351.4,
+  "specificHeat": 2.44,
+  "solubility": null,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Ethanol is the alcohol in drinks and a common laboratory solvent.",
+   "science": "A small polar molecule that mixes with water in all proportions; it boils at a lower temperature than water, which is why distillation can separate the two.",
+   "technical": "Boils at 78.4 °C. Flammable."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "sodium_carbonate",
+  "name": "Sodium carbonate (washing soda)",
+  "formula": "Na2CO3",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 2.54,
+  "meltingPointK": 1124.0,
+  "boilingPointK": null,
+  "specificHeat": 1.04,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 2,
+   "strongAnion": 0,
+   "system": "carbonate",
+   "systemMoles": 1
+  },
+  "conductivity": "conducts when dissolved",
+  "description": {
+   "intuition": "Sodium carbonate is washing soda, used in glass-making.",
+   "science": "Carbonate ions accept H⁺ from water, making the solution basic.",
+   "technical": "A 0.1 mol/L solution has a pH of about 11.6."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "kaolinite",
+  "name": "Kaolinite (clay mineral)",
+  "formula": "Al2Si2O5(OH)4",
+  "kind": "mineral",
+  "phase": "solid",
+  "density": 2.6,
+  "meltingPointK": null,
+  "boilingPointK": null,
+  "specificHeat": 0.94,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Kaolinite is the main mineral in white clay and porcelain.",
+   "science": "A layered aluminium silicate. Firing clay drives out water and transforms the minerals into hard ceramic.",
+   "technical": "Density about 2.6 g/cm³. Clays are mixtures of several minerals; kaolinite is used here as a representative."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "beryl",
+  "name": "Beryl",
+  "formula": "Be3Al2Si6O18",
+  "kind": "mineral",
+  "phase": "solid",
+  "density": 2.76,
+  "meltingPointK": null,
+  "boilingPointK": null,
+  "specificHeat": 0.83,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Beryl is the mineral that emeralds and aquamarines are made of.",
+   "science": "A ring silicate of beryllium and aluminium. Traces of chromium or vanadium make it green (emerald).",
+   "technical": "Density 2.63–2.92 g/cm³; hardness 7.5–8."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "hydroxyapatite",
+  "name": "Hydroxyapatite (bone mineral)",
+  "formula": "Ca5(PO4)3(OH)",
+  "kind": "mineral",
+  "phase": "solid",
+  "density": 3.16,
+  "meltingPointK": 1943.0,
+  "boilingPointK": null,
+  "specificHeat": 0.77,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Hydroxyapatite is the hard mineral in bones and teeth.",
+   "science": "A calcium phosphate mineral; in bone it is combined with the protein collagen.",
+   "technical": "Density about 3.16 g/cm³. Real bone is a composite of mineral, protein and water."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "calcium_sulfate",
+  "name": "Calcium sulfate (gypsum, anhydrous basis)",
+  "formula": "CaSO4",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 2.96,
+  "meltingPointK": 1733.0,
+  "boilingPointK": null,
+  "specificHeat": 0.73,
+  "solubility": 0.015,
+  "acidBase": {
+   "strongCation": 2,
+   "strongAnion": 2,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Calcium sulfate is the mineral in plaster and blackboard chalk (gypsum is its hydrated form).",
+   "science": "An ionic compound of Ca²⁺ and sulfate ions; only slightly soluble in water.",
+   "technical": "Anhydrite density 2.96 g/cm³; gypsum (CaSO₄·2H₂O) 2.32 g/cm³."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "sodium_oxide",
+  "name": "Sodium oxide",
+  "formula": "Na2O",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 2.27,
+  "meltingPointK": 1405.0,
+  "boilingPointK": null,
+  "specificHeat": 1.12,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 2,
+   "strongAnion": 0,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Sodium oxide is one of the ingredients that turns sand into ordinary glass.",
+   "science": "A basic ionic oxide. In glass it breaks up the silica network, lowering the melting temperature; it reacts with water to form sodium hydroxide.",
+   "technical": "Soda-lime glass is roughly 70–74 % SiO₂, 12–16 % Na₂O and 5–11 % CaO by mass."
+  },
+  "hazard": "Corrosive in reality.",
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "aluminium_oxide",
+  "name": "Aluminium oxide (alumina)",
+  "formula": "Al2O3",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 3.95,
+  "meltingPointK": 2345.0,
+  "boilingPointK": 3250.0,
+  "specificHeat": 0.88,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Alumina is a very hard material; rubies and sapphires are crystals of it.",
+   "science": "An ionic oxide with a very high lattice energy, which gives it a high melting point and hardness.",
+   "technical": "Corundum density 3.95–4.1 g/cm³; Mohs hardness 9."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ }
+]

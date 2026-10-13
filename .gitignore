@@ -1,0 +1,29 @@
+# Gradle / build
+.gradle/
+build/
+out/
+run/
+run-data/
+*.class
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+bin/
+
+# Python / Blender
+__pycache__/
+*.pyc
+*.blend1
+assets_source/blender/.venv/
+
+# OS
+.DS_Store
+Thumbs.db

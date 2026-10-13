@@ -1,0 +1,3 @@
+// Allows building the science engine standalone: ./gradlew -p science-core test
+// (ignored when science-core is included from the root build)
+rootProject.name = 'science-core'

@@ -1,0 +1,82 @@
+[
+ {
+  "id": "sand_grains",
+  "item": "minecraft:sand",
+  "title": "Quartz sand grains",
+  "magnification": 40,
+  "fieldOfViewUm": 4000,
+  "texture": "scientia:textures/gui/microscope/sand_grains.png",
+  "description": "Rounded, translucent grains about 0.1–1 mm across. Rounding comes from abrasion during transport by water or wind.",
+  "abstraction": "Image is a procedurally generated illustration, not a photograph."
+ },
+ {
+  "id": "salt_crystals",
+  "item": "scientia:salt_crystals",
+  "title": "Sodium chloride crystals",
+  "magnification": 40,
+  "fieldOfViewUm": 3000,
+  "texture": "scientia:textures/gui/microscope/salt_crystals.png",
+  "description": "Cubic crystals: their shape reflects the cubic arrangement of Na⁺ and Cl⁻ ions in the lattice.",
+  "abstraction": "Illustration."
+ },
+ {
+  "id": "sugar_crystals",
+  "item": "minecraft:sugar",
+  "title": "Sucrose crystals",
+  "magnification": 40,
+  "fieldOfViewUm": 3000,
+  "texture": "scientia:textures/gui/microscope/sugar_crystals.png",
+  "description": "Monoclinic crystals with slanted faces — a different shape from salt because sucrose molecules pack differently.",
+  "abstraction": "Illustration."
+ },
+ {
+  "id": "leaf_epidermis",
+  "item": "minecraft:oak_leaves",
+  "title": "Leaf epidermis",
+  "magnification": 400,
+  "fieldOfViewUm": 300,
+  "texture": "scientia:textures/gui/microscope/leaf_epidermis.png",
+  "description": "Irregular epidermal cells and pairs of guard cells surrounding stomata — pores that let carbon dioxide in and water vapour out.",
+  "abstraction": "Illustration of a typical dicot leaf; Minecraft leaves have no real anatomy."
+ },
+ {
+  "id": "kelp_cells",
+  "item": "minecraft:kelp",
+  "title": "Kelp tissue",
+  "magnification": 400,
+  "fieldOfViewUm": 300,
+  "texture": "scientia:textures/gui/microscope/kelp_cells.png",
+  "description": "Brown algal cells packed with golden-brown chloroplasts containing the pigment fucoxanthin.",
+  "abstraction": "Illustration."
+ },
+ {
+  "id": "feather_barbs",
+  "item": "minecraft:feather",
+  "title": "Feather barbs",
+  "magnification": 100,
+  "fieldOfViewUm": 1200,
+  "texture": "scientia:textures/gui/microscope/feather_barbs.png",
+  "description": "Parallel barbs carry tiny barbules with hooks that zip neighbouring barbs together into a smooth vane.",
+  "abstraction": "Illustration."
+ },
+ {
+  "id": "iron_grains",
+  "item": "minecraft:iron_ingot",
+  "title": "Etched iron (metallography)",
+  "magnification": 200,
+  "fieldOfViewUm": 600,
+  "texture": "scientia:textures/gui/microscope/iron_grains.png",
+  "description": "Polished and etched iron shows polygonal crystal grains; grain size affects strength.",
+  "abstraction": "Illustration of ferrite grains; real samples need polishing and acid etching."
+ },
+ {
+  "id": "bone",
+  "item": "minecraft:bone_meal",
+  "title": "Bone tissue",
+  "magnification": 100,
+  "fieldOfViewUm": 1200,
+  "texture": "scientia:textures/gui/microscope/bone.png",
+  "description": "Concentric rings (osteons) around central canals that carried blood vessels.",
+  "abstraction": "Illustration of compact bone."
+ }
+]

@@ -1,0 +1,514 @@
+[
+ {
+  "symbol": "H",
+  "lines": [
+   {
+    "nm": 656.28,
+    "intensity": 1
+   },
+   {
+    "nm": 486.13,
+    "intensity": 0.35
+   },
+   {
+    "nm": 434.05,
+    "intensity": 0.18
+   },
+   {
+    "nm": 410.17,
+    "intensity": 0.1
+   }
+  ],
+  "note": "Balmer series."
+ },
+ {
+  "symbol": "He",
+  "lines": [
+   {
+    "nm": 587.56,
+    "intensity": 1
+   },
+   {
+    "nm": 447.15,
+    "intensity": 0.4
+   },
+   {
+    "nm": 501.57,
+    "intensity": 0.3
+   },
+   {
+    "nm": 667.82,
+    "intensity": 0.3
+   },
+   {
+    "nm": 706.52,
+    "intensity": 0.2
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Li",
+  "lines": [
+   {
+    "nm": 670.78,
+    "intensity": 1
+   },
+   {
+    "nm": 610.36,
+    "intensity": 0.2
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "C",
+  "lines": [
+   {
+    "nm": 247.86,
+    "intensity": 1
+   }
+  ],
+  "note": "Strongest neutral-carbon line is in the ultraviolet."
+ },
+ {
+  "symbol": "N",
+  "lines": [
+   {
+    "nm": 746.83,
+    "intensity": 1
+   },
+   {
+    "nm": 744.23,
+    "intensity": 0.8
+   },
+   {
+    "nm": 742.36,
+    "intensity": 0.6
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "O",
+  "lines": [
+   {
+    "nm": 777.19,
+    "intensity": 1
+   },
+   {
+    "nm": 777.42,
+    "intensity": 0.8
+   },
+   {
+    "nm": 777.54,
+    "intensity": 0.6
+   },
+   {
+    "nm": 844.64,
+    "intensity": 0.5
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Ne",
+  "lines": [
+   {
+    "nm": 640.22,
+    "intensity": 1
+   },
+   {
+    "nm": 585.25,
+    "intensity": 0.8
+   },
+   {
+    "nm": 614.31,
+    "intensity": 0.5
+   },
+   {
+    "nm": 703.24,
+    "intensity": 0.5
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Na",
+  "lines": [
+   {
+    "nm": 588.995,
+    "intensity": 1
+   },
+   {
+    "nm": 589.592,
+    "intensity": 0.5
+   }
+  ],
+  "note": "The sodium D doublet; tiny amounts of sodium dominate flame colours."
+ },
+ {
+  "symbol": "Mg",
+  "lines": [
+   {
+    "nm": 285.21,
+    "intensity": 1
+   },
+   {
+    "nm": 518.36,
+    "intensity": 0.5
+   },
+   {
+    "nm": 517.27,
+    "intensity": 0.4
+   },
+   {
+    "nm": 516.73,
+    "intensity": 0.3
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Al",
+  "lines": [
+   {
+    "nm": 396.15,
+    "intensity": 1
+   },
+   {
+    "nm": 394.4,
+    "intensity": 0.8
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Si",
+  "lines": [
+   {
+    "nm": 288.16,
+    "intensity": 1
+   },
+   {
+    "nm": 390.55,
+    "intensity": 0.4
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "P",
+  "lines": [
+   {
+    "nm": 253.56,
+    "intensity": 1
+   },
+   {
+    "nm": 213.62,
+    "intensity": 0.8
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "S",
+  "lines": [
+   {
+    "nm": 921.29,
+    "intensity": 1
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Cl",
+  "lines": [
+   {
+    "nm": 837.59,
+    "intensity": 1
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "K",
+  "lines": [
+   {
+    "nm": 766.49,
+    "intensity": 1
+   },
+   {
+    "nm": 769.9,
+    "intensity": 0.5
+   },
+   {
+    "nm": 404.41,
+    "intensity": 0.1
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Ca",
+  "lines": [
+   {
+    "nm": 422.67,
+    "intensity": 1
+   },
+   {
+    "nm": 393.37,
+    "intensity": 0.6
+   },
+   {
+    "nm": 396.85,
+    "intensity": 0.5
+   },
+   {
+    "nm": 616.22,
+    "intensity": 0.15
+   }
+  ],
+  "note": "393.4 and 396.8 nm are lines of singly ionised calcium (Ca II)."
+ },
+ {
+  "symbol": "Cr",
+  "lines": [
+   {
+    "nm": 425.43,
+    "intensity": 1
+   },
+   {
+    "nm": 427.48,
+    "intensity": 0.8
+   },
+   {
+    "nm": 428.97,
+    "intensity": 0.6
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Mn",
+  "lines": [
+   {
+    "nm": 403.08,
+    "intensity": 1
+   },
+   {
+    "nm": 403.31,
+    "intensity": 0.8
+   },
+   {
+    "nm": 403.45,
+    "intensity": 0.6
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Fe",
+  "lines": [
+   {
+    "nm": 371.99,
+    "intensity": 1
+   },
+   {
+    "nm": 373.49,
+    "intensity": 0.8
+   },
+   {
+    "nm": 385.99,
+    "intensity": 0.7
+   },
+   {
+    "nm": 374.56,
+    "intensity": 0.6
+   },
+   {
+    "nm": 438.35,
+    "intensity": 0.6
+   },
+   {
+    "nm": 382.04,
+    "intensity": 0.5
+   },
+   {
+    "nm": 404.58,
+    "intensity": 0.5
+   },
+   {
+    "nm": 440.48,
+    "intensity": 0.4
+   },
+   {
+    "nm": 527.04,
+    "intensity": 0.3
+   }
+  ],
+  "note": "Iron has thousands of lines; only some strong ones are listed."
+ },
+ {
+  "symbol": "Cu",
+  "lines": [
+   {
+    "nm": 324.75,
+    "intensity": 1
+   },
+   {
+    "nm": 327.4,
+    "intensity": 0.7
+   },
+   {
+    "nm": 521.82,
+    "intensity": 0.5
+   },
+   {
+    "nm": 515.32,
+    "intensity": 0.4
+   },
+   {
+    "nm": 510.55,
+    "intensity": 0.3
+   }
+  ],
+  "note": "Copper's strongest lines are ultraviolet; the green visible lines give copper its green flame."
+ },
+ {
+  "symbol": "Zn",
+  "lines": [
+   {
+    "nm": 213.86,
+    "intensity": 1
+   },
+   {
+    "nm": 481.05,
+    "intensity": 0.4
+   },
+   {
+    "nm": 472.22,
+    "intensity": 0.3
+   },
+   {
+    "nm": 468.01,
+    "intensity": 0.25
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Sr",
+  "lines": [
+   {
+    "nm": 460.73,
+    "intensity": 1
+   },
+   {
+    "nm": 407.77,
+    "intensity": 0.5
+   },
+   {
+    "nm": 421.55,
+    "intensity": 0.4
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Ag",
+  "lines": [
+   {
+    "nm": 328.07,
+    "intensity": 1
+   },
+   {
+    "nm": 338.29,
+    "intensity": 0.8
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Ba",
+  "lines": [
+   {
+    "nm": 553.55,
+    "intensity": 1
+   },
+   {
+    "nm": 455.4,
+    "intensity": 0.6
+   },
+   {
+    "nm": 493.41,
+    "intensity": 0.4
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Au",
+  "lines": [
+   {
+    "nm": 242.8,
+    "intensity": 1
+   },
+   {
+    "nm": 267.6,
+    "intensity": 0.9
+   }
+  ],
+  "note": "Gold's strong lines are ultraviolet: a visible-light spectrometer cannot detect gold well."
+ },
+ {
+  "symbol": "Hg",
+  "lines": [
+   {
+    "nm": 435.83,
+    "intensity": 1
+   },
+   {
+    "nm": 546.07,
+    "intensity": 0.9
+   },
+   {
+    "nm": 404.66,
+    "intensity": 0.5
+   },
+   {
+    "nm": 576.96,
+    "intensity": 0.4
+   },
+   {
+    "nm": 579.07,
+    "intensity": 0.4
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Pb",
+  "lines": [
+   {
+    "nm": 405.78,
+    "intensity": 1
+   },
+   {
+    "nm": 368.35,
+    "intensity": 0.7
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ },
+ {
+  "symbol": "Be",
+  "lines": [
+   {
+    "nm": 234.86,
+    "intensity": 1
+   }
+  ],
+  "note": "Relative intensities are approximate and depend on the excitation source."
+ }
+]

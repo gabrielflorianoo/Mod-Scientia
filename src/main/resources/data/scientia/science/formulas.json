@@ -1,0 +1,977 @@
+[
+ {
+  "id": "density",
+  "name": "Density",
+  "branch": "observation",
+  "display": "ρ = m / V",
+  "forms": {
+   "rho": "m / V",
+   "m": "rho * V",
+   "V": "m / rho"
+  },
+  "variables": [
+   {
+    "symbol": "rho",
+    "name": "density",
+    "unit": "g/cm3"
+   },
+   {
+    "symbol": "m",
+    "name": "mass",
+    "unit": "g"
+   },
+   {
+    "symbol": "V",
+    "name": "volume",
+    "unit": "cm3"
+   }
+  ],
+  "assumptions": "The sample is uniform (or ρ is an average). Volume by displacement assumes the sample does not absorb or dissolve in the water.",
+  "example": "A 100.0 g iron sample displaces 12.7 mL: ρ = 100.0 g / 12.7 cm³ = 7.87 g/cm³.",
+  "experiment": "density",
+  "mistakes": "Using the total water level instead of the change in level; forgetting that 1 mL = 1 cm³.",
+  "related": [
+   "mass",
+   "volume"
+  ]
+ },
+ {
+  "id": "speed",
+  "name": "Average speed",
+  "branch": "physics",
+  "display": "v = d / t",
+  "forms": {
+   "v": "d / t",
+   "d": "v * t",
+   "t": "d / v"
+  },
+  "variables": [
+   {
+    "symbol": "v",
+    "name": "average speed",
+    "unit": "m/s"
+   },
+   {
+    "symbol": "d",
+    "name": "distance travelled",
+    "unit": "m"
+   },
+   {
+    "symbol": "t",
+    "name": "time taken",
+    "unit": "s"
+   }
+  ],
+  "assumptions": "Gives the average over the interval; the instantaneous speed may differ.",
+  "example": "A cart travels 2.0 m in 1.6 s: v = 1.25 m/s.",
+  "experiment": "cart_motion",
+  "mistakes": "Confusing speed (scalar) with velocity (vector, includes direction).",
+  "related": [
+   "acceleration"
+  ]
+ },
+ {
+  "id": "acceleration",
+  "name": "Acceleration",
+  "branch": "physics",
+  "display": "a = Δv / Δt",
+  "forms": {
+   "a": "dv / dt",
+   "dv": "a * dt",
+   "dt": "dv / a"
+  },
+  "variables": [
+   {
+    "symbol": "a",
+    "name": "acceleration",
+    "unit": "m/s2"
+   },
+   {
+    "symbol": "dv",
+    "name": "change in velocity",
+    "unit": "m/s"
+   },
+   {
+    "symbol": "dt",
+    "name": "time interval",
+    "unit": "s"
+   }
+  ],
+  "assumptions": "Average acceleration over the interval; constant acceleration makes it equal the instantaneous value.",
+  "example": "Speed rises from 0 to 3.0 m/s in 1.5 s: a = 2.0 m/s².",
+  "experiment": "cart_motion",
+  "mistakes": "Dividing the final speed by time without subtracting the initial speed.",
+  "related": [
+   "force",
+   "speed"
+  ]
+ },
+ {
+  "id": "newton2",
+  "name": "Newton's second law",
+  "branch": "physics",
+  "display": "F = m × a",
+  "forms": {
+   "F": "m * a",
+   "m": "F / a",
+   "a": "F / m"
+  },
+  "variables": [
+   {
+    "symbol": "F",
+    "name": "net force",
+    "unit": "N"
+   },
+   {
+    "symbol": "m",
+    "name": "mass",
+    "unit": "kg"
+   },
+   {
+    "symbol": "a",
+    "name": "acceleration",
+    "unit": "m/s2"
+   }
+  ],
+  "assumptions": "F is the net (resultant) force; valid for speeds much smaller than the speed of light.",
+  "example": "A 2.0 kg cart accelerating at 1.5 m/s² needs a net force of 3.0 N.",
+  "experiment": "cart_motion",
+  "mistakes": "Using one force instead of the net force; using grams instead of kilograms.",
+  "related": [
+   "acceleration",
+   "weight"
+  ]
+ },
+ {
+  "id": "weight",
+  "name": "Weight",
+  "branch": "physics",
+  "display": "W = m × g",
+  "forms": {
+   "W": "m * g",
+   "m": "W / g",
+   "g": "W / m"
+  },
+  "variables": [
+   {
+    "symbol": "W",
+    "name": "weight (gravitational force)",
+    "unit": "N"
+   },
+   {
+    "symbol": "m",
+    "name": "mass",
+    "unit": "kg"
+   },
+   {
+    "symbol": "g",
+    "name": "gravitational field strength",
+    "unit": "m/s2"
+   }
+  ],
+  "assumptions": "Near Earth's surface g ≈ 9.81 m/s². Weight is a force; mass is the amount of matter.",
+  "example": "A 5.0 kg block weighs 5.0 × 9.81 = 49 N.",
+  "experiment": "cart_motion",
+  "mistakes": "Treating mass and weight as the same quantity.",
+  "related": [
+   "newton2"
+  ]
+ },
+ {
+  "id": "work",
+  "name": "Work done by a constant force",
+  "branch": "physics",
+  "display": "W = F × d (force along the displacement)",
+  "forms": {
+   "W": "F * d",
+   "F": "W / d",
+   "d": "W / F"
+  },
+  "variables": [
+   {
+    "symbol": "W",
+    "name": "work",
+    "unit": "J"
+   },
+   {
+    "symbol": "F",
+    "name": "force component along the motion",
+    "unit": "N"
+   },
+   {
+    "symbol": "d",
+    "name": "displacement",
+    "unit": "m"
+   }
+  ],
+  "assumptions": "Constant force parallel to the displacement; otherwise use W = F d cos θ.",
+  "example": "Pushing with 10 N over 3.0 m does 30 J of work.",
+  "experiment": "machine_efficiency",
+  "mistakes": "Counting forces perpendicular to the motion, which do no work.",
+  "related": [
+   "kinetic_energy",
+   "power_mech"
+  ]
+ },
+ {
+  "id": "kinetic_energy",
+  "name": "Kinetic energy",
+  "branch": "physics",
+  "display": "Eₖ = ½ m v²",
+  "forms": {
+   "Ek": "0.5 * m * v^2",
+   "m": "2 * Ek / v^2",
+   "v": "sqrt(2 * Ek / m)"
+  },
+  "variables": [
+   {
+    "symbol": "Ek",
+    "name": "kinetic energy",
+    "unit": "J"
+   },
+   {
+    "symbol": "m",
+    "name": "mass",
+    "unit": "kg"
+   },
+   {
+    "symbol": "v",
+    "name": "speed",
+    "unit": "m/s"
+   }
+  ],
+  "assumptions": "Classical mechanics (v much less than c).",
+  "example": "A 2.0 kg cart at 3.0 m/s has Eₖ = 9.0 J.",
+  "experiment": "mechanical_energy",
+  "mistakes": "Forgetting to square the speed; doubling speed quadruples kinetic energy.",
+  "related": [
+   "potential_energy",
+   "work"
+  ]
+ },
+ {
+  "id": "potential_energy",
+  "name": "Gravitational potential energy",
+  "branch": "physics",
+  "display": "Eₚ = m g h",
+  "forms": {
+   "Ep": "m * g0 * h",
+   "m": "Ep / (g0 * h)",
+   "h": "Ep / (m * g0)"
+  },
+  "variables": [
+   {
+    "symbol": "Ep",
+    "name": "change in gravitational potential energy",
+    "unit": "J"
+   },
+   {
+    "symbol": "m",
+    "name": "mass",
+    "unit": "kg"
+   },
+   {
+    "symbol": "h",
+    "name": "height change",
+    "unit": "m"
+   }
+  ],
+  "assumptions": "Uniform gravitational field near Earth's surface; uses standard g = 9.80665 m/s².",
+  "example": "Lifting 2.0 kg by 1.5 m stores 29 J.",
+  "experiment": "mechanical_energy",
+  "mistakes": "Using it for large heights where g changes; measuring h along a slope instead of vertically.",
+  "related": [
+   "kinetic_energy"
+  ]
+ },
+ {
+  "id": "power_mech",
+  "name": "Power",
+  "branch": "physics",
+  "display": "P = W / t",
+  "forms": {
+   "P": "W / t",
+   "W": "P * t",
+   "t": "W / P"
+  },
+  "variables": [
+   {
+    "symbol": "P",
+    "name": "power",
+    "unit": "W"
+   },
+   {
+    "symbol": "W",
+    "name": "work or energy transferred",
+    "unit": "J"
+   },
+   {
+    "symbol": "t",
+    "name": "time",
+    "unit": "s"
+   }
+  ],
+  "assumptions": "Average power over the interval.",
+  "example": "Transferring 600 J in 2 minutes (120 s) is 5 W.",
+  "experiment": "machine_efficiency",
+  "mistakes": "Mixing up energy (J) and power (J/s = W).",
+  "related": [
+   "work",
+   "electric_power"
+  ]
+ },
+ {
+  "id": "momentum",
+  "name": "Momentum",
+  "branch": "physics",
+  "display": "p = m v",
+  "forms": {
+   "p": "m * v",
+   "m": "p / v",
+   "v": "p / m"
+  },
+  "variables": [
+   {
+    "symbol": "p",
+    "name": "momentum",
+    "unit": "kg*m/s"
+   },
+   {
+    "symbol": "m",
+    "name": "mass",
+    "unit": "kg"
+   },
+   {
+    "symbol": "v",
+    "name": "velocity",
+    "unit": "m/s"
+   }
+  ],
+  "assumptions": "Momentum is a vector; direction matters when adding momenta.",
+  "example": "A 0.5 kg cart at 2 m/s has p = 1 kg·m/s.",
+  "experiment": "cart_motion",
+  "mistakes": "Adding momenta of objects moving in opposite directions without signs.",
+  "related": [
+   "newton2"
+  ]
+ },
+ {
+  "id": "ohms_law",
+  "name": "Ohm's law",
+  "branch": "electricity",
+  "display": "V = I × R",
+  "forms": {
+   "V": "I * R",
+   "I": "V / R",
+   "R": "V / I"
+  },
+  "variables": [
+   {
+    "symbol": "V",
+    "name": "potential difference",
+    "unit": "V"
+   },
+   {
+    "symbol": "I",
+    "name": "current",
+    "unit": "A"
+   },
+   {
+    "symbol": "R",
+    "name": "resistance",
+    "unit": "ohm"
+   }
+  ],
+  "assumptions": "Applies to ohmic conductors at constant temperature; filament lamps and diodes are non-ohmic.",
+  "example": "12 V across 24 Ω drives 0.5 A.",
+  "experiment": "ohms_law",
+  "mistakes": "Using the battery's EMF instead of the voltage actually across the component.",
+  "related": [
+   "electric_power",
+   "wire_resistance"
+  ]
+ },
+ {
+  "id": "electric_power",
+  "name": "Electrical power",
+  "branch": "electricity",
+  "display": "P = V × I",
+  "forms": {
+   "P": "V * I",
+   "V": "P / I",
+   "I": "P / V"
+  },
+  "variables": [
+   {
+    "symbol": "P",
+    "name": "power",
+    "unit": "W"
+   },
+   {
+    "symbol": "V",
+    "name": "potential difference",
+    "unit": "V"
+   },
+   {
+    "symbol": "I",
+    "name": "current",
+    "unit": "A"
+   }
+  ],
+  "assumptions": "Instantaneous power in a DC circuit.",
+  "example": "A lamp with 12 V across it and 0.5 A through it uses 6 W.",
+  "experiment": "series_parallel",
+  "mistakes": "Confusing power (W) with energy (J or kWh).",
+  "related": [
+   "ohms_law",
+   "electric_energy"
+  ]
+ },
+ {
+  "id": "electric_energy",
+  "name": "Electrical energy",
+  "branch": "electricity",
+  "display": "E = P × t",
+  "forms": {
+   "E": "P * t",
+   "P": "E / t",
+   "t": "E / P"
+  },
+  "variables": [
+   {
+    "symbol": "E",
+    "name": "energy",
+    "unit": "J"
+   },
+   {
+    "symbol": "P",
+    "name": "power",
+    "unit": "W"
+   },
+   {
+    "symbol": "t",
+    "name": "time",
+    "unit": "s"
+   }
+  ],
+  "assumptions": "Constant power over the time interval.",
+  "example": "A 6 W lamp on for 1 hour uses 21 600 J (6 Wh).",
+  "experiment": "simple_circuit",
+  "mistakes": "Forgetting to convert hours to seconds (or use Wh).",
+  "related": [
+   "electric_power"
+  ]
+ },
+ {
+  "id": "charge",
+  "name": "Electric charge",
+  "branch": "electricity",
+  "display": "Q = I × t",
+  "forms": {
+   "Q": "I * t",
+   "I": "Q / t",
+   "t": "Q / I"
+  },
+  "variables": [
+   {
+    "symbol": "Q",
+    "name": "charge",
+    "unit": "C"
+   },
+   {
+    "symbol": "I",
+    "name": "current",
+    "unit": "A"
+   },
+   {
+    "symbol": "t",
+    "name": "time",
+    "unit": "s"
+   }
+  ],
+  "assumptions": "Constant current.",
+  "example": "2.0 A for 60 s moves 120 C.",
+  "experiment": "electrolysis",
+  "mistakes": "Mixing up charge (C) and current (C/s).",
+  "related": [
+   "faraday"
+  ]
+ },
+ {
+  "id": "faraday",
+  "name": "Faraday's law of electrolysis",
+  "branch": "chemistry",
+  "display": "n = Q / (z F)",
+  "forms": {
+   "n": "Q / (z * F)",
+   "Q": "n * z * F",
+   "z": "Q / (n * F)"
+  },
+  "variables": [
+   {
+    "symbol": "n",
+    "name": "amount of product",
+    "unit": "mol"
+   },
+   {
+    "symbol": "Q",
+    "name": "charge passed",
+    "unit": "C"
+   },
+   {
+    "symbol": "z",
+    "name": "electrons per formula unit",
+    "unit": "1"
+   }
+  ],
+  "assumptions": "All the current drives the one reaction (100 % current efficiency).",
+  "example": "1930 C making H₂ (z = 2): n = 1930 / (2 × 96485) = 0.0100 mol.",
+  "experiment": "electrolysis",
+  "mistakes": "Using z per atom instead of per molecule (H₂ needs 2 electrons).",
+  "related": [
+   "charge"
+  ]
+ },
+ {
+  "id": "wire_resistance",
+  "name": "Resistance of a wire",
+  "branch": "electricity",
+  "display": "R = ρ L / A",
+  "forms": {
+   "R": "rhoe * L / A",
+   "rhoe": "R * A / L",
+   "L": "R * A / rhoe"
+  },
+  "variables": [
+   {
+    "symbol": "R",
+    "name": "resistance",
+    "unit": "ohm"
+   },
+   {
+    "symbol": "rhoe",
+    "name": "resistivity",
+    "unit": "ohm*m"
+   },
+   {
+    "symbol": "L",
+    "name": "length",
+    "unit": "m"
+   },
+   {
+    "symbol": "A",
+    "name": "cross-sectional area",
+    "unit": "m2"
+   }
+  ],
+  "assumptions": "Uniform wire at constant temperature.",
+  "example": "1 m of 1 mm² copper wire: R = 1.68×10⁻⁸ × 1 / 10⁻⁶ = 0.0168 Ω.",
+  "experiment": "conductivity",
+  "mistakes": "Using diameter instead of cross-sectional area.",
+  "related": [
+   "ohms_law"
+  ]
+ },
+ {
+  "id": "ideal_gas",
+  "name": "Ideal gas law",
+  "branch": "chemistry",
+  "display": "P V = n R T",
+  "forms": {
+   "P": "n * R * T / V",
+   "V": "n * R * T / P",
+   "n": "P * V / (R * T)",
+   "T": "P * V / (n * R)"
+  },
+  "variables": [
+   {
+    "symbol": "P",
+    "name": "pressure",
+    "unit": "Pa"
+   },
+   {
+    "symbol": "V",
+    "name": "volume",
+    "unit": "m3"
+   },
+   {
+    "symbol": "n",
+    "name": "amount of gas",
+    "unit": "mol"
+   },
+   {
+    "symbol": "T",
+    "name": "absolute temperature",
+    "unit": "K"
+   }
+  ],
+  "assumptions": "Ideal gas: molecules have negligible volume and no attractions. Good at low pressure and high temperature.",
+  "example": "1.00 mol at 273.15 K and 101 325 Pa occupies 0.0224 m³ (22.4 L).",
+  "experiment": "gas_laws",
+  "mistakes": "Using °C instead of kelvin; mixing litres with m³.",
+  "related": [
+   "concentration"
+  ]
+ },
+ {
+  "id": "concentration",
+  "name": "Molar concentration",
+  "branch": "chemistry",
+  "display": "c = n / V",
+  "forms": {
+   "conc": "n / V",
+   "n": "conc * V",
+   "V": "n / conc"
+  },
+  "variables": [
+   {
+    "symbol": "conc",
+    "name": "concentration",
+    "unit": "mol/L"
+   },
+   {
+    "symbol": "n",
+    "name": "amount of solute",
+    "unit": "mol"
+   },
+   {
+    "symbol": "V",
+    "name": "volume of solution",
+    "unit": "L"
+   }
+  ],
+  "assumptions": "V is the volume of solution, not of solvent (they are almost equal for dilute solutions).",
+  "example": "0.50 mol of NaCl in 2.0 L gives 0.25 mol/L.",
+  "experiment": "acidity_ph",
+  "mistakes": "Using millilitres without converting to litres.",
+  "related": [
+   "ph"
+  ]
+ },
+ {
+  "id": "ph",
+  "name": "pH",
+  "branch": "chemistry",
+  "display": "pH = −log₁₀(a(H⁺)) ≈ −log₁₀([H⁺] / 1 mol/L)",
+  "forms": {
+   "pH": "-log10(H / (1 mol/L))",
+   "H": "10^(-pH) * 1 mol/L"
+  },
+  "variables": [
+   {
+    "symbol": "pH",
+    "name": "pH",
+    "unit": "1"
+   },
+   {
+    "symbol": "H",
+    "name": "hydrogen-ion concentration",
+    "unit": "mol/L"
+   }
+  ],
+  "assumptions": "Uses concentration in place of activity, which is accurate only for dilute solutions. pH 7 is neutral at 25 °C only.",
+  "example": "[H⁺] = 1.0×10⁻³ mol/L gives pH 3.0. A tenfold dilution of a strong acid raises pH by about 1.",
+  "experiment": "acidity_ph",
+  "mistakes": "Thinking pH is linear: pH 3 is ten times more acidic than pH 4, not one 'unit' more.",
+  "related": [
+   "concentration"
+  ]
+ },
+ {
+  "id": "specific_heat",
+  "name": "Heat and temperature change",
+  "branch": "thermal",
+  "display": "Q = m c ΔT",
+  "forms": {
+   "Q": "m * c * dT",
+   "m": "Q / (c * dT)",
+   "c": "Q / (m * dT)",
+   "dT": "Q / (m * c)"
+  },
+  "variables": [
+   {
+    "symbol": "Q",
+    "name": "heat transferred",
+    "unit": "J"
+   },
+   {
+    "symbol": "m",
+    "name": "mass",
+    "unit": "g"
+   },
+   {
+    "symbol": "c",
+    "name": "specific heat capacity",
+    "unit": "J/(g*K)"
+   },
+   {
+    "symbol": "dT",
+    "name": "temperature change",
+    "unit": "K"
+   }
+  ],
+  "assumptions": "No phase change occurs; c is constant over the temperature range.",
+  "example": "Heating 200 g of water by 10 K needs 200 × 4.18 × 10 = 8360 J.",
+  "experiment": "phase_change",
+  "mistakes": "Applying it during melting or boiling, when heat changes the state instead of the temperature.",
+  "related": [
+   "latent_heat"
+  ]
+ },
+ {
+  "id": "latent_heat",
+  "name": "Latent heat",
+  "branch": "thermal",
+  "display": "Q = m L",
+  "forms": {
+   "Q": "m * L",
+   "m": "Q / L",
+   "L": "Q / m"
+  },
+  "variables": [
+   {
+    "symbol": "Q",
+    "name": "heat",
+    "unit": "J"
+   },
+   {
+    "symbol": "m",
+    "name": "mass changing state",
+    "unit": "g"
+   },
+   {
+    "symbol": "L",
+    "name": "specific latent heat",
+    "unit": "J/g"
+   }
+  ],
+  "assumptions": "Temperature stays constant during the phase change at fixed pressure.",
+  "example": "Boiling away 50 g of water needs 50 × 2257 = 112 850 J.",
+  "experiment": "phase_change",
+  "mistakes": "Expecting the temperature to rise while water is boiling.",
+  "related": [
+   "specific_heat"
+  ]
+ },
+ {
+  "id": "heat_loss",
+  "name": "Heat loss (Newton's law of cooling)",
+  "branch": "thermal",
+  "display": "P = UA × (T − T_env)",
+  "forms": {
+   "P": "UA * dT",
+   "UA": "P / dT",
+   "dT": "P / UA"
+  },
+  "variables": [
+   {
+    "symbol": "P",
+    "name": "rate of heat loss",
+    "unit": "W"
+   },
+   {
+    "symbol": "UA",
+    "name": "overall heat-loss coefficient",
+    "unit": "W/K"
+   },
+   {
+    "symbol": "dT",
+    "name": "temperature difference to surroundings",
+    "unit": "K"
+   }
+  ],
+  "assumptions": "UA combines conduction, convection and radiation; it is roughly constant only for modest temperature differences.",
+  "example": "An insulated heater with UA = 0.5 W/K at 60 K above room loses 30 W.",
+  "experiment": "thermal_insulation",
+  "mistakes": "Thinking insulation produces cold; it only slows heat transfer.",
+  "related": [
+   "specific_heat"
+  ]
+ },
+ {
+  "id": "thin_lens",
+  "name": "Thin lens equation",
+  "branch": "optics",
+  "display": "1/f = 1/dₒ + 1/dᵢ",
+  "forms": {
+   "f": "1 / (1/do + 1/di)",
+   "di": "1 / (1/f - 1/do)",
+   "do": "1 / (1/f - 1/di)"
+  },
+  "variables": [
+   {
+    "symbol": "f",
+    "name": "focal length",
+    "unit": "m"
+   },
+   {
+    "symbol": "do",
+    "name": "object distance",
+    "unit": "m"
+   },
+   {
+    "symbol": "di",
+    "name": "image distance",
+    "unit": "m"
+   }
+  ],
+  "assumptions": "Thin lens, paraxial rays (small angles). Real images have positive dᵢ in this sign convention.",
+  "example": "An object 0.30 m from a lens with f = 0.10 m forms an image at 0.15 m.",
+  "experiment": "reflection_refraction",
+  "mistakes": "Mixing sign conventions; forgetting that virtual images give negative dᵢ.",
+  "related": [
+   "magnification"
+  ]
+ },
+ {
+  "id": "magnification",
+  "name": "Magnification",
+  "branch": "optics",
+  "display": "M = −dᵢ / dₒ",
+  "forms": {
+   "M": "-di / do",
+   "di": "-M * do",
+   "do": "-di / M"
+  },
+  "variables": [
+   {
+    "symbol": "M",
+    "name": "linear magnification",
+    "unit": "1"
+   },
+   {
+    "symbol": "di",
+    "name": "image distance",
+    "unit": "m"
+   },
+   {
+    "symbol": "do",
+    "name": "object distance",
+    "unit": "m"
+   }
+  ],
+  "assumptions": "Thin-lens sign convention: negative M means an inverted image.",
+  "example": "dₒ = 0.30 m, dᵢ = 0.15 m: M = −0.5 (inverted, half size).",
+  "experiment": "microscopy",
+  "mistakes": "Ignoring the sign, which tells you whether the image is inverted.",
+  "related": [
+   "thin_lens"
+  ]
+ },
+ {
+  "id": "snell",
+  "name": "Snell's law of refraction",
+  "branch": "optics",
+  "display": "n₁ sin θ₁ = n₂ sin θ₂",
+  "forms": {
+   "t2": "asin(n1 * sin(t1 * pi / 180) / n2) * 180 / pi",
+   "t1": "asin(n2 * sin(t2 * pi / 180) / n1) * 180 / pi",
+   "n2": "n1 * sin(t1 * pi / 180) / sin(t2 * pi / 180)"
+  },
+  "variables": [
+   {
+    "symbol": "n1",
+    "name": "refractive index of first medium",
+    "unit": "1"
+   },
+   {
+    "symbol": "t1",
+    "name": "angle of incidence (degrees)",
+    "unit": "1"
+   },
+   {
+    "symbol": "n2",
+    "name": "refractive index of second medium",
+    "unit": "1"
+   },
+   {
+    "symbol": "t2",
+    "name": "angle of refraction (degrees)",
+    "unit": "1"
+   }
+  ],
+  "assumptions": "Angles are measured from the normal. If n₁ sin θ₁ / n₂ > 1 there is no refracted ray (total internal reflection).",
+  "example": "Light from air into water at 45°: θ₂ = asin(sin 45° / 1.333) = 32°.",
+  "experiment": "reflection_refraction",
+  "mistakes": "Measuring angles from the surface instead of the normal.",
+  "related": [
+   "thin_lens"
+  ]
+ },
+ {
+  "id": "efficiency",
+  "name": "Efficiency",
+  "branch": "engineering",
+  "display": "η = useful energy out / energy in",
+  "forms": {
+   "eta": "Wout / Win",
+   "Wout": "eta * Win",
+   "Win": "Wout / eta"
+  },
+  "variables": [
+   {
+    "symbol": "eta",
+    "name": "efficiency",
+    "unit": "1"
+   },
+   {
+    "symbol": "Wout",
+    "name": "useful energy output",
+    "unit": "J"
+   },
+   {
+    "symbol": "Win",
+    "name": "energy input",
+    "unit": "J"
+   }
+  ],
+  "assumptions": "Energy is conserved: η can never exceed 1 (100 %); the rest is usually dissipated as heat.",
+  "example": "A ramp needs 50 J of work to raise a load by 40 J of potential energy: η = 0.80.",
+  "experiment": "machine_efficiency",
+  "mistakes": "Claiming efficiencies above 100 %.",
+  "related": [
+   "work",
+   "power_mech"
+  ]
+ },
+ {
+  "id": "boiling_elevation",
+  "name": "Boiling-point elevation",
+  "branch": "chemistry",
+  "display": "ΔT_b = i K_b b",
+  "forms": {
+   "dTb": "i * Kb * b",
+   "b": "dTb / (i * Kb)",
+   "i": "dTb / (Kb * b)"
+  },
+  "variables": [
+   {
+    "symbol": "dTb",
+    "name": "rise in boiling point",
+    "unit": "K"
+   },
+   {
+    "symbol": "i",
+    "name": "van 't Hoff factor",
+    "unit": "1"
+   },
+   {
+    "symbol": "Kb",
+    "name": "ebullioscopic constant",
+    "unit": "K*kg/mol"
+   },
+   {
+    "symbol": "b",
+    "name": "molality of solute",
+    "unit": "mol/kg"
+   }
+  ],
+  "assumptions": "Ideal dilute solution with a non-volatile solute. For water K_b = 0.512 K·kg/mol.",
+  "example": "Seawater (b ≈ 0.6 mol/kg NaCl, i ≈ 2) boils about 0.6 K above pure water.",
+  "experiment": "distillation",
+  "mistakes": "Using molarity (mol/L) instead of molality (mol/kg of solvent).",
+  "related": [
+   "latent_heat"
+  ]
+ }
+]

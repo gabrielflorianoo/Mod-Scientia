@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            name = 'MinecraftForge'
+            url = 'https://maven.minecraftforge.net/'
+        }
+    }
+}
+
+plugins {
+    // Lets Gradle download a Java 17 toolchain automatically when the local JDK is a different version.
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
+rootProject.name = 'scientia'
+
+// Pure-Java science engine (no Minecraft dependency). It is also buildable on its own:
+//   ./gradlew -p science-core test
+include 'science-core'

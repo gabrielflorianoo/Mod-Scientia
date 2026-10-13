@@ -1,0 +1,36 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'com.scientia'
+version = '0.1.0'
+
+// Compile to Java 17 bytecode (Minecraft 1.20.1's runtime) with whatever JDK >= 17 runs Gradle.
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Minecraft 1.20.1 ships Gson 2.10.1, so the engine can rely on it at runtime inside the game.
+    compileOnly 'com.google.code.gson:gson:2.10.1'
+    testImplementation 'com.google.code.gson:gson:2.10.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 17
+}
+
+test {
+    useJUnitPlatform()
+    // The tests validate the real data files that ship inside the mod.
+    systemProperty 'scientia.dataDir', project.file('../src/main/resources/data/scientia/science').absolutePath
+    testLogging {
+        events 'failed'
+        exceptionFormat 'full'
+        showStandardStreams = false
+    }
+}

@@ -1,0 +1,292 @@
+[
+ {
+  "term": "Observation",
+  "category": "method",
+  "definition": "Information gathered with the senses or instruments, without interpretation. Example: 'the liquid fizzed'."
+ },
+ {
+  "term": "Measurement",
+  "category": "method",
+  "definition": "An observation expressed as a number with a unit and an uncertainty, made by comparison with a standard."
+ },
+ {
+  "term": "Hypothesis",
+  "category": "method",
+  "definition": "A testable, tentative explanation or prediction. Data can support or contradict it; it is never 'proved' by a single experiment."
+ },
+ {
+  "term": "Model",
+  "category": "method",
+  "definition": "A simplified representation of a system (a diagram, equation or simulation) used to explain and predict. Every model has limitations."
+ },
+ {
+  "term": "Scientific theory",
+  "category": "method",
+  "definition": "A well-tested, broadly accepted explanation of many observations, supported by a large body of evidence (for example atomic theory). Not a guess."
+ },
+ {
+  "term": "Scientific law",
+  "category": "method",
+  "definition": "A concise statement, often an equation, describing a regularity in nature (for example conservation of mass). Laws describe; theories explain."
+ },
+ {
+  "term": "Independent variable",
+  "category": "method",
+  "definition": "The variable you deliberately change in an experiment."
+ },
+ {
+  "term": "Dependent variable",
+  "category": "method",
+  "definition": "The variable you measure to see the effect of changing the independent variable."
+ },
+ {
+  "term": "Controlled variable",
+  "category": "method",
+  "definition": "A variable kept constant so it cannot affect the result."
+ },
+ {
+  "term": "Uncertainty",
+  "category": "method",
+  "definition": "The range within which the true value is expected to lie. A result is meaningless without some idea of its uncertainty."
+ },
+ {
+  "term": "Significant figures",
+  "category": "mathematics",
+  "definition": "The digits in a number that carry meaningful information about its precision."
+ },
+ {
+  "term": "Accuracy",
+  "category": "method",
+  "definition": "How close a measurement is to the true value."
+ },
+ {
+  "term": "Precision",
+  "category": "method",
+  "definition": "How close repeated measurements are to each other, or how finely an instrument can resolve a value."
+ },
+ {
+  "term": "Element",
+  "category": "chemistry",
+  "definition": "A substance made of only one kind of atom (all atoms with the same number of protons)."
+ },
+ {
+  "term": "Compound",
+  "category": "chemistry",
+  "definition": "A substance made of two or more elements chemically bonded in a fixed ratio, with properties different from its elements."
+ },
+ {
+  "term": "Mixture",
+  "category": "chemistry",
+  "definition": "Two or more substances physically combined; each keeps its own properties and they can be separated by physical means."
+ },
+ {
+  "term": "Solution",
+  "category": "chemistry",
+  "definition": "A homogeneous mixture in which a solute is dissolved in a solvent."
+ },
+ {
+  "term": "Alloy",
+  "category": "chemistry",
+  "definition": "A mixture of a metal with other elements (for example steel, bronze, brass)."
+ },
+ {
+  "term": "Mineral",
+  "category": "earth",
+  "definition": "A naturally occurring, inorganic, crystalline solid with a definite chemical composition range."
+ },
+ {
+  "term": "Ore",
+  "category": "earth",
+  "definition": "Rock containing enough of a valuable mineral to be extracted profitably."
+ },
+ {
+  "term": "Atom",
+  "category": "chemistry",
+  "definition": "The smallest unit of an element, made of a nucleus (protons and neutrons) surrounded by electrons."
+ },
+ {
+  "term": "Isotope",
+  "category": "chemistry",
+  "definition": "Atoms of the same element with different numbers of neutrons, and therefore different mass numbers."
+ },
+ {
+  "term": "Ion",
+  "category": "chemistry",
+  "definition": "An atom or group of atoms with an electric charge because it has gained or lost electrons."
+ },
+ {
+  "term": "Mole",
+  "category": "chemistry",
+  "definition": "The SI unit of amount of substance: exactly 6.02214076 × 10²³ particles."
+ },
+ {
+  "term": "Molar mass",
+  "category": "chemistry",
+  "definition": "The mass of one mole of a substance, in g/mol."
+ },
+ {
+  "term": "Chemical reaction",
+  "category": "chemistry",
+  "definition": "A process in which substances are transformed into different substances by rearranging atoms."
+ },
+ {
+  "term": "Physical change",
+  "category": "chemistry",
+  "definition": "A change in state, shape or mixing that does not produce a new substance (melting, dissolving, grinding)."
+ },
+ {
+  "term": "Exothermic",
+  "category": "chemistry",
+  "definition": "Releasing energy to the surroundings (ΔH negative)."
+ },
+ {
+  "term": "Endothermic",
+  "category": "chemistry",
+  "definition": "Absorbing energy from the surroundings (ΔH positive)."
+ },
+ {
+  "term": "Acid",
+  "category": "chemistry",
+  "definition": "A substance that donates hydrogen ions (H⁺) in solution (Brønsted–Lowry definition)."
+ },
+ {
+  "term": "Base",
+  "category": "chemistry",
+  "definition": "A substance that accepts hydrogen ions; soluble bases (alkalis) produce OH⁻ in water."
+ },
+ {
+  "term": "pH",
+  "category": "chemistry",
+  "definition": "A logarithmic measure of acidity: pH ≈ −log₁₀[H⁺]. Each unit is a tenfold change."
+ },
+ {
+  "term": "Indicator",
+  "category": "chemistry",
+  "definition": "A substance whose colour depends on pH over a characteristic range."
+ },
+ {
+  "term": "Catalyst",
+  "category": "chemistry",
+  "definition": "A substance that speeds up a reaction without being used up."
+ },
+ {
+  "term": "Electrolysis",
+  "category": "chemistry",
+  "definition": "Using electric current to drive a non-spontaneous chemical reaction."
+ },
+ {
+  "term": "Density",
+  "category": "physics",
+  "definition": "Mass per unit volume, ρ = m/V."
+ },
+ {
+  "term": "Force",
+  "category": "physics",
+  "definition": "A push or pull, measured in newtons (N). A vector quantity."
+ },
+ {
+  "term": "Scalar",
+  "category": "physics",
+  "definition": "A quantity with magnitude only (mass, speed, energy)."
+ },
+ {
+  "term": "Vector",
+  "category": "physics",
+  "definition": "A quantity with magnitude and direction (velocity, force, momentum)."
+ },
+ {
+  "term": "Energy",
+  "category": "physics",
+  "definition": "The capacity to do work or transfer heat, measured in joules (J). It is conserved."
+ },
+ {
+  "term": "Power",
+  "category": "physics",
+  "definition": "The rate of transferring energy, measured in watts (1 W = 1 J/s)."
+ },
+ {
+  "term": "Efficiency",
+  "category": "physics",
+  "definition": "Useful energy output divided by total energy input; always less than 100 % in real machines."
+ },
+ {
+  "term": "Temperature",
+  "category": "thermal",
+  "definition": "A measure of the average kinetic energy of particles. Absolute zero is 0 K (−273.15 °C)."
+ },
+ {
+  "term": "Heat",
+  "category": "thermal",
+  "definition": "Energy transferred because of a temperature difference."
+ },
+ {
+  "term": "Specific heat capacity",
+  "category": "thermal",
+  "definition": "Energy needed to raise the temperature of 1 g (or 1 kg) of a substance by 1 K."
+ },
+ {
+  "term": "Latent heat",
+  "category": "thermal",
+  "definition": "Energy absorbed or released during a change of state at constant temperature."
+ },
+ {
+  "term": "Thermal conductivity",
+  "category": "thermal",
+  "definition": "How well a material conducts heat, in W/(m·K)."
+ },
+ {
+  "term": "Voltage",
+  "category": "electricity",
+  "definition": "Potential difference: energy transferred per unit charge, in volts (1 V = 1 J/C)."
+ },
+ {
+  "term": "Current",
+  "category": "electricity",
+  "definition": "Rate of flow of electric charge, in amperes (1 A = 1 C/s)."
+ },
+ {
+  "term": "Resistance",
+  "category": "electricity",
+  "definition": "Opposition to current, R = V/I, in ohms (Ω)."
+ },
+ {
+  "term": "Series circuit",
+  "category": "electricity",
+  "definition": "Components connected one after another, so the same current flows through each."
+ },
+ {
+  "term": "Parallel circuit",
+  "category": "electricity",
+  "definition": "Components connected across the same two points, so each has the same voltage."
+ },
+ {
+  "term": "Electromotive force",
+  "category": "electricity",
+  "definition": "The energy per unit charge supplied by a source such as a battery (EMF), in volts."
+ },
+ {
+  "term": "Refraction",
+  "category": "optics",
+  "definition": "The change in direction of light as it crosses a boundary between materials with different refractive indices."
+ },
+ {
+  "term": "Refractive index",
+  "category": "optics",
+  "definition": "The ratio of the speed of light in a vacuum to its speed in a material."
+ },
+ {
+  "term": "Focal length",
+  "category": "optics",
+  "definition": "The distance from a lens to the point where parallel rays converge."
+ },
+ {
+  "term": "Dispersion",
+  "category": "optics",
+  "definition": "Separation of white light into colours because the refractive index depends on wavelength."
+ },
+ {
+  "term": "Emission spectrum",
+  "category": "optics",
+  "definition": "The set of wavelengths emitted by excited atoms; unique for each element."
+ }
+]

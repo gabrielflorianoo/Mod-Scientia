@@ -1,0 +1,900 @@
+[
+ {
+  "id": "material_identification",
+  "title": "Identifying materials by their properties",
+  "branch": "observation",
+  "objective": "Use measured physical properties to identify an unknown material.",
+  "question": "Can a material be identified from its mass and volume?",
+  "materials": [
+   "Any mineral, ore or ingot"
+  ],
+  "apparatus": [
+   "Precision Balance",
+   "Graduated Cylinder"
+  ],
+  "independentVariable": "The material tested",
+  "dependentVariable": "Mass and volume of the sample",
+  "controlledVariables": [
+   "Water temperature",
+   "Sample fully submerged"
+  ],
+  "procedure": [
+   "Weigh the sample on the Precision Balance and record the mass.",
+   "Fill the Graduated Cylinder with water, add the same sample and record the volume it displaces.",
+   "Open the journal: density is calculated and compared with reference values."
+  ],
+  "expected": "Each pure material has a characteristic density; mixtures fall between the densities of their components.",
+  "formulas": [
+   "density"
+  ],
+  "interpretation": "If the measured density agrees with a reference value within the measurement uncertainty, that material is a likely match. Two materials with similar densities need a second test (for example a spectrum).",
+  "limitations": "Density alone cannot prove identity. Porous or water-absorbing samples give wrong volumes.",
+  "completion": [
+   "measure:mass",
+   "measure:volume",
+   "identify:any"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "density",
+  "title": "Measuring density",
+  "branch": "observation",
+  "objective": "Determine the density of a solid from independent measurements of mass and volume.",
+  "question": "What is the density of iron, and how certain is the value?",
+  "materials": [
+   "Iron ingot (or any solid sample)",
+   "Water"
+  ],
+  "apparatus": [
+   "Precision Balance",
+   "Graduated Cylinder"
+  ],
+  "independentVariable": "Sample material",
+  "dependentVariable": "Density (g/cm³)",
+  "controlledVariables": [
+   "Same sample for both measurements",
+   "Water at room temperature"
+  ],
+  "procedure": [
+   "Measure the mass (±0.01 g).",
+   "Measure the displaced volume (±0.2 mL).",
+   "Calculate ρ = m/V and its uncertainty."
+  ],
+  "expected": "Iron: about 7.87 g/cm³. Larger samples give smaller relative uncertainty in volume.",
+  "formulas": [
+   "density"
+  ],
+  "interpretation": "The relative uncertainty of the density is dominated by the volume reading, because the balance is far more precise than the cylinder.",
+  "limitations": "Displacement assumes the sample is not porous and does not dissolve.",
+  "completion": [
+   "derived:density"
+  ],
+  "hypothesis": {
+   "prompt": "Which will have the higher density: an iron ingot or the raw iron ore it came from?",
+   "options": [
+    {
+     "id": "increase",
+     "text": "The iron ingot"
+    },
+    {
+     "id": "equal",
+     "text": "They will be the same"
+    },
+    {
+     "id": "decrease",
+     "text": "The raw ore"
+    }
+   ],
+   "evaluator": "density_order"
+  }
+ },
+ {
+  "id": "filtration",
+  "title": "Separating a mixture by filtration",
+  "branch": "chemistry",
+  "objective": "Separate an insoluble solid from a liquid.",
+  "question": "How can sand (or another insoluble solid) be removed from water?",
+  "materials": [
+   "Sand or calcite powder",
+   "Water"
+  ],
+  "apparatus": [
+   "Reaction Vessel (filter mode)",
+   "Beaker"
+  ],
+  "independentVariable": "Solubility of the solid",
+  "dependentVariable": "Material recovered on the filter",
+  "controlledVariables": [
+   "Amount of water"
+  ],
+  "procedure": [
+   "Add water and an insoluble solid to the Reaction Vessel.",
+   "Use the Filter action.",
+   "Insoluble solids remain on the filter; dissolved substances pass through with the water."
+  ],
+  "expected": "Insoluble particles are trapped; dissolved salt or sugar passes through.",
+  "formulas": [],
+  "interpretation": "Filtration separates by particle size, so it cannot separate a solution: dissolved ions and molecules are far smaller than the filter pores.",
+  "limitations": "The game recovers solids completely; real filtration loses some material.",
+  "completion": [
+   "separate:filtration"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "distillation",
+  "title": "Separating a solution by distillation",
+  "branch": "chemistry",
+  "objective": "Recover pure water and salt from seawater.",
+  "question": "Can dissolved salt be separated from water?",
+  "materials": [
+   "Seawater (fill a beaker in an ocean)"
+  ],
+  "apparatus": [
+   "Laboratory Heater",
+   "Condenser"
+  ],
+  "independentVariable": "Heating",
+  "dependentVariable": "Volume of distillate; salt remaining",
+  "controlledVariables": [
+   "Pressure (1 atm)"
+  ],
+  "procedure": [
+   "Place seawater on the Laboratory Heater with a Condenser above it.",
+   "Heat until the water boils (just above 100 °C, because dissolved salt raises the boiling point).",
+   "Collect distilled water from the Condenser; salt crystals remain in the heater."
+  ],
+  "expected": "Water vapour leaves; salt does not evaporate at 100 °C.",
+  "formulas": [
+   "boiling_elevation",
+   "latent_heat"
+  ],
+  "interpretation": "Distillation separates by differences in boiling point. Evaporation alone recovers the salt but loses the water.",
+  "limitations": "Real distillation also carries over small amounts of volatile impurities.",
+  "completion": [
+   "separate:distillation"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "phase_change",
+  "title": "Observing a phase change",
+  "branch": "thermal",
+  "objective": "Observe how temperature behaves while water boils.",
+  "question": "What happens to the temperature of water while it boils?",
+  "materials": [
+   "Water"
+  ],
+  "apparatus": [
+   "Laboratory Heater",
+   "Thermometer",
+   "Data Recorder"
+  ],
+  "independentVariable": "Heating time",
+  "dependentVariable": "Temperature",
+  "controlledVariables": [
+   "Heater power",
+   "Mass of water",
+   "Pressure"
+  ],
+  "procedure": [
+   "Heat water on the Laboratory Heater with a Data Recorder attached.",
+   "Watch the temperature–time graph.",
+   "Keep heating after boiling starts."
+  ],
+  "expected": "The temperature rises, then stays at about 100 °C while the water boils away.",
+  "formulas": [
+   "specific_heat",
+   "latent_heat"
+  ],
+  "interpretation": "During boiling, energy breaks intermolecular attractions (latent heat) instead of raising the temperature, giving a plateau on the graph.",
+  "limitations": "The game assumes 1 atm pressure. At high altitude water boils at a lower temperature.",
+  "completion": [
+   "phase:boiling",
+   "measure:temperature"
+  ],
+  "hypothesis": {
+   "prompt": "Once the water is boiling and you keep heating, the temperature will…",
+   "options": [
+    {
+     "id": "increase",
+     "text": "It will increase"
+    },
+    {
+     "id": "equal",
+     "text": "It will stay the same (within measurement uncertainty)"
+    },
+    {
+     "id": "decrease",
+     "text": "It will decrease"
+    }
+   ],
+   "evaluator": "boiling_temperature"
+  }
+ },
+ {
+  "id": "thermal_insulation",
+  "title": "Investigating thermal insulation",
+  "branch": "thermal",
+  "objective": "Compare cooling rates with and without an insulating jacket.",
+  "question": "Does insulation change how fast hot water cools?",
+  "materials": [
+   "Water",
+   "Wool (for the insulating jacket)"
+  ],
+  "apparatus": [
+   "Laboratory Heater",
+   "Data Recorder"
+  ],
+  "independentVariable": "Insulating jacket",
+  "dependentVariable": "Cooling rate (K/min)",
+  "controlledVariables": [
+   "Starting temperature",
+   "Mass of water",
+   "Room temperature"
+  ],
+  "procedure": [
+   "Heat water to about 70 °C, switch the heater off and record the cooling curve.",
+   "Repeat with a wool jacket fitted.",
+   "Compare the slopes of the two graphs."
+  ],
+  "expected": "The insulated sample cools more slowly.",
+  "formulas": [
+   "heat_loss",
+   "specific_heat"
+  ],
+  "interpretation": "Insulation lowers the overall heat-loss coefficient UA, reducing the rate of heat transfer to the surroundings.",
+  "limitations": "Cooling rate also depends on temperature difference, so compare slopes at similar temperatures.",
+  "completion": [
+   "measure:cooling_rate_bare",
+   "measure:cooling_rate_insulated"
+  ],
+  "hypothesis": {
+   "prompt": "With a wool jacket, the cooling rate will…",
+   "options": [
+    {
+     "id": "increase",
+     "text": "It will increase"
+    },
+    {
+     "id": "equal",
+     "text": "It will stay the same (within measurement uncertainty)"
+    },
+    {
+     "id": "decrease",
+     "text": "It will decrease"
+    }
+   ],
+   "evaluator": "insulation_loss"
+  }
+ },
+ {
+  "id": "heat_transfer_materials",
+  "title": "Comparing heat transfer through materials",
+  "branch": "thermal",
+  "objective": "Compare how different jacket materials conduct heat.",
+  "question": "Which materials are good thermal insulators?",
+  "materials": [
+   "Wool, glass, bricks or an iron block as jackets"
+  ],
+  "apparatus": [
+   "Laboratory Heater",
+   "Data Recorder"
+  ],
+  "independentVariable": "Jacket material",
+  "dependentVariable": "Cooling rate",
+  "controlledVariables": [
+   "Starting temperature",
+   "Mass of water"
+  ],
+  "procedure": [
+   "Record cooling curves with at least two different jacket materials.",
+   "Compare the cooling rates in the journal."
+  ],
+  "expected": "Wool insulates best; metals conduct heat quickly.",
+  "formulas": [
+   "heat_loss"
+  ],
+  "interpretation": "Materials with low thermal conductivity (wool, trapped air) slow heat flow; metals, with free electrons, conduct heat well.",
+  "limitations": "Jackets are modelled by their thermal conductivity and a fixed thickness.",
+  "completion": [
+   "measure:cooling_rate_insulated",
+   "analyze:heat_transfer_compare"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "conservation_of_mass",
+  "title": "Conservation of mass",
+  "branch": "chemistry",
+  "objective": "Test whether mass changes during a chemical reaction.",
+  "question": "Does the total mass change when calcite reacts with acid?",
+  "materials": [
+   "Calcite powder",
+   "Hydrochloric acid (or vinegar)"
+  ],
+  "apparatus": [
+   "Reaction Vessel",
+   "Precision balance readout"
+  ],
+  "independentVariable": "Open or sealed vessel",
+  "dependentVariable": "Total mass before and after",
+  "controlledVariables": [
+   "Same reagents and amounts"
+  ],
+  "procedure": [
+   "Seal the Reaction Vessel with its stopper.",
+   "Add calcite powder and acid; record the starting mass.",
+   "Let the reaction finish and compare the final mass.",
+   "Repeat with the vessel open."
+  ],
+  "expected": "Sealed: mass stays the same. Open: mass decreases because carbon dioxide escapes.",
+  "formulas": [],
+  "interpretation": "Atoms are rearranged, not created or destroyed, so the total mass of a closed system is constant. An apparent loss means something (here, gas) left the system.",
+  "limitations": "Real sealed vessels can leak or burst under gas pressure; the game vessel is ideal.",
+  "completion": [
+   "reaction:closed_mass_conserved"
+  ],
+  "hypothesis": {
+   "prompt": "In a sealed vessel, the total mass after the reaction will…",
+   "options": [
+    {
+     "id": "increase",
+     "text": "It will increase"
+    },
+    {
+     "id": "equal",
+     "text": "It will stay the same (within measurement uncertainty)"
+    },
+    {
+     "id": "decrease",
+     "text": "It will decrease"
+    }
+   ],
+   "evaluator": "mass_change"
+  }
+ },
+ {
+  "id": "acidity_ph",
+  "title": "Investigating acidity and pH",
+  "branch": "chemistry",
+  "objective": "Measure the pH of acidic and basic solutions.",
+  "question": "How acidic or basic are common laboratory solutions?",
+  "materials": [
+   "Vinegar, hydrochloric acid, sodium hydroxide solution, limewater"
+  ],
+  "apparatus": [
+   "pH Meter",
+   "Beakers"
+  ],
+  "independentVariable": "Solution tested",
+  "dependentVariable": "pH",
+  "controlledVariables": [
+   "Temperature (25 °C)"
+  ],
+  "procedure": [
+   "Use the pH Meter on beakers or vessels containing different solutions.",
+   "Record at least one acid and one base.",
+   "Try neutralising an acid with a base in the Reaction Vessel."
+  ],
+  "expected": "Acids: pH below 7; bases: pH above 7; neutralisation moves the pH towards 7.",
+  "formulas": [
+   "ph",
+   "concentration"
+  ],
+  "interpretation": "pH is logarithmic: each unit is a tenfold change in hydrogen-ion concentration. Weak acids (vinegar) have higher pH than strong acids at the same concentration.",
+  "limitations": "The pH model uses ideal-solution concentrations at 25 °C.",
+  "completion": [
+   "analyze:acid",
+   "analyze:base"
+  ],
+  "hypothesis": {
+   "prompt": "When sodium hydroxide is added to hydrochloric acid, the pH will…",
+   "options": [
+    {
+     "id": "increase",
+     "text": "It will increase"
+    },
+    {
+     "id": "equal",
+     "text": "It will stay the same (within measurement uncertainty)"
+    },
+    {
+     "id": "decrease",
+     "text": "It will decrease"
+    }
+   ],
+   "evaluator": "ph_change"
+  }
+ },
+ {
+  "id": "simple_circuit",
+  "title": "Constructing a simple circuit",
+  "branch": "electricity",
+  "objective": "Make a lamp light using a complete circuit.",
+  "question": "What does a circuit need for current to flow?",
+  "materials": [
+   "Copper wire",
+   "Battery",
+   "Filament lamp",
+   "Switch"
+  ],
+  "apparatus": [
+   "Multimeter"
+  ],
+  "independentVariable": "Whether the circuit is complete",
+  "dependentVariable": "Lamp brightness / current",
+  "controlledVariables": [
+   "Battery voltage"
+  ],
+  "procedure": [
+   "Connect the battery's + and − terminals to the lamp with copper wire, forming a loop.",
+   "Close the switch.",
+   "Measure the current with the Multimeter."
+  ],
+  "expected": "The lamp lights only when there is a complete loop.",
+  "formulas": [
+   "ohms_law",
+   "electric_power"
+  ],
+  "interpretation": "Charge flows only around a closed path. The battery provides the potential difference; the lamp converts electrical energy to light and heat.",
+  "limitations": "The lamp is modelled as a fixed resistance; a real filament's resistance rises as it heats up.",
+  "completion": [
+   "circuit:closed"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "series_parallel",
+  "title": "Comparing series and parallel circuits",
+  "branch": "electricity",
+  "objective": "Compare currents and brightness in series and parallel arrangements.",
+  "question": "How does adding a second lamp change the circuit?",
+  "materials": [
+   "Two filament lamps",
+   "Battery",
+   "Copper wire"
+  ],
+  "apparatus": [
+   "Multimeter"
+  ],
+  "independentVariable": "Arrangement of lamps",
+  "dependentVariable": "Current and brightness",
+  "controlledVariables": [
+   "Battery",
+   "Lamp type"
+  ],
+  "procedure": [
+   "Build two lamps in series and measure the current.",
+   "Build two lamps in parallel and measure the current from the battery."
+  ],
+  "expected": "Series: dimmer lamps, smaller current. Parallel: full brightness, larger total current.",
+  "formulas": [
+   "ohms_law",
+   "electric_power"
+  ],
+  "interpretation": "Resistances in series add (R = R₁ + R₂); in parallel the combined resistance is smaller (1/R = 1/R₁ + 1/R₂).",
+  "limitations": "Wires have small but real resistance in the model; battery internal resistance slightly reduces the voltage under load.",
+  "completion": [
+   "circuit:series",
+   "circuit:parallel"
+  ],
+  "hypothesis": {
+   "prompt": "Adding a second lamp in parallel, the total current from the battery will…",
+   "options": [
+    {
+     "id": "increase",
+     "text": "It will increase"
+    },
+    {
+     "id": "equal",
+     "text": "It will stay the same (within measurement uncertainty)"
+    },
+    {
+     "id": "decrease",
+     "text": "It will decrease"
+    }
+   ],
+   "evaluator": "current_change"
+  }
+ },
+ {
+  "id": "ohms_law",
+  "title": "Testing Ohm's law",
+  "branch": "electricity",
+  "objective": "Show that current through a resistor is proportional to voltage.",
+  "question": "Is V/I constant for a resistor?",
+  "materials": [
+   "Resistor",
+   "Battery",
+   "Copper wire"
+  ],
+  "apparatus": [
+   "Multimeter",
+   "Data Recorder"
+  ],
+  "independentVariable": "Potential difference across the resistor",
+  "dependentVariable": "Current",
+  "controlledVariables": [
+   "Resistor value",
+   "Temperature"
+  ],
+  "procedure": [
+   "Build a circuit containing a resistor.",
+   "Use the Multimeter on the resistor to measure V and I.",
+   "Compare V/I with the resistor's labelled value."
+  ],
+  "expected": "V/I equals the resistance.",
+  "formulas": [
+   "ohms_law"
+  ],
+  "interpretation": "For an ohmic conductor the I–V graph is a straight line through the origin whose slope is 1/R.",
+  "limitations": "Resistors are ideal (temperature-independent) in the model.",
+  "completion": [
+   "measure:voltage",
+   "measure:current",
+   "derived:resistance"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "reflection_refraction",
+  "title": "Investigating reflection and refraction",
+  "branch": "optics",
+  "objective": "Measure angles of reflection and refraction.",
+  "question": "How does light change direction at a mirror and at a water surface?",
+  "materials": [],
+  "apparatus": [
+   "Optical Bench"
+  ],
+  "independentVariable": "Angle of incidence",
+  "dependentVariable": "Angle of reflection/refraction",
+  "controlledVariables": [
+   "Media (air, water, glass)"
+  ],
+  "procedure": [
+   "Use the Optical Bench mirror mode and vary the angle.",
+   "Switch to refraction mode and compare air→water and air→glass.",
+   "Find the critical angle going from glass to air."
+  ],
+  "expected": "Reflection angle equals incidence angle; refracted rays bend towards the normal entering a denser medium.",
+  "formulas": [
+   "snell",
+   "thin_lens"
+  ],
+  "interpretation": "Light travels more slowly in water and glass; Snell's law describes the change of direction at the boundary.",
+  "limitations": "Ray optics ignores diffraction and the wave nature of light.",
+  "completion": [
+   "observe:reflection",
+   "observe:refraction"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "cart_motion",
+  "title": "Measuring the motion of a cart",
+  "branch": "physics",
+  "objective": "Measure the acceleration of a cart on a ramp.",
+  "question": "How does ramp angle affect acceleration?",
+  "materials": [],
+  "apparatus": [
+   "Motion Track"
+  ],
+  "independentVariable": "Ramp angle",
+  "dependentVariable": "Acceleration",
+  "controlledVariables": [
+   "Cart mass",
+   "Friction coefficient",
+   "Track length"
+  ],
+  "procedure": [
+   "Set an angle on the Motion Track and release the cart.",
+   "Read the distance–time and speed–time graphs.",
+   "Repeat at different angles."
+  ],
+  "expected": "Steeper ramps give larger accelerations: a = g(sin θ − μ cos θ).",
+  "formulas": [
+   "acceleration",
+   "speed",
+   "newton2"
+  ],
+  "interpretation": "The speed–time graph is a straight line whose slope is the acceleration; the distance–time graph is a parabola.",
+  "limitations": "Air resistance and rolling resistance beyond the friction coefficient are ignored.",
+  "completion": [
+   "measure:acceleration"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "mechanical_energy",
+  "title": "Calculating mechanical energy",
+  "branch": "physics",
+  "objective": "Compare potential energy lost with kinetic energy gained.",
+  "question": "Where does the energy of a rolling cart go?",
+  "materials": [],
+  "apparatus": [
+   "Motion Track"
+  ],
+  "independentVariable": "Friction coefficient",
+  "dependentVariable": "Kinetic energy at the bottom",
+  "controlledVariables": [
+   "Height",
+   "Mass"
+  ],
+  "procedure": [
+   "Run the cart with friction set to zero and compare Eₚ lost with Eₖ gained.",
+   "Increase friction and repeat."
+  ],
+  "expected": "Without friction Eₖ = Eₚ; with friction some energy becomes heat.",
+  "formulas": [
+   "kinetic_energy",
+   "potential_energy",
+   "efficiency"
+  ],
+  "interpretation": "Energy is conserved; friction converts some mechanical energy into internal (thermal) energy.",
+  "limitations": "Rotational kinetic energy of wheels is ignored.",
+  "completion": [
+   "derived:kinetic_energy",
+   "analyze:efficiency"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "microscopy",
+  "title": "Using a microscope",
+  "branch": "biology",
+  "objective": "Observe the microscopic structure of samples.",
+  "question": "What do ordinary materials look like at high magnification?",
+  "materials": [
+   "Sand, salt, sugar, leaves, kelp, feathers, bone meal"
+  ],
+  "apparatus": [
+   "Microscope"
+  ],
+  "independentVariable": "Sample",
+  "dependentVariable": "Observed structure",
+  "controlledVariables": [
+   "Magnification"
+  ],
+  "procedure": [
+   "Place a sample on the Microscope stage.",
+   "Adjust the focus and note the scale bar.",
+   "Compare crystals, cells and fibres."
+  ],
+  "expected": "Crystals have regular shapes; living tissues are made of cells.",
+  "formulas": [
+   "magnification"
+  ],
+  "interpretation": "A compound microscope multiplies the magnification of the objective and eyepiece lenses.",
+  "limitations": "The images are illustrations generated for the game, not photographs.",
+  "completion": [
+   "observe:microscope"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "gas_laws",
+  "title": "Pressure and temperature of a gas",
+  "branch": "chemistry",
+  "objective": "Observe how gas pressure changes with temperature at constant volume.",
+  "question": "What happens to the pressure in a sealed vessel when it is heated?",
+  "materials": [
+   "Any gas-producing reaction or air"
+  ],
+  "apparatus": [
+   "Reaction Vessel (sealed)",
+   "Laboratory Heater"
+  ],
+  "independentVariable": "Temperature",
+  "dependentVariable": "Pressure",
+  "controlledVariables": [
+   "Volume",
+   "Amount of gas"
+  ],
+  "procedure": [
+   "Seal the Reaction Vessel on a Laboratory Heater.",
+   "Record the pressure at two temperatures at least 20 K apart."
+  ],
+  "expected": "Pressure increases in proportion to absolute temperature (Gay-Lussac's law).",
+  "formulas": [
+   "ideal_gas"
+  ],
+  "interpretation": "At constant volume P/T is constant for an ideal gas: faster molecules hit the walls harder and more often.",
+  "limitations": "Water vapour pressure is not included in the headspace model.",
+  "completion": [
+   "measure:pressure",
+   "observe:pressure_temperature"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "conductivity",
+  "title": "Comparing electrical conductivity",
+  "branch": "electricity",
+  "objective": "Classify materials as conductors or insulators.",
+  "question": "Which materials conduct electricity?",
+  "materials": [
+   "Copper ingot, iron ingot, glass, quartz, diamond..."
+  ],
+  "apparatus": [
+   "Material Analyzer (conductivity probe)"
+  ],
+  "independentVariable": "Material",
+  "dependentVariable": "Resistance of a 1 cm sample",
+  "controlledVariables": [
+   "Sample dimensions"
+  ],
+  "procedure": [
+   "Use the conductivity probe mode of the Material Analyzer on several samples.",
+   "Find at least one conductor and one insulator."
+  ],
+  "expected": "Metals conduct; most minerals and glass do not.",
+  "formulas": [
+   "wire_resistance",
+   "ohms_law"
+  ],
+  "interpretation": "Metals have delocalised electrons that carry current; in ionic and covalent solids the electrons are bound.",
+  "limitations": "Resistivities are typical room-temperature values; real samples vary with purity.",
+  "completion": [
+   "analyze:conductor",
+   "analyze:insulator"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "machine_efficiency",
+  "title": "Efficiency of a simple machine",
+  "branch": "engineering",
+  "objective": "Measure the efficiency of a ramp used to raise a load.",
+  "question": "How much of the work done pushing a cart up a ramp is stored as potential energy?",
+  "materials": [],
+  "apparatus": [
+   "Motion Track (push mode)"
+  ],
+  "independentVariable": "Friction coefficient",
+  "dependentVariable": "Efficiency",
+  "controlledVariables": [
+   "Height raised",
+   "Mass"
+  ],
+  "procedure": [
+   "Use push mode to drag the cart up the ramp at constant speed.",
+   "Compare the work done with the potential energy gained."
+  ],
+  "expected": "Efficiency is below 100 % whenever there is friction.",
+  "formulas": [
+   "work",
+   "efficiency",
+   "potential_energy"
+  ],
+  "interpretation": "A ramp reduces the force needed but not the energy: friction makes the input work larger than the output.",
+  "limitations": "Constant-speed pushing (no kinetic energy change) is assumed.",
+  "completion": [
+   "analyze:incline_efficiency"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "graphing",
+  "title": "Plotting and interpreting data",
+  "branch": "mathematics",
+  "objective": "Plot experimental data and find a best-fit line.",
+  "question": "What can the slope of a graph tell us?",
+  "materials": [],
+  "apparatus": [
+   "Data Recorder"
+  ],
+  "independentVariable": "Time (or another variable)",
+  "dependentVariable": "The recorded quantity",
+  "controlledVariables": [
+   "Sampling interval"
+  ],
+  "procedure": [
+   "Attach a Data Recorder to a working machine.",
+   "Collect at least 5 points.",
+   "Open the graph and read the best-fit slope, intercept and R²."
+  ],
+  "expected": "The slope gives a rate (for example K/s while heating).",
+  "formulas": [],
+  "interpretation": "A straight-line fit summarises a linear relationship; R² near 1 indicates the line describes the data well.",
+  "limitations": "Least-squares fits assume random, independent errors.",
+  "completion": [
+   "analyze:graph_fit"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "electrolysis",
+  "title": "Electrolysis and Faraday's law",
+  "branch": "chemistry",
+  "objective": "Split water with electricity and relate the gas produced to the charge passed.",
+  "question": "How much hydrogen does a given charge produce?",
+  "materials": [
+   "Water"
+  ],
+  "apparatus": [
+   "Electrolysis Station",
+   "Battery",
+   "Copper wire"
+  ],
+  "independentVariable": "Charge passed",
+  "dependentVariable": "Moles of gas produced",
+  "controlledVariables": [
+   "Electrolyte"
+  ],
+  "procedure": [
+   "Fill the Electrolysis Station with water and connect it to a battery.",
+   "Let current flow and read the charge passed and the gas collected."
+  ],
+  "expected": "Twice as much hydrogen as oxygen by moles; n(H₂) = Q/(2F).",
+  "formulas": [
+   "faraday",
+   "charge"
+  ],
+  "interpretation": "Each H₂ molecule needs two electrons, so the amount of gas is proportional to the charge.",
+  "limitations": "100 % current efficiency is assumed.",
+  "completion": [
+   "reaction:water_electrolysis"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "spectroscopy",
+  "title": "Emission spectroscopy",
+  "branch": "chemistry",
+  "objective": "Identify elements from their emission lines.",
+  "question": "Which elements are present in a sample?",
+  "materials": [
+   "Ores, minerals, salt"
+  ],
+  "apparatus": [
+   "Material Analyzer"
+  ],
+  "independentVariable": "Sample",
+  "dependentVariable": "Wavelengths of emission lines",
+  "controlledVariables": [],
+  "procedure": [
+   "Analyse a sample in the Material Analyzer's spectrum mode.",
+   "Match the lines with the reference database."
+  ],
+  "expected": "Each element shows its own set of lines (for example sodium at 589 nm).",
+  "formulas": [],
+  "interpretation": "Electrons in excited atoms drop to lower energy levels and emit photons with energies characteristic of each element.",
+  "limitations": "Line intensities are simplified; some elements' strongest lines lie outside the visible range.",
+  "completion": [
+   "analyze:spectrum"
+  ],
+  "hypothesis": null
+ },
+ {
+  "id": "limewater",
+  "title": "Testing for carbon dioxide",
+  "branch": "chemistry",
+  "objective": "Use limewater to detect carbon dioxide.",
+  "question": "Is the gas produced by acid and calcite carbon dioxide?",
+  "materials": [
+   "Slaked lime",
+   "Water",
+   "A source of CO₂"
+  ],
+  "apparatus": [
+   "Reaction Vessel (sealed)"
+  ],
+  "independentVariable": "Presence of CO₂",
+  "dependentVariable": "Whether limewater turns milky",
+  "controlledVariables": [],
+  "procedure": [
+   "Make limewater from slaked lime and water in a sealed Reaction Vessel.",
+   "Add calcite powder and acid so CO₂ is produced inside."
+  ],
+  "expected": "The limewater turns milky.",
+  "formulas": [],
+  "interpretation": "CO₂ reacts with dissolved calcium hydroxide to form insoluble calcium carbonate.",
+  "limitations": "Both reactions happen in one vessel in the game; in a real lab the gas is bubbled through limewater in a separate tube.",
+  "completion": [
+   "reaction:limewater_test"
+  ],
+  "hypothesis": null
+ }
+]

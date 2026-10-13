@@ -1,0 +1,559 @@
+[
+ {
+  "id": "raw_iron",
+  "item": "minecraft:raw_iron",
+  "name": "Raw iron (iron ore)",
+  "classification": "raw_ore",
+  "composition": [
+   {
+    "substance": "iron_iii_oxide",
+    "massFraction": 0.7
+   },
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 0.3
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "poor conductor",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Modelled as hematite (Fe₂O₃) with quartz gangue; real iron ores vary widely.",
+  "description": "Ore is rock containing enough of a metal compound to be worth extracting. It is not pure iron: the iron is chemically combined with oxygen."
+ },
+ {
+  "id": "iron_ingot",
+  "item": "minecraft:iron_ingot",
+  "name": "Iron ingot",
+  "classification": "refined",
+  "composition": [
+   {
+    "substance": "iron",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "conductor",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Treated as pure iron; real wrought iron and steel contain small amounts of carbon and other elements.",
+  "description": "A refined metal produced by removing oxygen from iron ore (reduction)."
+ },
+ {
+  "id": "iron_nugget",
+  "item": "minecraft:iron_nugget",
+  "name": "Iron nugget",
+  "classification": "refined",
+  "composition": [
+   {
+    "substance": "iron",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 11.1,
+  "density": null,
+  "conductivity": "conductor",
+  "microscope": null,
+  "abstraction": "One nugget is one ninth of a 100 g ingot.",
+  "description": "A small piece of refined iron."
+ },
+ {
+  "id": "raw_copper",
+  "item": "minecraft:raw_copper",
+  "name": "Raw copper (copper ore)",
+  "classification": "raw_ore",
+  "composition": [
+   {
+    "substance": "chalcopyrite",
+    "massFraction": 0.6
+   },
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 0.4
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "poor conductor",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Modelled as chalcopyrite (CuFeS₂) with quartz gangue.",
+  "description": "Most copper is mined as sulfide minerals such as chalcopyrite, not as metal."
+ },
+ {
+  "id": "copper_ingot",
+  "item": "minecraft:copper_ingot",
+  "name": "Copper ingot",
+  "classification": "refined",
+  "composition": [
+   {
+    "substance": "copper",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "excellent conductor",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Treated as pure copper.",
+  "description": "Refined copper, an excellent electrical conductor."
+ },
+ {
+  "id": "raw_gold",
+  "item": "minecraft:raw_gold",
+  "name": "Raw gold (gold ore)",
+  "classification": "raw_ore",
+  "composition": [
+   {
+    "substance": "gold",
+    "massFraction": 0.25
+   },
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 0.75
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "poor conductor",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Modelled as native gold in quartz — a very rich ore compared with real deposits, where gold is often measured in grams per tonne.",
+  "description": "Gold occurs as native metal, commonly in quartz veins."
+ },
+ {
+  "id": "gold_ingot",
+  "item": "minecraft:gold_ingot",
+  "name": "Gold ingot",
+  "classification": "refined",
+  "composition": [
+   {
+    "substance": "gold",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "excellent conductor",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Treated as pure gold.",
+  "description": "Refined gold. Its very high density makes it easy to tell apart from other yellow metals."
+ },
+ {
+  "id": "coal",
+  "item": "minecraft:coal",
+  "name": "Coal",
+  "classification": "mixture",
+  "composition": [
+   {
+    "substance": "carbon_graphite",
+    "massFraction": 0.85
+   },
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 0.15
+   }
+  ],
+  "sampleMassG": 100,
+  "density": 1.35,
+  "conductivity": "poor conductor",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Real coal contains hydrocarbons, water, sulfur and mineral ash; it is modelled as 85 % carbon plus silicate ash. Density is that of typical bituminous coal (1.3–1.4 g/cm³), not of the simplified components.",
+  "description": "A sedimentary rock formed from ancient plant material. Burning its carbon releases about 394 kJ per mole of carbon."
+ },
+ {
+  "id": "charcoal",
+  "item": "minecraft:charcoal",
+  "name": "Charcoal",
+  "classification": "mixture",
+  "composition": [
+   {
+    "substance": "carbon_graphite",
+    "massFraction": 0.95
+   },
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 0.05
+   }
+  ],
+  "sampleMassG": 100,
+  "density": 0.4,
+  "conductivity": "poor conductor",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Charcoal is very porous, so its bulk density (≈0.4 g/cm³) is far below that of solid carbon; displacement measurements of porous samples are unreliable.",
+  "description": "Made by heating wood without enough air to burn it, driving off water and volatile compounds."
+ },
+ {
+  "id": "diamond",
+  "item": "minecraft:diamond",
+  "name": "Diamond",
+  "classification": "mineral",
+  "composition": [
+   {
+    "substance": "carbon_diamond",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Real gem diamonds weigh far less than 100 g.",
+  "description": "Pure carbon in a rigid tetrahedral network."
+ },
+ {
+  "id": "sand",
+  "item": "minecraft:sand",
+  "name": "Sand",
+  "classification": "mixture",
+  "composition": [
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": 2.65,
+  "conductivity": "insulator",
+  "microscope": "sand_grains",
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Modelled as pure quartz sand. The density is that of the grains; loose sand has a bulk density of about 1.6 g/cm³ because of the air between grains.",
+  "description": "Small grains of weathered rock, mostly quartz."
+ },
+ {
+  "id": "quartz",
+  "item": "minecraft:quartz",
+  "name": "Nether quartz",
+  "classification": "mineral",
+  "composition": [
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Minecraft's nether quartz is treated as ordinary quartz.",
+  "description": "Crystalline silicon dioxide."
+ },
+ {
+  "id": "amethyst_shard",
+  "item": "minecraft:amethyst_shard",
+  "name": "Amethyst",
+  "classification": "mineral",
+  "composition": [
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Amethyst is quartz coloured purple by traces of iron and natural irradiation; the traces are ignored.",
+  "description": "A purple variety of quartz."
+ },
+ {
+  "id": "flint",
+  "item": "minecraft:flint",
+  "name": "Flint",
+  "classification": "mineral",
+  "composition": [
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": 2.6,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Flint is microcrystalline quartz with small amounts of water and impurities.",
+  "description": "A hard rock that breaks with sharp edges, used for early stone tools."
+ },
+ {
+  "id": "calcite",
+  "item": "minecraft:calcite",
+  "name": "Calcite",
+  "classification": "mineral",
+  "composition": [
+   {
+    "substance": "calcium_carbonate",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass).",
+  "description": "Crystalline calcium carbonate; it fizzes in acid and splits light into two images (double refraction)."
+ },
+ {
+  "id": "dripstone",
+  "item": "minecraft:dripstone_block",
+  "name": "Dripstone",
+  "classification": "mineral",
+  "composition": [
+   {
+    "substance": "calcium_carbonate",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Real speleothems are mostly calcite deposited from dripping water.",
+  "description": "Cave formations deposited from water saturated with calcium carbonate."
+ },
+ {
+  "id": "clay_ball",
+  "item": "minecraft:clay_ball",
+  "name": "Clay",
+  "classification": "mixture",
+  "composition": [
+   {
+    "substance": "kaolinite",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Clay is a mixture of minerals; kaolinite is used as a representative.",
+  "description": "Fine-grained mineral particles that become plastic when wet and hard when fired."
+ },
+ {
+  "id": "glass",
+  "item": "minecraft:glass",
+  "name": "Glass",
+  "classification": "manufactured",
+  "composition": [
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 0.74
+   },
+   {
+    "substance": "sodium_oxide",
+    "massFraction": 0.16
+   },
+   {
+    "substance": "calcium_oxide",
+    "massFraction": 0.1
+   }
+  ],
+  "sampleMassG": 100,
+  "density": 2.5,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Modelled as soda-lime glass.",
+  "description": "An amorphous solid made by melting sand with sodium and calcium compounds and cooling it before crystals can form."
+ },
+ {
+  "id": "obsidian",
+  "item": "minecraft:obsidian",
+  "name": "Obsidian",
+  "classification": "mixture",
+  "composition": [
+   {
+    "substance": "silicon_dioxide",
+    "massFraction": 0.76
+   },
+   {
+    "substance": "aluminium_oxide",
+    "massFraction": 0.14
+   },
+   {
+    "substance": "sodium_oxide",
+    "massFraction": 0.08
+   },
+   {
+    "substance": "iron_ii_iii_oxide",
+    "massFraction": 0.02
+   }
+  ],
+  "sampleMassG": 100,
+  "density": 2.4,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Obsidian is volcanic glass; this is a typical rhyolitic composition (oxide basis).",
+  "description": "Lava that cooled so quickly that no crystals formed."
+ },
+ {
+  "id": "emerald",
+  "item": "minecraft:emerald",
+  "name": "Emerald",
+  "classification": "mineral",
+  "composition": [
+   {
+    "substance": "beryl",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Trace chromium/vanadium colourants are ignored.",
+  "description": "A green gem variety of the mineral beryl."
+ },
+ {
+  "id": "bone_meal",
+  "item": "minecraft:bone_meal",
+  "name": "Bone meal",
+  "classification": "biological",
+  "composition": [
+   {
+    "substance": "hydroxyapatite",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": "bone",
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass). Only the mineral part of bone is modelled; real bone meal also contains protein and water.",
+  "description": "Ground bone, rich in calcium phosphate."
+ },
+ {
+  "id": "sugar",
+  "item": "minecraft:sugar",
+  "name": "Sugar",
+  "classification": "compound",
+  "composition": [
+   {
+    "substance": "sucrose",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": "sugar_crystals",
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass).",
+  "description": "Crystalline sucrose, a molecular compound."
+ },
+ {
+  "id": "ice",
+  "item": "minecraft:ice",
+  "name": "Ice",
+  "classification": "compound",
+  "composition": [
+   {
+    "substance": "ice",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is treated as a 100 g laboratory sample (a game convention; Minecraft items have no defined mass).",
+  "description": "Solid water. It floats because it is less dense than liquid water."
+ },
+ {
+  "id": "redstone",
+  "item": "minecraft:redstone",
+  "name": "Redstone dust",
+  "classification": "fictional",
+  "composition": null,
+  "sampleMassG": 100,
+  "density": null,
+  "conductivity": "conductor (fictional)",
+  "microscope": null,
+  "abstraction": "Redstone is a fictional Minecraft material with no real-world composition. Scientia treats it only as a fictional signal conductor and never assigns it a chemical identity.",
+  "description": "A fictional material. Scientia's circuits model real electricity, and redstone signals can switch them."
+ },
+ {
+  "id": "salt_crystals",
+  "item": "scientia:salt_crystals",
+  "name": "Salt crystals",
+  "classification": "compound",
+  "composition": [
+   {
+    "substance": "sodium_chloride",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 10,
+  "density": null,
+  "conductivity": "insulator (conducts when dissolved)",
+  "microscope": "salt_crystals",
+  "abstraction": "One item is a 10 g reagent portion.",
+  "description": "Sodium chloride recovered by evaporating or distilling seawater."
+ },
+ {
+  "id": "quicklime",
+  "item": "scientia:quicklime",
+  "name": "Quicklime",
+  "classification": "compound",
+  "composition": [
+   {
+    "substance": "calcium_oxide",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 10,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is a 10 g reagent portion.",
+  "description": "Calcium oxide made by strongly heating calcium carbonate."
+ },
+ {
+  "id": "slaked_lime",
+  "item": "scientia:slaked_lime",
+  "name": "Slaked lime",
+  "classification": "compound",
+  "composition": [
+   {
+    "substance": "calcium_hydroxide",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 10,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is a 10 g reagent portion.",
+  "description": "Calcium hydroxide made by adding water to quicklime."
+ },
+ {
+  "id": "calcite_powder",
+  "item": "scientia:calcite_powder",
+  "name": "Calcite powder",
+  "classification": "compound",
+  "composition": [
+   {
+    "substance": "calcium_carbonate",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 10,
+  "density": null,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is a 10 g reagent portion. Grinding is a physical change: the powder is still calcium carbonate.",
+  "description": "Finely ground calcite; the larger surface area makes it react faster."
+ },
+ {
+  "id": "copper_oxide_powder",
+  "item": "scientia:copper_oxide_powder",
+  "name": "Copper(II) oxide powder",
+  "classification": "compound",
+  "composition": [
+   {
+    "substance": "copper_ii_oxide",
+    "massFraction": 1.0
+   }
+  ],
+  "sampleMassG": 10,
+  "density": null,
+  "conductivity": "semiconductor",
+  "microscope": null,
+  "abstraction": "One item is a 10 g reagent portion.",
+  "description": "Black copper(II) oxide formed by heating copper in air."
+ }
+]

@@ -1,0 +1,444 @@
+[
+ {
+  "id": "graduated_cylinder",
+  "result": {
+   "item": "scientia:graduated_cylinder",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:glass",
+    "count": 3
+   },
+   {
+    "item": "minecraft:smooth_stone_slab",
+    "count": 1
+   }
+  ],
+  "research": "observation_basics"
+ },
+ {
+  "id": "thermometer",
+  "result": {
+   "item": "scientia:thermometer",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:glass_pane",
+    "count": 1
+   },
+   {
+    "item": "minecraft:iron_nugget",
+    "count": 2
+   },
+   {
+    "item": "minecraft:redstone",
+    "count": 1
+   }
+  ],
+  "research": "observation_basics"
+ },
+ {
+  "id": "reaction_vessel",
+  "result": {
+   "item": "scientia:reaction_vessel",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:glass",
+    "count": 5
+   },
+   {
+    "item": "minecraft:iron_ingot",
+    "count": 2
+   }
+  ],
+  "research": "measurement_density"
+ },
+ {
+  "id": "material_analyzer",
+  "result": {
+   "item": "scientia:material_analyzer",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:iron_ingot",
+    "count": 4
+   },
+   {
+    "item": "minecraft:glass",
+    "count": 2
+   },
+   {
+    "item": "minecraft:amethyst_shard",
+    "count": 2
+   },
+   {
+    "item": "minecraft:redstone",
+    "count": 2
+   }
+  ],
+  "research": "material_identification"
+ },
+ {
+  "id": "lab_heater",
+  "result": {
+   "item": "scientia:lab_heater",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:iron_ingot",
+    "count": 4
+   },
+   {
+    "item": "minecraft:copper_ingot",
+    "count": 2
+   },
+   {
+    "item": "minecraft:redstone",
+    "count": 1
+   }
+  ],
+  "research": "temperature"
+ },
+ {
+  "id": "data_recorder",
+  "result": {
+   "item": "scientia:data_recorder",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:iron_ingot",
+    "count": 2
+   },
+   {
+    "item": "minecraft:redstone",
+    "count": 4
+   },
+   {
+    "item": "minecraft:glass_pane",
+    "count": 1
+   },
+   {
+    "item": "minecraft:comparator",
+    "count": 1
+   }
+  ],
+  "research": "temperature"
+ },
+ {
+  "id": "condenser",
+  "result": {
+   "item": "scientia:condenser",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:glass",
+    "count": 4
+   },
+   {
+    "item": "minecraft:copper_ingot",
+    "count": 2
+   }
+  ],
+  "research": "phase_changes"
+ },
+ {
+  "id": "insulated_kiln",
+  "result": {
+   "item": "scientia:insulated_kiln",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:bricks",
+    "count": 6
+   },
+   {
+    "item": "minecraft:furnace",
+    "count": 1
+   },
+   {
+    "item": "minecraft:white_wool",
+    "count": 2
+   }
+  ],
+  "research": "thermal_insulation"
+ },
+ {
+  "id": "ph_meter",
+  "result": {
+   "item": "scientia:ph_meter",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:glass_pane",
+    "count": 1
+   },
+   {
+    "item": "minecraft:copper_ingot",
+    "count": 1
+   },
+   {
+    "item": "minecraft:redstone",
+    "count": 2
+   }
+  ],
+  "research": "chemical_reactions"
+ },
+ {
+  "id": "gas_canister",
+  "result": {
+   "item": "scientia:gas_canister",
+   "count": 4
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:iron_ingot",
+    "count": 3
+   }
+  ],
+  "research": "chemical_reactions"
+ },
+ {
+  "id": "copper_wire",
+  "result": {
+   "item": "scientia:copper_wire",
+   "count": 16
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:copper_ingot",
+    "count": 2
+   }
+  ],
+  "research": "conductors"
+ },
+ {
+  "id": "battery",
+  "result": {
+   "item": "scientia:battery",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:copper_ingot",
+    "count": 2
+   },
+   {
+    "item": "minecraft:iron_ingot",
+    "count": 2
+   },
+   {
+    "item": "minecraft:redstone",
+    "count": 2
+   },
+   {
+    "item": "scientia:salt_crystals",
+    "count": 1
+   }
+  ],
+  "research": "conductors"
+ },
+ {
+  "id": "filament_lamp",
+  "result": {
+   "item": "scientia:filament_lamp",
+   "count": 2
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:glass",
+    "count": 1
+   },
+   {
+    "item": "minecraft:copper_ingot",
+    "count": 1
+   },
+   {
+    "item": "minecraft:iron_nugget",
+    "count": 1
+   }
+  ],
+  "research": "conductors"
+ },
+ {
+  "id": "circuit_switch",
+  "result": {
+   "item": "scientia:circuit_switch",
+   "count": 2
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:lever",
+    "count": 1
+   },
+   {
+    "item": "minecraft:copper_ingot",
+    "count": 1
+   }
+  ],
+  "research": "conductors"
+ },
+ {
+  "id": "multimeter",
+  "result": {
+   "item": "scientia:multimeter",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:copper_ingot",
+    "count": 2
+   },
+   {
+    "item": "minecraft:redstone",
+    "count": 2
+   },
+   {
+    "item": "minecraft:glass_pane",
+    "count": 1
+   }
+  ],
+  "research": "conductors"
+ },
+ {
+  "id": "resistor",
+  "result": {
+   "item": "scientia:resistor",
+   "count": 4
+  },
+  "ingredients": [
+   {
+    "item": "scientia:copper_wire",
+    "count": 2
+   },
+   {
+    "item": "minecraft:coal",
+    "count": 1
+   },
+   {
+    "item": "minecraft:clay_ball",
+    "count": 1
+   }
+  ],
+  "research": "closed_circuits"
+ },
+ {
+  "id": "electrolysis_station",
+  "result": {
+   "item": "scientia:electrolysis_station",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:glass",
+    "count": 3
+   },
+   {
+    "item": "minecraft:iron_ingot",
+    "count": 2
+   },
+   {
+    "item": "scientia:copper_wire",
+    "count": 2
+   }
+  ],
+  "research": "ohms_law"
+ },
+ {
+  "id": "electric_motor",
+  "result": {
+   "item": "scientia:electric_motor",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:iron_ingot",
+    "count": 3
+   },
+   {
+    "item": "scientia:copper_wire",
+    "count": 4
+   },
+   {
+    "item": "minecraft:redstone",
+    "count": 1
+   }
+  ],
+  "research": "ohms_law"
+ },
+ {
+  "id": "thermal_generator",
+  "result": {
+   "item": "scientia:thermal_generator",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:iron_ingot",
+    "count": 5
+   },
+   {
+    "item": "minecraft:furnace",
+    "count": 1
+   },
+   {
+    "item": "scientia:copper_wire",
+    "count": 4
+   }
+  ],
+  "research": "series_parallel"
+ },
+ {
+  "id": "solar_panel",
+  "result": {
+   "item": "scientia:solar_panel",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:glass",
+    "count": 2
+   },
+   {
+    "item": "minecraft:quartz",
+    "count": 3
+   },
+   {
+    "item": "scientia:copper_wire",
+    "count": 2
+   }
+  ],
+  "research": "energy_conversion"
+ },
+ {
+  "id": "microscope",
+  "result": {
+   "item": "scientia:microscope",
+   "count": 1
+  },
+  "ingredients": [
+   {
+    "item": "minecraft:iron_ingot",
+    "count": 3
+   },
+   {
+    "item": "minecraft:glass",
+    "count": 2
+   },
+   {
+    "item": "minecraft:copper_ingot",
+    "count": 1
+   }
+  ],
+  "research": "optics"
+ }
+]

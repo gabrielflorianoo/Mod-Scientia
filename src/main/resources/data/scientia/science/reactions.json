@@ -1,0 +1,764 @@
+[
+ {
+  "id": "calcite_hcl",
+  "name": "Calcium carbonate with hydrochloric acid",
+  "type": "acid_carbonate",
+  "reactants": [
+   {
+    "substance": "calcium_carbonate",
+    "coefficient": 1,
+    "state": "s"
+   },
+   {
+    "substance": "hydrogen_chloride",
+    "coefficient": 2,
+    "state": "aq"
+   }
+  ],
+  "products": [
+   {
+    "substance": "calcium_chloride",
+    "coefficient": 1,
+    "state": "aq"
+   },
+   {
+    "substance": "water",
+    "coefficient": 1,
+    "state": "l"
+   },
+   {
+    "substance": "carbon_dioxide",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": -15.1,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.35,
+  "observations": [
+   "Vigorous fizzing as carbon dioxide bubbles form",
+   "The solid calcite gradually disappears",
+   "In an open vessel the total mass decreases as gas escapes"
+  ],
+  "explanation": {
+   "intuition": "Acids react with carbonates to make a salt, water and carbon dioxide gas.",
+   "science": "Hydrogen ions from the acid react with carbonate ions: CO₃²⁻ + 2 H⁺ → H₂O + CO₂. The calcium ions stay in solution with the chloride ions.",
+   "technical": "Net ionic equation: CaCO₃(s) + 2 H⁺(aq) → Ca²⁺(aq) + H₂O(l) + CO₂(g). ΔH° ≈ −15 kJ/mol; the reaction is only mildly exothermic."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 4 (Stoichiometry of chemical reactions)",
+   "Royal Society of Chemistry, Practical Chemistry resources (rsc.org)"
+  ],
+  "simplification": "Rate is a gameplay constant; real rates depend on surface area, concentration and temperature."
+ },
+ {
+  "id": "calcite_vinegar",
+  "name": "Calcium carbonate with acetic acid (vinegar)",
+  "type": "acid_carbonate",
+  "reactants": [
+   {
+    "substance": "calcium_carbonate",
+    "coefficient": 1,
+    "state": "s"
+   },
+   {
+    "substance": "acetic_acid",
+    "coefficient": 2,
+    "state": "aq"
+   }
+  ],
+  "products": [
+   {
+    "substance": "calcium_acetate",
+    "coefficient": 1,
+    "state": "aq"
+   },
+   {
+    "substance": "water",
+    "coefficient": 1,
+    "state": "l"
+   },
+   {
+    "substance": "carbon_dioxide",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": null,
+  "deltaHSource": null,
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.12,
+  "observations": [
+   "Slower fizzing than with hydrochloric acid",
+   "Calcite slowly dissolves"
+  ],
+  "explanation": {
+   "intuition": "Vinegar dissolves limestone and eggshells, releasing carbon dioxide bubbles.",
+   "science": "Acetic acid is a weak acid, so fewer H⁺ ions are available at any moment and the reaction is slower than with a strong acid at the same concentration.",
+   "technical": "CaCO₃(s) + 2 CH₃COOH(aq) → Ca(CH₃COO)₂(aq) + H₂O(l) + CO₂(g). No reliable enthalpy value is stored in this database."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 14 (Acid–base equilibria)",
+   "Royal Society of Chemistry, Practical Chemistry resources (rsc.org)"
+  ],
+  "simplification": "Weak-acid slowness is represented by a smaller gameplay rate constant, not a kinetic model."
+ },
+ {
+  "id": "neutralization_hcl_naoh",
+  "name": "Neutralisation of hydrochloric acid by sodium hydroxide",
+  "type": "neutralization",
+  "reactants": [
+   {
+    "substance": "hydrogen_chloride",
+    "coefficient": 1,
+    "state": "aq"
+   },
+   {
+    "substance": "sodium_hydroxide",
+    "coefficient": 1,
+    "state": "aq"
+   }
+  ],
+  "products": [
+   {
+    "substance": "sodium_chloride",
+    "coefficient": 1,
+    "state": "aq"
+   },
+   {
+    "substance": "water",
+    "coefficient": 1,
+    "state": "l"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": -55.8,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 2.0,
+  "observations": [
+   "No visible change without an indicator",
+   "The solution warms up",
+   "An indicator changes colour at the end point"
+  ],
+  "explanation": {
+   "intuition": "An acid and a base cancel each other out, forming a salt and water.",
+   "science": "H⁺ ions from the acid combine with OH⁻ ions from the base to form water. Na⁺ and Cl⁻ are spectator ions that remain dissolved.",
+   "technical": "Net ionic equation: H⁺(aq) + OH⁻(aq) → H₂O(l), ΔH° = −55.8 kJ/mol at 25 °C (textbook calorimetry often gives 56–58 kJ/mol)."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 14 (Acid–base titrations)",
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)"
+  ],
+  "simplification": "The reaction is treated as instantaneous (very fast in reality)."
+ },
+ {
+  "id": "neutralization_acetic_naoh",
+  "name": "Neutralisation of acetic acid by sodium hydroxide",
+  "type": "neutralization",
+  "reactants": [
+   {
+    "substance": "acetic_acid",
+    "coefficient": 1,
+    "state": "aq"
+   },
+   {
+    "substance": "sodium_hydroxide",
+    "coefficient": 1,
+    "state": "aq"
+   }
+  ],
+  "products": [
+   {
+    "substance": "sodium_acetate",
+    "coefficient": 1,
+    "state": "aq"
+   },
+   {
+    "substance": "water",
+    "coefficient": 1,
+    "state": "l"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": null,
+  "deltaHSource": null,
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 2.0,
+  "observations": [
+   "No visible change without an indicator",
+   "At the equivalence point the solution is slightly basic"
+  ],
+  "explanation": {
+   "intuition": "Vinegar can be neutralised by a base, forming a salt and water.",
+   "science": "Acetic acid transfers its H⁺ to hydroxide. The product, acetate, is a weak base, so the equivalence point is above pH 7.",
+   "technical": "CH₃COOH(aq) + OH⁻(aq) → CH₃COO⁻(aq) + H₂O(l). Phenolphthalein, not methyl orange, is the right indicator for this titration."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 14"
+  ],
+  "simplification": "Treated as instantaneous."
+ },
+ {
+  "id": "limestone_decomposition",
+  "name": "Thermal decomposition of calcium carbonate",
+  "type": "thermal_decomposition",
+  "reactants": [
+   {
+    "substance": "calcium_carbonate",
+    "coefficient": 1,
+    "state": "s"
+   }
+  ],
+  "products": [
+   {
+    "substance": "calcium_oxide",
+    "coefficient": 1,
+    "state": "s"
+   },
+   {
+    "substance": "carbon_dioxide",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": 1170.0,
+   "maxTemperatureK": null,
+   "requires": [
+    "heat"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": 178.3,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": true,
+  "electrons": 0,
+  "ratePerSecond": 0.08,
+  "observations": [
+   "Requires very high temperature (a kiln, not a hot plate)",
+   "The solid loses mass as carbon dioxide is driven off"
+  ],
+  "explanation": {
+   "intuition": "Strongly heating limestone breaks it down into quicklime and carbon dioxide.",
+   "science": "The reaction absorbs energy (endothermic). It only proceeds significantly when the CO₂ pressure in equilibrium with calcite exceeds the surrounding CO₂ pressure, at roughly 900 °C under 1 atm of CO₂.",
+   "technical": "ΔH° = +178.3 kJ/mol. The decomposition is reversible; lime kilns sweep away CO₂ to drive it forward."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 13 (Equilibrium)",
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)"
+  ],
+  "simplification": "The game uses a sharp threshold temperature (1170 K); the real reaction rate rises gradually with temperature."
+ },
+ {
+  "id": "water_electrolysis",
+  "name": "Electrolysis of water",
+  "type": "electrolysis",
+  "reactants": [
+   {
+    "substance": "water",
+    "coefficient": 2,
+    "state": "l"
+   }
+  ],
+  "products": [
+   {
+    "substance": "hydrogen",
+    "coefficient": 2,
+    "state": "g"
+   },
+   {
+    "substance": "oxygen",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "electrolysis",
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": 571.6,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 4,
+  "ratePerSecond": 0.0,
+  "observations": [
+   "Bubbles at both electrodes",
+   "About twice as much gas forms at the cathode (hydrogen) as at the anode (oxygen)"
+  ],
+  "explanation": {
+   "intuition": "Electricity can split water into hydrogen and oxygen gases.",
+   "science": "At the cathode, water gains electrons and forms H₂; at the anode, water loses electrons and forms O₂. Four electrons are transferred for every two water molecules split.",
+   "technical": "Faraday's law: moles of reaction = Q / (4F). The minimum voltage is about 1.23 V (ΔG°/zF); real cells need more because of overpotentials. An electrolyte is needed to carry current."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 17 (Electrochemistry)",
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)"
+  ],
+  "simplification": "The electrolyte is assumed present; the amount produced follows Faraday's law exactly, but cell voltage requirements are simplified to 'at least 1.23 V'."
+ },
+ {
+  "id": "brine_electrolysis",
+  "name": "Electrolysis of brine (chlor-alkali process)",
+  "type": "electrolysis",
+  "reactants": [
+   {
+    "substance": "sodium_chloride",
+    "coefficient": 2,
+    "state": "aq"
+   },
+   {
+    "substance": "water",
+    "coefficient": 2,
+    "state": "l"
+   }
+  ],
+  "products": [
+   {
+    "substance": "sodium_hydroxide",
+    "coefficient": 2,
+    "state": "aq"
+   },
+   {
+    "substance": "hydrogen",
+    "coefficient": 1,
+    "state": "g"
+   },
+   {
+    "substance": "chlorine",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "electrolysis",
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": 446.0,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 2,
+  "ratePerSecond": 0.0,
+  "observations": [
+   "Bubbles at both electrodes",
+   "The solution becomes basic as sodium hydroxide forms"
+  ],
+  "explanation": {
+   "intuition": "Passing electricity through salty water makes sodium hydroxide, hydrogen and chlorine.",
+   "science": "Chloride ions are oxidised to Cl₂ at the anode; water is reduced to H₂ and OH⁻ at the cathode. Na⁺ ions stay in solution, so NaOH accumulates.",
+   "technical": "Two electrons per Cl₂ molecule. Industrial cells use a membrane to keep the products apart."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 17",
+   "Euro Chlor, 'The chlor-alkali process' (eurochlor.org)"
+  ],
+  "simplification": "Gases are collected automatically into sealed canisters; brine electrolysis is chosen over water electrolysis when enough chloride is present."
+ },
+ {
+  "id": "hydrogen_chlorine",
+  "name": "Synthesis of hydrogen chloride",
+  "type": "synthesis",
+  "reactants": [
+   {
+    "substance": "hydrogen",
+    "coefficient": 1,
+    "state": "g"
+   },
+   {
+    "substance": "chlorine",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "products": [
+   {
+    "substance": "hydrogen_chloride",
+    "coefficient": 2,
+    "state": "g"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": -184.6,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.6,
+  "observations": [
+   "The gas dissolves in water to form hydrochloric acid"
+  ],
+  "explanation": {
+   "intuition": "Hydrogen and chlorine combine to make hydrogen chloride, which dissolves to give hydrochloric acid.",
+   "science": "Each H–H and Cl–Cl bond is broken and two H–Cl bonds form. The products are lower in energy, so heat is released.",
+   "technical": "ΔH° = −184.6 kJ (−92.3 kJ per mole of HCl). Industrially this is done in a controlled burner."
+  },
+  "references": [
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)"
+  ],
+  "simplification": "Modelled as a controlled synthesis in a sealed vessel containing water; the real reaction can be violent if uncontrolled."
+ },
+ {
+  "id": "carbon_combustion",
+  "name": "Combustion of carbon",
+  "type": "combustion",
+  "reactants": [
+   {
+    "substance": "carbon_graphite",
+    "coefficient": 1,
+    "state": "s"
+   },
+   {
+    "substance": "oxygen",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "products": [
+   {
+    "substance": "carbon_dioxide",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": 700.0,
+   "maxTemperatureK": null,
+   "requires": [
+    "heat"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": -393.5,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.2,
+  "observations": [
+   "Glowing solid",
+   "Releases a large amount of heat"
+  ],
+  "explanation": {
+   "intuition": "Burning carbon (coal, charcoal) combines it with oxygen and releases energy.",
+   "science": "Combustion is a rapid exothermic oxidation. The chemical energy released per mole of carbon is the basis of coal-fired heating in the game.",
+   "technical": "ΔH° = −393.5 kJ/mol (standard enthalpy of formation of CO₂). Incomplete combustion produces carbon monoxide instead."
+  },
+  "references": [
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+   "OpenStax Chemistry 2e (openstax.org), chapter 5 (Thermochemistry)"
+  ],
+  "simplification": "Ignition is represented by a threshold temperature."
+ },
+ {
+  "id": "copper_oxidation",
+  "name": "Oxidation of heated copper",
+  "type": "synthesis",
+  "reactants": [
+   {
+    "substance": "copper",
+    "coefficient": 2,
+    "state": "s"
+   },
+   {
+    "substance": "oxygen",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "products": [
+   {
+    "substance": "copper_ii_oxide",
+    "coefficient": 2,
+    "state": "s"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": 573.0,
+   "maxTemperatureK": null,
+   "requires": [
+    "heat"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": -314.6,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.05,
+  "observations": [
+   "Copper surface turns black",
+   "The solid gains mass"
+  ],
+  "explanation": {
+   "intuition": "Heated copper combines with oxygen from the air and gets heavier.",
+   "science": "Copper atoms lose electrons (oxidation) and oxygen gains them (reduction). The mass gained equals the mass of oxygen taken from the air — mass is conserved.",
+   "technical": "ΔH° = 2 × (−157.3) kJ. Some copper(I) oxide (Cu₂O) also forms in reality."
+  },
+  "references": [
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+   "Royal Society of Chemistry, Practical Chemistry resources (rsc.org)"
+  ],
+  "simplification": "Only CuO is modelled."
+ },
+ {
+  "id": "lime_slaking",
+  "name": "Slaking of quicklime",
+  "type": "synthesis",
+  "reactants": [
+   {
+    "substance": "calcium_oxide",
+    "coefficient": 1,
+    "state": "s"
+   },
+   {
+    "substance": "water",
+    "coefficient": 1,
+    "state": "l"
+   }
+  ],
+  "products": [
+   {
+    "substance": "calcium_hydroxide",
+    "coefficient": 1,
+    "state": "s"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": -65.2,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.5,
+  "observations": [
+   "The mixture becomes very hot",
+   "Lumps crumble into a white powder"
+  ],
+  "explanation": {
+   "intuition": "Adding water to quicklime releases a lot of heat.",
+   "science": "Calcium oxide reacts with water to form calcium hydroxide; the products have lower energy than the reactants.",
+   "technical": "ΔH° = −65.2 kJ/mol. Excess water dissolves a little Ca(OH)₂, giving limewater."
+  },
+  "references": [
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)"
+  ],
+  "simplification": "Rate is a gameplay constant."
+ },
+ {
+  "id": "limewater_test",
+  "name": "Limewater test for carbon dioxide",
+  "type": "precipitation",
+  "reactants": [
+   {
+    "substance": "calcium_hydroxide",
+    "coefficient": 1,
+    "state": "aq"
+   },
+   {
+    "substance": "carbon_dioxide",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "products": [
+   {
+    "substance": "calcium_carbonate",
+    "coefficient": 1,
+    "state": "s"
+   },
+   {
+    "substance": "water",
+    "coefficient": 1,
+    "state": "l"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": -113.1,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.8,
+  "observations": [
+   "Clear limewater turns milky as insoluble calcium carbonate forms"
+  ],
+  "explanation": {
+   "intuition": "Carbon dioxide turns limewater milky — a classic test for the gas.",
+   "science": "CO₂ reacts with dissolved calcium hydroxide to form calcium carbonate, which is insoluble and appears as a white precipitate.",
+   "technical": "With excess CO₂ the precipitate redissolves as calcium hydrogencarbonate; this is not modelled."
+  },
+  "references": [
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+   "Royal Society of Chemistry, Practical Chemistry resources (rsc.org)"
+  ],
+  "simplification": "Excess-CO₂ redissolution is not modelled."
+ },
+ {
+  "id": "iron_smelting",
+  "name": "Reduction of iron ore with carbon",
+  "type": "reduction",
+  "reactants": [
+   {
+    "substance": "iron_iii_oxide",
+    "coefficient": 2,
+    "state": "s"
+   },
+   {
+    "substance": "carbon_graphite",
+    "coefficient": 3,
+    "state": "s"
+   }
+  ],
+  "products": [
+   {
+    "substance": "iron",
+    "coefficient": 4,
+    "state": "s"
+   },
+   {
+    "substance": "carbon_dioxide",
+    "coefficient": 3,
+    "state": "g"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": 1173.0,
+   "maxTemperatureK": null,
+   "requires": [
+    "heat"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": 467.9,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.1,
+  "observations": [
+   "Requires a kiln temperature above about 900 °C",
+   "Carbon dioxide is released"
+  ],
+  "explanation": {
+   "intuition": "Heating iron ore with carbon removes the oxygen and leaves iron metal.",
+   "science": "Carbon is a reducing agent: it takes oxygen from iron(III) oxide. In real blast furnaces most of the reduction is done by carbon monoxide formed from the coke.",
+   "technical": "Overall equation 2 Fe₂O₃ + 3 C → 4 Fe + 3 CO₂, ΔH° = +467.9 kJ (the energy comes from burning extra fuel)."
+  },
+  "references": [
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+   "OpenStax Chemistry 2e (openstax.org), chapter 18 (Representative metals)"
+  ],
+  "simplification": "The CO intermediate steps are folded into one overall equation."
+ },
+ {
+  "id": "hydrogen_combustion",
+  "name": "Combustion of hydrogen",
+  "type": "combustion",
+  "reactants": [
+   {
+    "substance": "hydrogen",
+    "coefficient": 2,
+    "state": "g"
+   },
+   {
+    "substance": "oxygen",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "products": [
+   {
+    "substance": "water",
+    "coefficient": 2,
+    "state": "l"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": 843.0,
+   "maxTemperatureK": null,
+   "requires": [
+    "heat"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": -571.6,
+  "deltaHSource": "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)",
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 1.0,
+  "observations": [
+   "Water forms",
+   "Large energy release"
+  ],
+  "explanation": {
+   "intuition": "Hydrogen burns in oxygen to form only water.",
+   "science": "The reverse of water electrolysis: the energy put in to split water is released again when hydrogen and oxygen recombine.",
+   "technical": "ΔH° = −571.6 kJ per 2 mol H₂O(l). Autoignition near 570 °C."
+  },
+  "references": [
+   "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)"
+  ],
+  "simplification": "Only a controlled reaction inside sealed apparatus is modelled; mixtures of hydrogen and oxygen are dangerous in reality."
+ }
+]

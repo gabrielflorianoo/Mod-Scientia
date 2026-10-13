@@ -1,0 +1,481 @@
+[
+ {
+  "id": "observation_basics",
+  "branch": "observation",
+  "title": "Scientific Observation",
+  "x": 0,
+  "y": 2,
+  "prerequisites": [],
+  "requires": [
+   "measure:mass"
+  ],
+  "unlocks": [
+   "graduated_cylinder",
+   "thermometer"
+  ],
+  "icon": "scientia:precision_balance",
+  "summary": "Science starts with careful measurement. A measurement has a value, a unit and an uncertainty."
+ },
+ {
+  "id": "measurement_density",
+  "branch": "observation",
+  "title": "Density",
+  "x": 1,
+  "y": 1,
+  "prerequisites": [
+   "observation_basics"
+  ],
+  "requires": [
+   "derived:density"
+  ],
+  "unlocks": [
+   "reaction_vessel"
+  ],
+  "icon": "scientia:graduated_cylinder",
+  "summary": "Density (mass per unit volume) is a property of a material that does not depend on the size of the sample."
+ },
+ {
+  "id": "material_identification",
+  "branch": "earth",
+  "title": "Identifying Materials",
+  "x": 2,
+  "y": 0,
+  "prerequisites": [
+   "measurement_density"
+  ],
+  "requires": [
+   "identify:any"
+  ],
+  "unlocks": [
+   "material_analyzer"
+  ],
+  "icon": "scientia:material_analyzer",
+  "summary": "Comparing measured properties with reference data lets you identify substances — and shows why one property is rarely enough."
+ },
+ {
+  "id": "spectroscopy",
+  "branch": "chemistry",
+  "title": "Spectroscopy",
+  "x": 3,
+  "y": 0,
+  "prerequisites": [
+   "material_identification"
+  ],
+  "requires": [
+   "analyze:spectrum"
+  ],
+  "unlocks": [
+   "feature:spectral_identification"
+  ],
+  "icon": "scientia:material_analyzer",
+  "summary": "Every element emits light at its own characteristic wavelengths, a fingerprint used from forensics to astronomy."
+ },
+ {
+  "id": "geology",
+  "branch": "earth",
+  "title": "Minerals and Rocks",
+  "x": 4,
+  "y": 0,
+  "prerequisites": [
+   "spectroscopy"
+  ],
+  "requires": [
+   "identify:calcite",
+   "analyze:spectrum"
+  ],
+  "unlocks": [
+   "feature:mineral_atlas"
+  ],
+  "icon": "minecraft:calcite",
+  "summary": "Minerals are naturally occurring crystalline compounds; rocks are mixtures of minerals."
+ },
+ {
+  "id": "conductors",
+  "branch": "electricity",
+  "title": "Conductors and Insulators",
+  "x": 3,
+  "y": 1,
+  "prerequisites": [
+   "material_identification"
+  ],
+  "requires": [
+   "analyze:conductor"
+  ],
+  "unlocks": [
+   "copper_wire",
+   "battery",
+   "filament_lamp",
+   "circuit_switch",
+   "multimeter"
+  ],
+  "icon": "scientia:copper_wire",
+  "summary": "Metals conduct electricity because some of their electrons are free to move; insulators hold their electrons tightly."
+ },
+ {
+  "id": "closed_circuits",
+  "branch": "electricity",
+  "title": "Electric Circuits",
+  "x": 4,
+  "y": 1,
+  "prerequisites": [
+   "conductors"
+  ],
+  "requires": [
+   "circuit:closed"
+  ],
+  "unlocks": [
+   "resistor"
+  ],
+  "icon": "scientia:filament_lamp",
+  "summary": "Current flows only around a complete loop; a battery provides the potential difference that drives it."
+ },
+ {
+  "id": "ohms_law",
+  "branch": "electricity",
+  "title": "Ohm's Law",
+  "x": 5,
+  "y": 1,
+  "prerequisites": [
+   "closed_circuits"
+  ],
+  "requires": [
+   "experiment:ohms_law"
+  ],
+  "unlocks": [
+   "electrolysis_station",
+   "electric_motor"
+  ],
+  "icon": "scientia:resistor",
+  "summary": "For many conductors the current is proportional to the voltage: V = IR."
+ },
+ {
+  "id": "series_parallel",
+  "branch": "electricity",
+  "title": "Series and Parallel",
+  "x": 5,
+  "y": 2,
+  "prerequisites": [
+   "closed_circuits"
+  ],
+  "requires": [
+   "experiment:series_parallel"
+  ],
+  "unlocks": [
+   "thermal_generator"
+  ],
+  "icon": "scientia:filament_lamp",
+  "summary": "Resistances add in series; in parallel each branch gets the full voltage and the currents add."
+ },
+ {
+  "id": "energy_conversion",
+  "branch": "electricity",
+  "title": "Energy Conversion",
+  "x": 6,
+  "y": 2,
+  "prerequisites": [
+   "series_parallel"
+  ],
+  "requires": [
+   "measure:power"
+  ],
+  "unlocks": [
+   "solar_panel"
+  ],
+  "icon": "scientia:thermal_generator",
+  "summary": "Generators, motors, lamps and solar cells convert energy from one form to another — never with 100 % efficiency."
+ },
+ {
+  "id": "electrochemistry",
+  "branch": "chemistry",
+  "title": "Electrochemistry",
+  "x": 6,
+  "y": 1,
+  "prerequisites": [
+   "ohms_law",
+   "chemical_reactions"
+  ],
+  "requires": [
+   "reaction:water_electrolysis"
+  ],
+  "unlocks": [
+   "feature:brine_electrolysis"
+  ],
+  "icon": "scientia:electrolysis_station",
+  "summary": "Electric current can drive chemical reactions; the amount of product is fixed by the charge passed (Faraday's law)."
+ },
+ {
+  "id": "chemical_reactions",
+  "branch": "chemistry",
+  "title": "Chemical Reactions",
+  "x": 2,
+  "y": 2,
+  "prerequisites": [
+   "measurement_density"
+  ],
+  "requires": [
+   "reaction:any"
+  ],
+  "unlocks": [
+   "ph_meter",
+   "gas_canister"
+  ],
+  "icon": "scientia:reaction_vessel",
+  "summary": "In a chemical reaction atoms are rearranged into new substances. Balanced equations show the same atoms on both sides."
+ },
+ {
+  "id": "conservation_of_mass",
+  "branch": "chemistry",
+  "title": "Conservation of Mass",
+  "x": 3,
+  "y": 3,
+  "prerequisites": [
+   "chemical_reactions"
+  ],
+  "requires": [
+   "experiment:conservation_of_mass"
+  ],
+  "unlocks": [
+   "feature:mass_accounting"
+  ],
+  "icon": "scientia:reaction_vessel",
+  "summary": "In a closed system the total mass never changes during a reaction."
+ },
+ {
+  "id": "acids_bases",
+  "branch": "chemistry",
+  "title": "Acids and Bases",
+  "x": 3,
+  "y": 2,
+  "prerequisites": [
+   "chemical_reactions"
+  ],
+  "requires": [
+   "analyze:acid",
+   "analyze:base"
+  ],
+  "unlocks": [
+   "feature:indicators"
+  ],
+  "icon": "scientia:ph_meter",
+  "summary": "Acids donate hydrogen ions and bases accept them; pH is a logarithmic scale of hydrogen-ion concentration."
+ },
+ {
+  "id": "gas_laws",
+  "branch": "chemistry",
+  "title": "Gas Laws",
+  "x": 4,
+  "y": 3,
+  "prerequisites": [
+   "chemical_reactions",
+   "temperature"
+  ],
+  "requires": [
+   "experiment:gas_laws"
+  ],
+  "unlocks": [
+   "feature:pressure_gauge"
+  ],
+  "icon": "scientia:reaction_vessel",
+  "summary": "For an ideal gas PV = nRT: pressure, volume and temperature are linked."
+ },
+ {
+  "id": "temperature",
+  "branch": "thermal",
+  "title": "Temperature",
+  "x": 1,
+  "y": 3,
+  "prerequisites": [
+   "observation_basics"
+  ],
+  "requires": [
+   "measure:temperature"
+  ],
+  "unlocks": [
+   "lab_heater",
+   "data_recorder"
+  ],
+  "icon": "scientia:thermometer",
+  "summary": "Temperature measures the average kinetic energy of particles; absolute temperature is measured in kelvin."
+ },
+ {
+  "id": "phase_changes",
+  "branch": "thermal",
+  "title": "Phase Changes",
+  "x": 2,
+  "y": 4,
+  "prerequisites": [
+   "temperature"
+  ],
+  "requires": [
+   "phase:boiling"
+  ],
+  "unlocks": [
+   "condenser"
+  ],
+  "icon": "scientia:lab_heater",
+  "summary": "During melting and boiling, added energy changes the state of a substance instead of its temperature."
+ },
+ {
+  "id": "separation",
+  "branch": "chemistry",
+  "title": "Separating Mixtures",
+  "x": 3,
+  "y": 4,
+  "prerequisites": [
+   "phase_changes"
+  ],
+  "requires": [
+   "separate:distillation"
+  ],
+  "unlocks": [
+   "feature:distillation"
+  ],
+  "icon": "scientia:condenser",
+  "summary": "Mixtures can be separated by physical processes — filtration, evaporation, distillation — because their components keep their own properties."
+ },
+ {
+  "id": "thermal_insulation",
+  "branch": "thermal",
+  "title": "Thermal Insulation",
+  "x": 2,
+  "y": 5,
+  "prerequisites": [
+   "temperature"
+  ],
+  "requires": [
+   "experiment:thermal_insulation"
+  ],
+  "unlocks": [
+   "insulated_kiln"
+  ],
+  "icon": "scientia:insulated_kiln",
+  "summary": "Insulators slow down heat transfer by conduction, convection and radiation."
+ },
+ {
+  "id": "graphing",
+  "branch": "mathematics",
+  "title": "Graphs and Models",
+  "x": 2,
+  "y": 6,
+  "prerequisites": [
+   "temperature"
+  ],
+  "requires": [
+   "analyze:graph_fit"
+  ],
+  "unlocks": [
+   "feature:graph_tools"
+  ],
+  "icon": "scientia:data_recorder",
+  "summary": "A graph reveals relationships in data; the slope and intercept of a best-fit line are measurable quantities."
+ },
+ {
+  "id": "optics",
+  "branch": "optics",
+  "title": "Reflection and Refraction",
+  "x": 1,
+  "y": 7,
+  "prerequisites": [
+   "observation_basics"
+  ],
+  "requires": [
+   "observe:reflection",
+   "observe:refraction"
+  ],
+  "unlocks": [
+   "microscope"
+  ],
+  "icon": "scientia:optical_bench",
+  "summary": "Light reflects at equal angles and bends (refracts) when it passes between materials with different refractive indices."
+ },
+ {
+  "id": "lenses",
+  "branch": "optics",
+  "title": "Lenses and Images",
+  "x": 2,
+  "y": 7,
+  "prerequisites": [
+   "optics"
+  ],
+  "requires": [
+   "observe:lens_image"
+  ],
+  "unlocks": [
+   "feature:lens_designer"
+  ],
+  "icon": "scientia:optical_bench",
+  "summary": "A converging lens forms images whose positions follow the thin lens equation."
+ },
+ {
+  "id": "microscopy",
+  "branch": "biology",
+  "title": "Microscopy",
+  "x": 3,
+  "y": 7,
+  "prerequisites": [
+   "optics"
+  ],
+  "requires": [
+   "observe:microscope"
+  ],
+  "unlocks": [
+   "feature:microscope_atlas"
+  ],
+  "icon": "scientia:microscope",
+  "summary": "Microscopes reveal cells and crystal structures far too small to see with the naked eye."
+ },
+ {
+  "id": "motion",
+  "branch": "physics",
+  "title": "Motion",
+  "x": 1,
+  "y": 8,
+  "prerequisites": [
+   "observation_basics"
+  ],
+  "requires": [
+   "measure:acceleration"
+  ],
+  "unlocks": [
+   "feature:motion_graphs"
+  ],
+  "icon": "scientia:motion_track",
+  "summary": "Velocity is the rate of change of position; acceleration is the rate of change of velocity."
+ },
+ {
+  "id": "mechanical_energy",
+  "branch": "physics",
+  "title": "Mechanical Energy",
+  "x": 2,
+  "y": 8,
+  "prerequisites": [
+   "motion"
+  ],
+  "requires": [
+   "experiment:mechanical_energy"
+  ],
+  "unlocks": [
+   "feature:energy_bars"
+  ],
+  "icon": "scientia:motion_track",
+  "summary": "Energy is conserved: potential energy becomes kinetic energy, and friction turns some into heat."
+ },
+ {
+  "id": "simple_machines",
+  "branch": "engineering",
+  "title": "Simple Machines",
+  "x": 3,
+  "y": 8,
+  "prerequisites": [
+   "mechanical_energy"
+  ],
+  "requires": [
+   "analyze:incline_efficiency"
+  ],
+  "unlocks": [
+   "feature:efficiency_meter"
+  ],
+  "icon": "scientia:motion_track",
+  "summary": "Machines can reduce the force needed, but they cannot reduce the energy needed; efficiency is always below 100 %."
+ }
+]

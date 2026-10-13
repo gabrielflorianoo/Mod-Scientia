@@ -26,11 +26,13 @@ import java.util.Set;
  * Electrolysis cell in a circuit (front face = anode, + terminal). It behaves as a counter-EMF of
  * 1.48 V (the thermoneutral voltage of water splitting) plus 2 Ω of electrolyte resistance; it only
  * conducts when the applied voltage exceeds the counter-EMF. Products follow Faraday's law exactly:
- * n = Q / (zF). Gases are collected into canisters (0.1 mol each).
+ * n = Q / (zF). Gases are collected into canisters (0.01 mol each).
  */
 public class ElectrolysisStationBlockEntity extends MachineBlockEntity implements ElectricalLoad, MixtureHolder, Measurable {
     public static final int SLOT_IN = 0, SLOT_OUT = 1, SLOT_CANISTER = 2, SLOT_FILLED = 3;
-    public static final double COUNTER_EMF = 1.48, RESISTANCE = 2.0, CANISTER_MOL = 0.1;
+    public static final double COUNTER_EMF = 1.48, RESISTANCE = 2.0;
+    /** 0.01 mol ≈ 224 mL at STP: at ~5 A, Faraday's law gives one hydrogen canister in about 6.5 minutes. */
+    public static final double CANISTER_MOL = 0.01;
     public static final List<String> GASES = List.of("hydrogen", "oxygen", "chlorine");
 
     private final Mixture electrolyte = new Mixture();

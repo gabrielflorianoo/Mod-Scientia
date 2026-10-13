@@ -124,8 +124,12 @@ public class LabHeaterBlockEntity extends MachineBlockEntity implements Measurab
             return InteractionResult.CONSUME;
         }
         if (Sci.material(held) != null && !Sci.substancesForItem(held).isEmpty() && !isItemValid(SLOT_FUEL, held) && !isItemValid(SLOT_JACKET, held)) {
-            if (contents.isEmpty()) temperatureK = ambient();
-            Sci.substancesForItem(held).forEach(contents::add);
+            Mixture add = new Mixture(Sci.substancesForItem(held));
+            // Ice from the world is at or below 0 °C; other solids start at room temperature.
+            double addTemp = add.contains("ice") ? Math.min(ambient(), 273.15) : ambient();
+            if (contents.isEmpty()) temperatureK = addTemp;
+            else mixTemperature(add, addTemp);
+            add.amounts().forEach(contents::add);
             if (!player.isCreative()) held.shrink(1);
             requestSync();
             return InteractionResult.CONSUME;
@@ -274,11 +278,14 @@ public class LabHeaterBlockEntity extends MachineBlockEntity implements Measurab
         double tb = boilingPointK();
         boolean solute = Sci.soluteParticleMolality(contents) > 0.01;
         hadSolute = solute;
-        double vaporised = 0;
+        double vaporised = 0, melted = 0;
         int sub = Math.max(1, (int) Math.ceil(dt / 0.5));
         for (int i = 0; i < sub; i++) {
-            vaporised += body.step(heat, ambient(), lossCoefficient(), tb, dt / sub).vaporisedGrams();
+            ThermalBody.StepResult sr = body.step(heat, ambient(), lossCoefficient(), tb, dt / sub);
+            vaporised += sr.vaporisedGrams();
+            melted += sr.meltedGrams();
         }
+        if (melted > 0 && serverLevel() != null) JournalService.grant(serverLevel(), lastUser, "phase:melting");
         temperatureK = body.temperatureK();
         contents.remove("water", contents.get("water"));
         contents.remove("ice", contents.get("ice"));

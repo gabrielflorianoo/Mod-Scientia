@@ -16,9 +16,6 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 
-evaluationDependsOn(':science-core')
-def core = project(':science-core')
-
 minecraft {
     mappings channel: mapping_channel, version: mapping_version
     copyIdeResources = true
@@ -31,7 +28,6 @@ minecraft {
             mods {
                 "${mod_id}" {
                     source sourceSets.main
-                    source core.sourceSets.main
                 }
             }
         }
@@ -56,7 +52,16 @@ minecraft {
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+sourceSets {
+    main {
+        // The science engine has no Minecraft dependency; its sources become part of the mod.
+        java { srcDir 'science-core/src/main/java' }
+        resources { srcDir 'src/generated/resources' }
+    }
+    test {
+        java { srcDir 'science-core/src/test/java' }
+    }
+}
 
 repositories {
     mavenCentral()
@@ -64,9 +69,6 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-
-    // The science engine is compiled into the mod jar (see the jar block below).
-    implementation core
 
     testImplementation "org.junit.jupiter:junit-jupiter:${junit_version}"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -87,8 +89,6 @@ tasks.named('processResources', ProcessResources).configure {
 }
 
 tasks.named('jar', Jar).configure {
-    // Bundle the pure-Java science engine classes directly into the mod jar.
-    from core.sourceSets.main.output
     manifest {
         attributes([
                 'Specification-Title'     : mod_id,
@@ -109,11 +109,13 @@ tasks.withType(JavaCompile).configureEach {
 
 tasks.named('test', Test).configure {
     useJUnitPlatform()
+    systemProperty 'scientia.dataDir', file('src/main/resources/data/scientia/science').absolutePath
 }
 
-// Validate generated assets and science data as part of `check`.
+// Validate generated assets against the Java registrations (requires python3).
 tasks.register('validateAssets', Exec) {
     group = 'verification'
     description = 'Checks blockstates, models, textures, OBJ/MTL references, lang keys and loot tables.'
     commandLine 'python3', 'tools/validate_assets.py'
 }
+tasks.named('check') { dependsOn 'validateAssets' }

@@ -101,10 +101,12 @@ public class MachineBlock extends BaseEntityBlock {
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Player player,
                                           @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
+        if (player.getItemInHand(hand).getItem() instanceof com.scientia.item.InstrumentItem) return InteractionResult.PASS;
         if (level.isClientSide) return InteractionResult.SUCCESS;
         if (level.getBlockEntity(pos) instanceof MachineBlockEntity be && player instanceof ServerPlayer sp) {
             be.markUser(sp);
             ItemStack held = player.getItemInHand(hand);
+            if (held.getItem() instanceof com.scientia.item.InstrumentItem) return InteractionResult.PASS; // let the instrument measure
             InteractionResult r = be.onUse(sp, hand, held);
             if (r != InteractionResult.PASS) return r;
             NetworkHooks.openScreen(sp, be, buf -> buf.writeBlockPos(pos));

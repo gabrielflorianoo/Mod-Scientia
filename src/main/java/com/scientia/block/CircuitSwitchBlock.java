@@ -60,6 +60,7 @@ public class CircuitSwitchBlock extends ComponentBlock {
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, Level level, @NotNull BlockPos pos, @NotNull Player player,
                                           @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
+        if (player.getItemInHand(hand).getItem() instanceof com.scientia.item.InstrumentItem) return InteractionResult.PASS;
         if (!level.isClientSide) {
             BlockState next = state.cycle(CLOSED);
             level.setBlock(pos, next, 3);

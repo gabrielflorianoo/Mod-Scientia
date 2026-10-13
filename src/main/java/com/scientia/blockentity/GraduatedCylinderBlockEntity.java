@@ -48,10 +48,16 @@ public class GraduatedCylinderBlockEntity extends MachineBlockEntity implements 
 
     @Override
     public InteractionResult onUse(ServerPlayer player, InteractionHand hand, ItemStack held) {
-        boolean water = held.is(Items.WATER_BUCKET) || (held.getItem() instanceof BeakerItem && BeakerItem.isPureWater(held));
+        boolean water = held.is(Items.WATER_BUCKET) || (held.getItem() instanceof BeakerItem && BeakerItem.isPureWater(held)
+                && held.getCount() == 1 && com.scientia.util.Liquids.volumeMl(com.scientia.util.Sci.contentsOf(held)) >= FILL_ML);
         if (water && waterMl < 1) {
             waterMl = FILL_ML;
             if (held.is(Items.WATER_BUCKET) && !player.isCreative()) player.setItemInHand(hand, new ItemStack(Items.BUCKET));
+            if (held.getItem() instanceof BeakerItem && !player.isCreative()) {
+                com.scientia.core.chem.Mixture m = com.scientia.util.Sci.contentsOf(held);
+                m.remove("water", FILL_ML * WATER_DENSITY / com.scientia.util.Sci.db().substances().molarMass("water"));
+                com.scientia.util.Sci.setContents(held, m);
+            }
             level.playSound(null, worldPosition, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 0.7f, 1.0f);
             recompute();
             return InteractionResult.CONSUME;

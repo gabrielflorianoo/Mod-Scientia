@@ -103,7 +103,7 @@ public final class Sci {
         if (m == null || m.composition() == null) return out;
         SubstanceDatabase subs = db().substances();
         for (MaterialEntry.Component c : m.composition()) {
-            String id = c.substance().equals("ice") ? "water" : c.substance();
+            String id = c.substance();
             out.merge(id, m.sampleMassG() * c.massFraction() / subs.molarMass(id), Double::sum);
         }
         return out;

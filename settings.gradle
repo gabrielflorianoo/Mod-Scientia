@@ -15,6 +15,6 @@ plugins {
 
 rootProject.name = 'scientia'
 
-// Pure-Java science engine (no Minecraft dependency). It is also buildable on its own:
+// The pure-Java science engine in science-core/ is compiled straight into the mod (see build.gradle).
+// It is also a standalone Gradle build that needs no Minecraft download:
 //   ./gradlew -p science-core test
-include 'science-core'

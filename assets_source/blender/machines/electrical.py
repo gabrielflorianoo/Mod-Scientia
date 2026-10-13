@@ -42,18 +42,19 @@ def switch(closed):
     return b
 
 
-def lamp(lit):
-    b = Builder("filament_lamp_" + ("on" if lit else "off"))
+def lamp(lit, broken=False):
+    b = Builder("filament_lamp_" + ("broken" if broken else "on" if lit else "off"))
     b.box(5, 3, 0, 11, 6, 16, "graphite")                        # lamp holder rail
     b.box(6.5, 3.5, -0.01, 9.5, 5.5, 0.6, "brass")               # front contact
     b.box(6.5, 3.5, 15.4, 9.5, 5.5, 16.01, "brass")              # back contact
     b.cylinder(8, 6, 8, 1.8, 1.6, "brass", seg=12)               # screw cap
     b.lathe(8, 8, [(1.6, 0), (2.6, 1.0), (3.6, 2.8), (3.8, 4.2), (3.2, 5.8), (1.8, 6.8), (0.2, 7.2)],
-            "glass_amber" if lit else "glass", seg=16, y0=7.6, closed_bottom=False)
+            "glass_amber" if lit else "glass_frost" if broken else "glass", seg=16, y0=7.6, closed_bottom=False)
     tile = "emissive_amber" if lit else "filament"
     b.cylinder(7.2, 8.2, 8, 0.12, 3.2, tile, seg=4)
-    b.cylinder(8.8, 8.2, 8, 0.12, 3.2, tile, seg=4)
-    b.box(7.1, 11.3, 7.9, 8.9, 11.5, 8.1, tile)                   # coiled filament
+    b.cylinder(8.8, 8.2, 8, 0.12, 3.2 if not broken else 1.6, tile, seg=4)
+    if not broken:
+        b.box(7.1, 11.3, 7.9, 8.9, 11.5, 8.1, tile)               # coiled filament (melted through when broken)
     return b
 
 
@@ -130,6 +131,7 @@ def build():
     out["circuit_switch_closed"] = switch(True)
     out["filament_lamp_off"] = lamp(False)
     out["filament_lamp_on"] = lamp(True)
+    out["filament_lamp_broken"] = lamp(False, True)
     out["battery"] = battery()
     out.update(motor())
     out.update(generator())

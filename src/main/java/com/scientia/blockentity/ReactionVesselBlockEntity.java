@@ -13,6 +13,7 @@ import com.scientia.item.BeakerItem;
 import com.scientia.item.GasCanisterItem;
 import com.scientia.journal.JournalService;
 import com.scientia.registry.ModBlockEntities;
+import com.scientia.util.Hazards;
 import com.scientia.util.Liquids;
 import com.scientia.util.Sci;
 import net.minecraft.ChatFormatting;
@@ -46,7 +47,10 @@ public class ReactionVesselBlockEntity extends MachineBlockEntity implements Mea
     public static final double HEADSPACE_L = 1.0; // a sturdy, pressure-rated flask (game simplification)
     public static final double MAX_CONTENTS_G = 1200;
     public static final double BALANCE_UNCERTAINTY = 0.01;
-    public static final double RELIEF_PRESSURE_PA = 500_000;
+    /** A thick-walled flask bursts above about 4.5 atm; there is no pressure relief valve. */
+    public static final double BURST_PRESSURE_PA = 450_000;
+    /** Glass cracks when liquid more than ~150 K colder hits it while it is above ~450 K (thermal shock). */
+    public static final double SHOCK_DELTA_K = 150, SHOCK_MIN_K = 450;
     public static final double LOSS_COEFFICIENT = 0.5;
 
     private final Mixture contents = new Mixture();
@@ -63,6 +67,7 @@ public class ReactionVesselBlockEntity extends MachineBlockEntity implements Mea
     private final Set<String> runReactions = new HashSet<>();
     private final List<String> recentReactions = new ArrayList<>();
     private int reactingTicks;
+    private boolean shockPending;
 
     public ReactionVesselBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.REACTION_VESSEL.get(), pos, state, 2);
@@ -70,7 +75,7 @@ public class ReactionVesselBlockEntity extends MachineBlockEntity implements Mea
 
     @Override
     public List<SlotDef> slots() {
-        return List.of(new SlotDef(SLOT_IN, 16, 60, false), new SlotDef(SLOT_OUT, 16, 104, true));
+        return List.of(new SlotDef(SLOT_IN, 16, 60, false, "Input"), new SlotDef(SLOT_OUT, 16, 104, true, "Output"));
     }
 
     private SubstanceDatabase subs() {
@@ -96,6 +101,11 @@ public class ReactionVesselBlockEntity extends MachineBlockEntity implements Mea
 
     public List<String> recentReactions() {
         return recentReactions;
+    }
+
+    /** Why nothing happens (reactivity series), shown when no reaction runs; null if not applicable. */
+    public String noReactionNote() {
+        return com.scientia.core.chem.ReactivitySeries.explainNoReaction(contents);
     }
 
     public double pH() {
@@ -170,6 +180,28 @@ public class ReactionVesselBlockEntity extends MachineBlockEntity implements Mea
             }
             in.shrink(1);
             items.setStackInSlot(SLOT_IN, in);
+        } else if (in.getItem() instanceof GasCanisterItem && Sci.contentsOf(in).isEmpty()) {
+            // An empty canister collects the main undissolved gas from a sealed vessel's headspace.
+            if (!closed || !out.isEmpty()) return;
+            String best = null;
+            double bestN = 0;
+            double litres = contents.waterLitres(subs());
+            for (var e : contents.amounts().entrySet()) {
+                Substance s = subs().get(e.getKey());
+                if (s == null || e.getKey().equals("water") || !ReactionEngine.isGasAt(s, temperatureK())) continue;
+                double cap = litres <= 1e-6 ? 0 : s.solubility() == null ? Double.POSITIVE_INFINITY : s.solubility() * litres;
+                double free = e.getValue() - cap;
+                if (free > bestN) {
+                    bestN = free;
+                    best = e.getKey();
+                }
+            }
+            if (best == null || bestN < 0.002) return;
+            double take = Math.min(bestN, ElectrolysisStationBlockEntity.CANISTER_MOL);
+            contents.remove(best, take);
+            items.setStackInSlot(SLOT_OUT, GasCanisterItem.filled(in.getItem(), best, take));
+            in.shrink(1);
+            items.setStackInSlot(SLOT_IN, in);
         } else if (in.getItem() instanceof GasCanisterItem) {
             Mixture gas = Sci.contentsOf(in);
             if (gas.isEmpty() || !out.isEmpty()) return;
@@ -191,6 +223,10 @@ public class ReactionVesselBlockEntity extends MachineBlockEntity implements Mea
     }
 
     private void addContents(Mixture add, double addTemp) {
+        if (!contents.isEmpty() && temperatureK() > SHOCK_MIN_K && temperatureK() - addTemp > SHOCK_DELTA_K && add.contains("water")
+                && serverLevel() != null) {
+            shockPending = true;
+        }
         if (contents.isEmpty() || Double.isNaN(temperatureK)) {
             temperatureK = addTemp;
         } else {
@@ -206,7 +242,27 @@ public class ReactionVesselBlockEntity extends MachineBlockEntity implements Mea
 
     // ------------------------------------------------------------------ simulation
 
+    /** Destroys the vessel; any toxic or flammable gas inside is released at the same time. */
+    private void burst(String kind, String what, String why) {
+        ServerLevel sl = serverLevel();
+        if (sl == null) return;
+        releaseGasHazards(sl, contents.get("chlorine"), contents.get("hydrogen"));
+        contents.clear();
+        Hazards.shatter(sl, worldPosition, kind, what, why);
+    }
+
+    private void releaseGasHazards(ServerLevel sl, double chlorine, double hydrogen) {
+        if (chlorine > 0.0005) Hazards.toxicGas(sl, worldPosition, "Chlorine", chlorine);
+        if (hydrogen > 0.002 && Hazards.ignitionNear(sl, worldPosition)) Hazards.hydrogenFlash(sl, worldPosition, hydrogen);
+    }
+
     private void stepThermal(double dt) {
+        if (shockPending) {
+            shockPending = false;
+            burst("thermal_shock", "The hot vessel cracked when cold liquid was added",
+                    "The inner glass surface cooled and contracted suddenly while the rest stayed hot: thermal shock. Let hot glassware cool before adding cold liquids.");
+            return;
+        }
         if (contents.isEmpty()) {
             temperatureK = Double.NaN;
             pendingHeatJ = 0;
@@ -221,15 +277,11 @@ public class ReactionVesselBlockEntity extends MachineBlockEntity implements Mea
             if (Math.abs(temperatureK - sealTemperatureK) >= 20 && gasMoles() + airMoles > 0) {
                 JournalService.grant(serverLevel(), lastUser, "observe:pressure_temperature");
             }
-            if (pressurePa() > RELIEF_PRESSURE_PA) {
-                closed = false;
-                ServerLevel sl = serverLevel();
-                if (sl != null) {
-                    sl.playSound(null, worldPosition, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0f, 2.0f);
-                    ServerPlayer p = JournalService.online(sl, lastUser);
-                    if (p != null) p.displayClientMessage(Component.translatable("scientia.msg.pressure_relief").withStyle(ChatFormatting.YELLOW), false);
-                }
-                runClosed = false;
+            if (pressurePa() > BURST_PRESSURE_PA) {
+                burst("overpressure", String.format(Locale.ROOT, "The sealed vessel burst at %.0f kPa", pressurePa() / 1000),
+                        "Gas made or heated in a sealed container raises the pressure (PV = nRT) until the glass fails. "
+                                + "Never seal a reaction that produces gas, and never heat a closed vessel.");
+                return;
             }
         }
         requestSync();
@@ -243,6 +295,9 @@ public class ReactionVesselBlockEntity extends MachineBlockEntity implements Mea
         ReactionEngine.StepResult r = Sci.db().reactionEngine().step(contents,
                 new ReactionEngine.Conditions(temperatureK(), tags, closed, 0), dt);
         ServerLevel sl = serverLevel();
+        if (sl != null && !r.escapedMoles().isEmpty()) {
+            releaseGasHazards(sl, r.escapedMoles().getOrDefault("chlorine", 0.0), r.escapedMoles().getOrDefault("hydrogen", 0.0));
+        }
         if (r.anyReaction()) {
             if (!runActive) {
                 runActive = true;
@@ -317,8 +372,11 @@ public class ReactionVesselBlockEntity extends MachineBlockEntity implements Mea
                     airMoles = Constants.STANDARD_PRESSURE * (HEADSPACE_L / 1000.0) / (Constants.GAS_CONSTANT * sealTemperatureK);
                 } else {
                     // Opening releases undissolved gas immediately.
+                    double cl = contents.get("chlorine"), h2 = contents.get("hydrogen");
                     Sci.db().reactionEngine().step(contents, new ReactionEngine.Conditions(temperatureK(), Set.of(), false, 0), 0);
                     runClosed = false;
+                    ServerLevel sl = serverLevel();
+                    if (sl != null) releaseGasHazards(sl, cl - contents.get("chlorine"), h2 - contents.get("hydrogen"));
                 }
                 level.playSound(null, worldPosition, closed ? SoundEvents.WOOD_PLACE : SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 0.5f, 1.6f);
             }

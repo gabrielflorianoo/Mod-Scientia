@@ -477,5 +477,59 @@
   ],
   "icon": "scientia:motion_track",
   "summary": "Machines can reduce the force needed, but they cannot reduce the energy needed; efficiency is always below 100 %."
+ },
+ {
+  "id": "metallurgy",
+  "branch": "engineering",
+  "title": "Metallurgy: Steel",
+  "x": 3,
+  "y": 5,
+  "prerequisites": [
+   "thermal_insulation"
+  ],
+  "requires": [
+   "craft:steel"
+  ],
+  "unlocks": [
+   "feature:steel_tools"
+  ],
+  "icon": "scientia:steel_ingot",
+  "summary": "Adding about 0.8 % carbon to iron at high temperature makes steel: harder, stronger and longer-lasting tools."
+ },
+ {
+  "id": "construction",
+  "branch": "engineering",
+  "title": "Cement and Concrete",
+  "x": 4,
+  "y": 5,
+  "prerequisites": [
+   "thermal_insulation"
+  ],
+  "requires": [
+   "craft:cement"
+  ],
+  "unlocks": [
+   "feature:reinforced_concrete"
+  ],
+  "icon": "scientia:portland_cement",
+  "summary": "Limestone and clay burned at ~1450 °C make Portland cement; with sand, gravel and water it becomes concrete, and steel bars make it reinforced concrete."
+ },
+ {
+  "id": "lab_safety",
+  "branch": "observation",
+  "title": "Learning from Accidents",
+  "x": 0,
+  "y": 4,
+  "prerequisites": [
+   "observation_basics"
+  ],
+  "requires": [
+   "observe:lesson"
+  ],
+  "unlocks": [
+   "feature:safety_notes"
+  ],
+  "icon": "scientia:reaction_vessel",
+  "summary": "Every accident is data: understanding why a vessel burst or a wire melted is how real laboratory safety rules were learned."
  }
 ]

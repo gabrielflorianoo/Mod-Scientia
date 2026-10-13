@@ -760,5 +760,226 @@
    "Calculated from standard enthalpies of formation at 298 K (NIST Chemistry WebBook / CRC Handbook values)"
   ],
   "simplification": "Only a controlled reaction inside sealed apparatus is modelled; mixtures of hydrogen and oxygen are dangerous in reality."
+ },
+ {
+  "id": "iron_hcl",
+  "name": "Iron with hydrochloric acid",
+  "type": "metal_acid",
+  "reactants": [
+   {
+    "substance": "iron",
+    "coefficient": 1,
+    "state": "s"
+   },
+   {
+    "substance": "hydrogen_chloride",
+    "coefficient": 2,
+    "state": "aq"
+   }
+  ],
+  "products": [
+   {
+    "substance": "iron_ii_chloride",
+    "coefficient": 1,
+    "state": "aq"
+   },
+   {
+    "substance": "hydrogen",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": null,
+  "deltaHSource": null,
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.04,
+  "observations": [
+   "Steady fizzing as hydrogen forms",
+   "The solution turns pale green",
+   "In a sealed vessel the pressure keeps rising"
+  ],
+  "explanation": {
+   "intuition": "Iron dissolves in hydrochloric acid and gives off hydrogen gas.",
+   "science": "Iron is above hydrogen in the reactivity series, so iron atoms give electrons to H⁺ ions: Fe → Fe²⁺ + 2e⁻ and 2H⁺ + 2e⁻ → H₂.",
+   "technical": "Net ionic equation: Fe(s) + 2 H⁺(aq) → Fe²⁺(aq) + H₂(g). Hydrogen is flammable; never seal a vessel in which gas is being produced."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 17 (Electrochemistry: activity series)",
+   "Royal Society of Chemistry, Practical Chemistry resources (rsc.org)"
+  ],
+  "simplification": "Rate is a gameplay constant; real rates depend on surface area and concentration."
+ },
+ {
+  "id": "rust_removal",
+  "name": "Dissolving rust with hydrochloric acid",
+  "type": "acid_base",
+  "reactants": [
+   {
+    "substance": "iron_iii_oxide",
+    "coefficient": 1,
+    "state": "s"
+   },
+   {
+    "substance": "hydrogen_chloride",
+    "coefficient": 6,
+    "state": "aq"
+   }
+  ],
+  "products": [
+   {
+    "substance": "iron_iii_chloride",
+    "coefficient": 2,
+    "state": "aq"
+   },
+   {
+    "substance": "water",
+    "coefficient": 3,
+    "state": "l"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": null,
+  "deltaHSource": null,
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.1,
+  "observations": [
+   "The red-brown solid dissolves",
+   "The solution turns yellow-brown"
+  ],
+  "explanation": {
+   "intuition": "Acid dissolves rust (iron oxide), which is why acids are used to clean steel.",
+   "science": "Iron(III) oxide is a basic oxide: its O²⁻ ions combine with H⁺ to make water, leaving Fe³⁺ ions in solution.",
+   "technical": "Fe₂O₃(s) + 6 H⁺(aq) → 2 Fe³⁺(aq) + 3 H₂O(l). Industrial 'pickling' of steel uses this reaction."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 18 (Representative metals)"
+  ],
+  "simplification": "Gameplay rate constant."
+ },
+ {
+  "id": "cuo_hcl",
+  "name": "Copper(II) oxide with hydrochloric acid",
+  "type": "acid_base",
+  "reactants": [
+   {
+    "substance": "copper_ii_oxide",
+    "coefficient": 1,
+    "state": "s"
+   },
+   {
+    "substance": "hydrogen_chloride",
+    "coefficient": 2,
+    "state": "aq"
+   }
+  ],
+  "products": [
+   {
+    "substance": "copper_ii_chloride",
+    "coefficient": 1,
+    "state": "aq"
+   },
+   {
+    "substance": "water",
+    "coefficient": 1,
+    "state": "l"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": null,
+  "deltaHSource": null,
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.3,
+  "observations": [
+   "The black powder dissolves",
+   "The solution turns blue-green"
+  ],
+  "explanation": {
+   "intuition": "Black copper oxide dissolves in acid to make a blue-green salt solution.",
+   "science": "CuO is a basic oxide, so it neutralises acid just as a hydroxide would, forming a salt and water.",
+   "technical": "CuO(s) + 2 H⁺(aq) → Cu²⁺(aq) + H₂O(l)."
+  },
+  "references": [
+   "Royal Society of Chemistry, Practical Chemistry resources (rsc.org)"
+  ],
+  "simplification": "Gameplay rate constant."
+ },
+ {
+  "id": "naoh_co2",
+  "name": "Sodium hydroxide absorbing carbon dioxide",
+  "type": "acid_base",
+  "reactants": [
+   {
+    "substance": "sodium_hydroxide",
+    "coefficient": 2,
+    "state": "aq"
+   },
+   {
+    "substance": "carbon_dioxide",
+    "coefficient": 1,
+    "state": "g"
+   }
+  ],
+  "products": [
+   {
+    "substance": "sodium_carbonate",
+    "coefficient": 1,
+    "state": "aq"
+   },
+   {
+    "substance": "water",
+    "coefficient": 1,
+    "state": "l"
+   }
+  ],
+  "conditions": {
+   "minTemperatureK": null,
+   "maxTemperatureK": null,
+   "requires": [
+    "aqueous"
+   ],
+   "catalyst": null
+  },
+  "deltaHkJ": null,
+  "deltaHSource": null,
+  "reversible": false,
+  "electrons": 0,
+  "ratePerSecond": 0.5,
+  "observations": [
+   "Gas pressure in a sealed vessel falls as CO₂ is absorbed"
+  ],
+  "explanation": {
+   "intuition": "A sodium hydroxide solution soaks up carbon dioxide.",
+   "science": "CO₂ is an acidic oxide; hydroxide ions neutralise it to carbonate.",
+   "technical": "2 OH⁻(aq) + CO₂(g) → CO₃²⁻(aq) + H₂O(l). This is how CO₂ scrubbers in submarines and spacecraft work (with LiOH)."
+  },
+  "references": [
+   "OpenStax Chemistry 2e (openstax.org), chapter 14"
+  ],
+  "simplification": "Gameplay rate constant."
  }
 ]

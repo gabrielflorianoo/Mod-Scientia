@@ -59,6 +59,14 @@ See [docs/GAMEPLAY.md](docs/GAMEPLAY.md) for the first progression loop,
 simplifications, and [docs/IMPLEMENTATION_REPORT.md](docs/IMPLEMENTATION_REPORT.md) for the status of
 each system, what was verified and what was not.
 
+### Gameplay purpose and real consequences
+
+Science unlocks things: kiln-made **steel** tools, **Portland cement** → concrete → **reinforced concrete**,
+oxygen canisters for underwater breathing, CO₂ fire extinguishing, salt de-icing and acid cleaning of
+weathered copper. Mistakes are real too — over-pressurised vessels burst, hot glass shatters, chlorine
+poisons, hydrogen flashes, overloaded wires burn out — and each one becomes a journal *Lesson*.
+See [docs/GAMEPLAY.md](docs/GAMEPLAY.md).
+
 ## Building and running
 
 Requires internet access to `maven.minecraftforge.net`, `piston-meta.mojang.com`,

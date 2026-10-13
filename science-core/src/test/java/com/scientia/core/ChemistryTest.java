@@ -161,4 +161,16 @@ class ChemistryTest {
         assertEquals("red", Indicator.LITMUS.describe(3));
         assertEquals("green", Indicator.UNIVERSAL.describe(7));
     }
+
+    @Test
+    void reactivitySeriesExplainsNonReactions() {
+        Mixture cu = new Mixture(Map.of("water", 5.0, "hydrogen_chloride", 0.1, "copper", 0.5));
+        assertTrue(db.reactionEngine().applicable(cu, new ReactionEngine.Conditions(298, Set.of(), true, 0)).isEmpty());
+        assertTrue(com.scientia.core.chem.ReactivitySeries.explainNoReaction(cu).contains("below hydrogen"));
+        Mixture fe = new Mixture(Map.of("water", 5.0, "hydrogen_chloride", 0.2, "iron", 0.5));
+        double before = fe.massGrams(subs);
+        for (int i = 0; i < 400; i++) db.reactionEngine().step(fe, new ReactionEngine.Conditions(298, Set.of(), true, 0), 1);
+        assertTrue(fe.get("hydrogen") > 0.09, "iron + HCl should release hydrogen");
+        assertEquals(before, fe.massGrams(subs), 1e-9);
+    }
 }

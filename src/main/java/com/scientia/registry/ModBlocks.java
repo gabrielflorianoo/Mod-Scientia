@@ -82,6 +82,12 @@ public final class ModBlocks {
     public static final RegistryObject<Block> SOLAR_PANEL = reg("solar_panel", () -> new SolarPanelBlock(metal()));
     public static final RegistryObject<Block> ELECTROLYSIS_STATION = reg("electrolysis_station", () -> new ElectrolysisStationBlock(glass()));
 
+    // ---- Construction
+    /** Concrete with steel reinforcement: steel carries tension, concrete carries compression. */
+    public static final RegistryObject<Block> REINFORCED_CONCRETE = reg("reinforced_concrete",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(25f, 1200f).sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()));
+
     private static <T extends Block> RegistryObject<T> reg(String name, Supplier<T> block) {
         RegistryObject<T> ro = BLOCKS.register(name, block);
         ALL.add(ro);

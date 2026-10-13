@@ -31,7 +31,7 @@ public class CondenserBlockEntity extends MachineBlockEntity implements Measurab
 
     @Override
     public List<SlotDef> slots() {
-        return List.of(new SlotDef(SLOT_IN, 120, 60, false), new SlotDef(SLOT_OUT, 120, 100, true));
+        return List.of(new SlotDef(SLOT_IN, 16, 60, false, "Beaker"), new SlotDef(SLOT_OUT, 16, 104, true, "Filled"));
     }
 
     @Override

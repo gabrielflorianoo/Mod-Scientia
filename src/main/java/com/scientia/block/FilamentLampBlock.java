@@ -18,18 +18,21 @@ import org.jetbrains.annotations.NotNull;
  */
 public class FilamentLampBlock extends ComponentBlock {
     public static final IntegerProperty LEVEL = IntegerProperty.create("level", 0, 15);
+    /** A burnt-out filament: the lamp no longer conducts (open circuit). */
+    public static final net.minecraft.world.level.block.state.properties.BooleanProperty BROKEN =
+            net.minecraft.world.level.block.state.properties.BooleanProperty.create("broken");
     public static final double RATED_VOLTAGE = 12, RATED_POWER = 6;
     public static final double RESISTANCE = RATED_VOLTAGE * RATED_VOLTAGE / RATED_POWER;
     private static final VoxelShape SHAPE = Block.box(3, 3, 3, 13, 13, 13);
 
     public FilamentLampBlock(Properties props) {
         super(props);
-        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LEVEL, 0));
+        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LEVEL, 0).setValue(BROKEN, false));
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(FACING, LEVEL);
+        builder.add(FACING, LEVEL, BROKEN);
     }
 
     @Override
@@ -40,6 +43,11 @@ public class FilamentLampBlock extends ComponentBlock {
     @Override
     public Role role(BlockState state) {
         return Role.LOAD;
+    }
+
+    @Override
+    public boolean conducts(BlockState state) {
+        return !state.getValue(BROKEN);
     }
 
     @Override

@@ -39,8 +39,11 @@ import java.util.UUID;
  * who receives research credit for what the machine observes.
  */
 public abstract class MachineBlockEntity extends BlockEntity implements MenuProvider {
-    /** A slot shown in the machine screen at (x, y). Output slots reject insertion. */
-    public record SlotDef(int index, int x, int y, boolean output) {
+    /** A slot shown in the machine screen at (x, y) with a short label. Output slots reject insertion. */
+    public record SlotDef(int index, int x, int y, boolean output, String label) {
+        public SlotDef(int index, int x, int y, boolean output) {
+            this(index, x, y, output, "");
+        }
     }
 
     protected final ItemStackHandler items;

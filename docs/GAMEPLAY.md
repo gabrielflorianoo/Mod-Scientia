@@ -43,6 +43,37 @@
 | Microscopy | Microscope | Crystals, cells, fibres with a scale bar |
 | Gas laws | Sealed vessel on a heater | Pressure rises with absolute temperature |
 
+## Science that pays off
+
+Lab work feeds straight back into survival progression — always through the real process:
+
+| You learn | Use in the world |
+|---|---|
+| Carbon content of iron (Insulated Kiln, iron charge + ~10.8 g carbon additive at ≥ 1173 K) | **Steel ingots** → steel pickaxe, axe, shovel, sword and hoe (more durable and faster than iron) |
+| Calcining limestone with clay at ≈ 1720 K (Kiln, clay additive) | **Portland cement** → 8 concrete powder (cement + sand + gravel), then **reinforced concrete** (concrete + steel rebar, blast resistance 1200) |
+| Electrolysis of water, gas collection | **Oxygen canister** → drink for Water Breathing (duration from the moles stored, 0.0112 mol/min) |
+| CO₂ from acid + carbonate | **CO₂ canister** → put yourself out, or use on a block to smother nearby fire |
+| Freezing-point depression | **Salt crystals** melt ice and snow (works only above −21 °C, the NaCl–water eutectic) |
+| Acids dissolve metal oxides | A beaker of acid (pH < 4) cleans one oxidation stage off weathered copper |
+
+The kiln's GUI tells you what temperature and additive it still needs, and the journal records each new
+recipe when you first make it.
+
+## Mistakes have consequences
+
+Nothing stops you from trying something unusual. If it goes wrong, the result is physically real and the
+journal writes a **Lesson** explaining what happened and why:
+
+- **Over-pressure** — a sealed Reaction Vessel above 4.5 bar bursts (gas-producing reactions, or heating a sealed vessel).
+- **Thermal shock** — pouring water into glassware more than 150 K hotter shatters it.
+- **Toxic gas** — chlorine escaping from an open vessel or an overfilled electrolysis store poisons nearby players.
+- **Hydrogen** — released near fire, lava or an active heater it flashes.
+- **Overloaded wires** — above ~25 A a wire warns you, above 60 A it burns out; a lamp driven past twice its rating blows its filament.
+- **Hot surfaces and liquids** — standing on an active heater, kiln or generator, or grabbing liquid above 60 °C, burns.
+- **Drinking reagents** — sneak-use a beaker: strong acids/bases burn, metal salts and chlorine poison, brine makes you thirsty.
+
+Every lesson also counts toward the *Lab Safety* research.
+
 ## Hypotheses
 
 Several experiments let you record a prediction in the journal *before* running them. Afterwards the

@@ -961,5 +961,140 @@
    "CRC Handbook of Chemistry and Physics (typical tabulated values)"
   ],
   "notes": null
+ },
+ {
+  "id": "iron_ii_chloride",
+  "name": "Iron(II) chloride",
+  "formula": "FeCl2",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 3.16,
+  "meltingPointK": 950.0,
+  "boilingPointK": 1296.0,
+  "specificHeat": 0.6,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 2,
+   "strongAnion": 2,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "conducts when dissolved",
+  "description": {
+   "intuition": "Iron(II) chloride forms a pale green solution when iron dissolves in hydrochloric acid.",
+   "science": "Iron is more reactive than hydrogen, so it gives electrons to H⁺ ions: the iron is oxidised to Fe²⁺ and hydrogen gas is released.",
+   "technical": "Fe²⁺ solutions slowly oxidise to Fe³⁺ in air (not modelled). Hydrolysis makes real solutions slightly acidic; the game treats the salt as neutral."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": "Hydrolysis of Fe²⁺ is not modelled."
+ },
+ {
+  "id": "iron_iii_chloride",
+  "name": "Iron(III) chloride",
+  "formula": "FeCl3",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 2.9,
+  "meltingPointK": 579.0,
+  "boilingPointK": 589.0,
+  "specificHeat": 0.66,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 3,
+   "strongAnion": 3,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "conducts when dissolved",
+  "description": {
+   "intuition": "Iron(III) chloride gives a yellow-brown solution; it forms when acid dissolves rust.",
+   "science": "The oxide ions in rust (Fe₂O₃) combine with H⁺ to form water, leaving Fe³⁺ and Cl⁻ ions in solution.",
+   "technical": "Real FeCl₃ solutions are noticeably acidic because Fe³⁺ hydrolyses; the game treats the salt as neutral. Used industrially to etch copper circuit boards."
+  },
+  "hazard": "Corrosive in reality.",
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": "Hydrolysis of Fe³⁺ is not modelled; anhydrous FeCl₃ sublimes/decomposes near 588 K."
+ },
+ {
+  "id": "copper_ii_chloride",
+  "name": "Copper(II) chloride",
+  "formula": "CuCl2",
+  "kind": "ionic",
+  "phase": "solid",
+  "density": 3.39,
+  "meltingPointK": 771.0,
+  "boilingPointK": 1266.0,
+  "specificHeat": 0.58,
+  "solubility": null,
+  "acidBase": {
+   "strongCation": 2,
+   "strongAnion": 2,
+   "system": null,
+   "systemMoles": 0
+  },
+  "conductivity": "conducts when dissolved",
+  "description": {
+   "intuition": "Copper(II) chloride makes a blue-green solution.",
+   "science": "Basic copper(II) oxide reacts with acid like any base: CuO + 2 H⁺ → Cu²⁺ + H₂O. The Cu²⁺ ions surrounded by water and chloride give the colour.",
+   "technical": "Decomposes on strong heating. Copper compounds are harmful if swallowed."
+  },
+  "hazard": "Harmful if swallowed in reality.",
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "tricalcium_silicate",
+  "name": "Tricalcium silicate (alite)",
+  "formula": "Ca3SiO5",
+  "kind": "mineral",
+  "phase": "solid",
+  "density": 3.15,
+  "meltingPointK": 2343.0,
+  "boilingPointK": null,
+  "specificHeat": 0.75,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Alite is the main ingredient of Portland cement; it is what makes concrete set hard.",
+   "science": "Formed when limestone (CaO) and silica react in a kiln at about 1450 °C. With water it slowly forms calcium silicate hydrate, the 'glue' of concrete.",
+   "technical": "Typically 50–70 % of Portland cement clinker. The hydration reactions are complex and not modelled."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
+ },
+ {
+  "id": "dicalcium_silicate",
+  "name": "Dicalcium silicate (belite)",
+  "formula": "Ca2SiO4",
+  "kind": "mineral",
+  "phase": "solid",
+  "density": 3.28,
+  "meltingPointK": 2403.0,
+  "boilingPointK": null,
+  "specificHeat": 0.74,
+  "solubility": 0,
+  "acidBase": null,
+  "conductivity": "insulator",
+  "description": {
+   "intuition": "Belite is the second cement mineral; it hardens more slowly than alite.",
+   "science": "Forms at lower kiln temperatures than alite; contributes to long-term concrete strength.",
+   "technical": "Typically 15–30 % of Portland cement clinker."
+  },
+  "hazard": null,
+  "sources": [
+   "CRC Handbook of Chemistry and Physics (typical tabulated values)"
+  ],
+  "notes": null
  }
 ]

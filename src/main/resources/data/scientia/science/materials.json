@@ -555,5 +555,61 @@
   "microscope": null,
   "abstraction": "One item is a 10 g reagent portion.",
   "description": "Black copper(II) oxide formed by heating copper in air."
+ },
+ {
+  "id": "steel_ingot",
+  "item": "scientia:steel_ingot",
+  "name": "Steel ingot",
+  "classification": "alloy",
+  "composition": [
+   {
+    "substance": "iron",
+    "massFraction": 0.992
+   },
+   {
+    "substance": "carbon_graphite",
+    "massFraction": 0.008
+   }
+  ],
+  "sampleMassG": 100,
+  "density": 7.85,
+  "conductivity": "conductor",
+  "microscope": null,
+  "abstraction": "One item is a 100 g specimen of plain carbon steel (≈0.8 % carbon).",
+  "description": "An alloy of iron with a little carbon. Carbon atoms in the iron crystal lattice block the slip of layers of atoms, making steel much harder and stronger than pure iron."
+ },
+ {
+  "id": "portland_cement",
+  "item": "scientia:portland_cement",
+  "name": "Portland cement",
+  "classification": "manufactured",
+  "composition": [
+   {
+    "substance": "tricalcium_silicate",
+    "massFraction": 0.65
+   },
+   {
+    "substance": "dicalcium_silicate",
+    "massFraction": 0.2
+   },
+   {
+    "substance": "calcium_sulfate",
+    "massFraction": 0.05
+   },
+   {
+    "substance": "aluminium_oxide",
+    "massFraction": 0.05
+   },
+   {
+    "substance": "iron_iii_oxide",
+    "massFraction": 0.05
+   }
+  ],
+  "sampleMassG": 100,
+  "density": 3.15,
+  "conductivity": "insulator",
+  "microscope": null,
+  "abstraction": "One item is a 100 g portion. Real clinker also contains calcium aluminates and ferrites, simplified here as oxides.",
+  "description": "Made by burning limestone with clay at about 1450 °C and grinding the clinker with a little gypsum. Mixed with sand, gravel and water it sets into concrete."
  }
 ]

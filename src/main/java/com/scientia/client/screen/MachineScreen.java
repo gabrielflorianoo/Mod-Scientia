@@ -146,6 +146,15 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         g.drawString(font, playerInventoryTitle, inventoryLabelX, inventoryLabelY, UiKit.muted(), false);
         MachineBlockEntity be = be();
         if (be == null) return;
+        // Slot labels: small text centred above each slot, inside the side columns (never over the panel)
+        for (MachineBlockEntity.SlotDef d : be.slots()) {
+            if (d.label().isEmpty()) continue;
+            g.pose().pushPose();
+            g.pose().translate(d.x() + 8, d.y() - 8, 0);
+            g.pose().scale(0.6f, 0.6f, 1f);
+            g.drawString(font, d.label(), -font.width(d.label()) / 2, 0, d.output() ? UiKit.AMBER : UiKit.muted(), false);
+            g.pose().popPose();
+        }
         if (be instanceof PrecisionBalanceBlockEntity b) balance(g, b);
         else if (be instanceof GraduatedCylinderBlockEntity c) cylinder(g, c);
         else if (be instanceof LabHeaterBlockEntity h) heater(g, h);
@@ -171,14 +180,25 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     }
 
     private void explanation(GuiGraphics g, int y, int maxY) {
+        explanation(g, y, maxY, PX, PW);
+    }
+
+    /** Explanation text in a smaller font so it fits; lines that do not fit are dropped, never overlapped. */
+    private void explanation(GuiGraphics g, int y, int maxY, int x, int w) {
         String text = Explanations.get(machineId());
         if (text.isEmpty()) return;
-        var lines = font.split(net.minecraft.network.chat.FormattedText.of(text), PW);
+        float s = 0.75f;
+        var lines = font.split(net.minecraft.network.chat.FormattedText.of(text), (int) (w / s));
+        g.pose().pushPose();
+        g.pose().translate(x, y, 0);
+        g.pose().scale(s, s, 1f);
+        int ly = 0;
         for (var l : lines) {
-            if (y > maxY) break;
-            g.drawString(font, l, PX, y, UiKit.muted(), false);
-            y += 10;
+            if (y + (ly + 9) * s > maxY) break;
+            g.drawString(font, l, 0, ly, UiKit.muted(), false);
+            ly += 9;
         }
+        g.pose().popPose();
     }
 
     private void bigReadout(GuiGraphics g, int x, int y, int w, String value, String sub) {
@@ -199,16 +219,15 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         MaterialEntry m = Sci.material(b.items().getStackInSlot(0));
         int y = 56;
         if (m != null) {
-            UiKit.kv(g, font, PX, y, 70, "Sample", "", UiKit.text());
-            g.drawString(font, m.name(), PX + 40, y, UiKit.text(), false);
-            g.drawString(font, "Class: " + m.classification().replace('_', ' '), PX, y + 11, UiKit.muted(), false);
+            UiKit.kv(g, font, PX, y, PW, "Sample", m.name(), UiKit.text());
+            UiKit.kv(g, font, PX, y + 11, PW, "Class", m.classification().replace('_', ' '), UiKit.muted());
         } else if (!b.items().getStackInSlot(0).isEmpty() && Double.isNaN(r)) {
-            UiKit.wrap(g, font, "This item has no defined mass in the science database.", PX, y, 74, UiKit.AMBER);
+            g.drawString(font, "No defined mass for this item.", PX, y, UiKit.AMBER, false);
         } else {
-            g.drawString(font, "Place a sample on the pan →", PX, y, UiKit.muted(), false);
+            g.drawString(font, "← Place a sample on the pan", PX, y, UiKit.muted(), false);
         }
-        if (b.tare() != 0) g.drawString(font, "Tared: −" + Sci.fixed(b.tare(), 2) + " g", PX, y + 22, UiKit.AMBER, false);
-        explanation(g, 92, 112);
+        if (b.tare() != 0) g.drawString(font, "Tare offset: " + Sci.fixed(b.tare(), 2) + " g", PX, y + 22, UiKit.AMBER, false);
+        explanation(g, 90, 118);
     }
 
     private void cylinder(GuiGraphics g, GraduatedCylinderBlockEntity c) {
@@ -225,16 +244,16 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         }
         int x = PX + 52, w = PW - 52;
         if (c.waterMl() <= 0) {
-            UiKit.wrap(g, font, "Empty. Right-click with a water bucket or a beaker of water to fill to 50.0 mL.", x, 24, 74, UiKit.AMBER);
+            UiKit.wrap(g, font, "Empty. Right-click with a water bucket or a beaker of water to fill to 50.0 mL.", x, 24, w, UiKit.AMBER);
         } else {
             UiKit.kv(g, font, x, 24, w, "Reading", Sci.fixed(c.reading(), 1) + " mL", UiKit.text());
             UiKit.kv(g, font, x, 36, w, "Water only", Sci.fixed(c.waterMl(), 1) + " mL", UiKit.muted());
             UiKit.kv(g, font, x, 48, w, "Displaced", Sci.fixed(c.displacedReading(), 1) + " ± 0.3 mL", UiKit.CYAN);
-            if (c.floating()) UiKit.wrap(g, font, "⚠ The sample floats: it displaces only its own weight of water.", x, 62, 74, UiKit.AMBER);
-            if (c.overflow()) UiKit.wrap(g, font, "⚠ Overflow — the sample is too large for this cylinder.", x, 62, 74, UiKit.RED);
-            if (c.unknown()) UiKit.wrap(g, font, "No reference density for this item.", x, 62, 74, UiKit.AMBER);
+            if (c.floating()) UiKit.wrap(g, font, "⚠ Floats: displaces only its own weight of water.", x, 62, w, UiKit.AMBER);
+            if (c.overflow()) UiKit.wrap(g, font, "⚠ Overflow: sample too large.", x, 62, w, UiKit.RED);
+            if (c.unknown()) UiKit.wrap(g, font, "No reference density for this item.", x, 62, w, UiKit.AMBER);
         }
-        explanation(g, 86, 112);
+        explanation(g, 84, 118, x, w);
     }
 
     private void heater(GuiGraphics g, LabHeaterBlockEntity h) {
@@ -252,9 +271,8 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         SubstanceDatabase subs = Sci.db().substances();
         UiKit.kv(g, font, PX, y, PW, "Contents", m.isEmpty() ? "—" : Sci.fixed(m.massGrams(subs), 1) + " g, " + Sci.fixed(Liquids.volumeMl(m), 0) + " mL", UiKit.text());
         y += 10;
-        y = contentsList(g, m, PX, y, 3);
-        UiKit.gauge(g, font, PX, 104, 80, h.fuelFraction(), UiKit.AMBER, "Fuel", (int) (h.fuelFraction() * 100) + " %");
-        g.drawString(font, "Jacket", PX - 23, 66, UiKit.muted(), false);
+        contentsList(g, m, PX, y, Math.max(0, (100 - y) / 9));
+        UiKit.gauge(g, font, PX, 102, PW, h.fuelFraction(), UiKit.AMBER, "Fuel", (int) (h.fuelFraction() * 100) + " %");
     }
 
     private int contentsList(GuiGraphics g, Mixture m, int x, int y, int max) {
@@ -274,11 +292,25 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         return y;
     }
 
+    private void explainNote(GuiGraphics g, String text, int x, int y, int w, int maxY) {
+        float s = 0.75f;
+        g.pose().pushPose();
+        g.pose().translate(x, y, 0);
+        g.pose().scale(s, s, 1f);
+        int ly = 0;
+        for (var l : font.split(net.minecraft.network.chat.FormattedText.of(text), (int) (w / s))) {
+            if (y + (ly + 9) * s > maxY) break;
+            g.drawString(font, l, 0, ly, UiKit.AMBER, false);
+            ly += 9;
+        }
+        g.pose().popPose();
+    }
+
     private void condenser(GuiGraphics g, CondenserBlockEntity c) {
         bigReadout(g, PX, 20, PW, Sci.fixed(c.distillateMl(), 1) + " mL", "distillate");
         UiKit.status(g, font, PX, 56, c.flowing(), "condensing", "idle");
-        g.drawString(font, "Empty beaker in ↑, filled beaker out ↓", PX, 68, UiKit.muted(), false);
-        explanation(g, 82, 112);
+        g.drawString(font, "← Empty beakers in, distillate out", PX, 68, UiKit.muted(), false);
+        explanation(g, 82, 118);
     }
 
     private void vessel(GuiGraphics g, ReactionVesselBlockEntity v) {
@@ -317,7 +349,9 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
                 if (r.deltaHkJ() != null) g.drawString(font, "ΔH° = " + Sci.fixed(r.deltaHkJ(), 1) + " kJ", PX, y + 20, UiKit.muted(), false);
             }
         } else if (!m.isEmpty()) {
-            g.drawString(font, "No reaction under these conditions.", PX, y, UiKit.muted(), false);
+            String note = v.noReactionNote();
+            if (note == null) note = "No reaction under these conditions (in this database). Try heat, another reagent, or check the journal.";
+            explainNote(g, note, PX, y, PW, 118);
         }
     }
 
@@ -408,9 +442,10 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         double t = k.temperatureK();
         bigReadout(g, PX, 20, PW, Sci.fixed(t, 0) + " K", Sci.fixed(t - 273.15, 0) + " °C");
         int y = 54;
-        UiKit.gauge(g, font, PX, y, PW, t / 1600, t >= InsulatedKilnBlockEntity.PROCESS_K ? UiKit.AMBER : UiKit.CYAN, "Chamber (≥1100 K to process)",
-                t >= InsulatedKilnBlockEntity.PROCESS_K ? "hot enough" : "heating");
-        int mark = PX + 1 + (int) ((PW - 2) * InsulatedKilnBlockEntity.PROCESS_K / 1600);
+        double need = k.requiredK();
+        UiKit.gauge(g, font, PX, y, PW, t / 1800, t >= need ? UiKit.AMBER : UiKit.CYAN, "Chamber (needs " + (int) need + " K)",
+                k.status().isEmpty() ? "idle" : k.status());
+        int mark = PX + 1 + (int) ((PW - 2) * Math.min(1, need / 1800));
         g.fill(mark, y + 9, mark + 1, y + 17, 0xFFFFFFFF);
         y += 22;
         UiKit.gauge(g, font, PX, y, 84, k.progress(), UiKit.GREEN, "Charge", (int) (k.progress() * 100) + " %");
@@ -419,7 +454,6 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         UiKit.kv(g, font, PX, y, PW, "UA", Sci.fixed(k.lossCoefficient(), 2) + " W/K   loss " + Sci.si(k.heatLossW(), "W"), UiKit.text());
         double fpi = k.fuelPerItem();
         UiKit.kv(g, font, PX, y + 10, PW, "Fuel per item", Double.isNaN(fpi) ? "—" : Sci.fixed(fpi / 1000, 0) + " kJ", UiKit.text());
-        g.drawString(font, "Insulation", 186, 20, UiKit.muted(), false);
     }
 
     private void electrical(GuiGraphics g, double v, double i, int y) {

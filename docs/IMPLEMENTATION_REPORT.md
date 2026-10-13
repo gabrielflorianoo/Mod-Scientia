@@ -99,6 +99,15 @@ graph/spectrum/digits, dial, vents, hazard stripes, resistor bands, solar cells,
 15 item icons (with filled variants), 8 microscope specimen images, liquid and wire textures.
 Copper wire uses JSON multipart models.
 
+### Gameplay integration and hazards (update)
+
+- GUI: slots moved to labelled side columns, scaled/clipped explanation text, non-overlapping graph ticks.
+- Progression: steel tier + tools, Portland cement, reinforced concrete, kiln additive slot and status.
+- Item uses: oxygen/CO₂/chlorine/hydrogen canisters, salt de-icing, acid copper cleaning, drinking.
+- Hazards (`util/Hazards`): vessel burst, thermal shock, toxic gas, hydrogen flash, wire/lamp burnout,
+  hot surfaces, scalding; each writes a journal Lesson and grants `observe:lesson`.
+- New data: 5 substances, 4 reactions, 2 materials, 3 research nodes, 7 glossary terms.
+
 ## Tests performed
 
 | Test | Result |

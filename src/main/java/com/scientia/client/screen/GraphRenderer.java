@@ -41,16 +41,24 @@ public final class GraphRenderer {
         }
         double stepX = DataSeries.niceStep(maxX - minX, 5), stepY = DataSeries.niceStep(maxY - minY, 4);
         // grid and ticks
+        int lastRight = Integer.MIN_VALUE;
         for (double tx = Math.ceil(minX / stepX) * stepX; tx <= maxX + 1e-9; tx += stepX) {
             int px = (int) (left + (tx - minX) / (maxX - minX) * (right - left));
             g.fill(px, top, px + 1, bottom, 0x22FFFFFF);
-            String lbl = Sci.fmt(tx, 3);
-            g.drawString(font, lbl, px - font.width(lbl) / 2, bottom + 2, UiKit.muted(), false);
+            String lbl = tick(tx);
+            int lw = (int) (font.width(lbl) * 0.75f);
+            if (px - lw / 2 <= lastRight + 3) continue; // skip labels that would overlap the previous one
+            lastRight = px + lw / 2;
+            g.pose().pushPose();
+            g.pose().translate(px - lw / 2f, bottom + 3, 0);
+            g.pose().scale(0.75f, 0.75f, 1);
+            g.drawString(font, lbl, 0, 0, UiKit.muted(), false);
+            g.pose().popPose();
         }
         for (double ty = Math.ceil(minY / stepY) * stepY; ty <= maxY + 1e-9; ty += stepY) {
             int py = (int) (bottom - (ty - minY) / (maxY - minY) * (bottom - top));
             g.fill(left, py, right, py + 1, 0x22FFFFFF);
-            String lbl = Sci.fmt(ty, 4);
+            String lbl = tick(ty);
             g.pose().pushPose();
             g.pose().translate(left - 2 - font.width(lbl) * 0.75f, py - 3, 0);
             g.pose().scale(0.75f, 0.75f, 1);
@@ -61,7 +69,7 @@ public final class GraphRenderer {
         g.fill(left, bottom, right, bottom + 1, UiKit.border());
         DataSeries first = series.get(0);
         String xl = first.xLabel() + " (" + first.xUnit() + ")";
-        g.drawString(font, xl, right - font.width(xl), bottom + 11, UiKit.text(), false);
+        g.drawString(font, xl, right - font.width(xl), bottom + 12, UiKit.text(), false);
         String yl = first.yLabel() + (first.yUnit().isEmpty() ? "" : " (" + first.yUnit() + ")");
         g.drawString(font, yl, left + 3, top + 1, UiKit.text(), false);
         for (int si = 0; si < series.size(); si++) {
@@ -95,6 +103,15 @@ public final class GraphRenderer {
                 }
             }
         }
+    }
+
+    /** Compact tick label: at most 4 significant figures, no trailing zeros ("0.02", "1.5k" style avoided for clarity). */
+    static String tick(double v) {
+        if (Math.abs(v) < 1e-12) return "0";
+        double a = Math.abs(v);
+        if (a >= 1e5 || a < 1e-3) return Sci.fmt(v, 2);
+        java.math.BigDecimal bd = new java.math.BigDecimal(v).round(new java.math.MathContext(4)).stripTrailingZeros();
+        return bd.toPlainString();
     }
 
     private static int clampY(int v, int top, int bottom) {

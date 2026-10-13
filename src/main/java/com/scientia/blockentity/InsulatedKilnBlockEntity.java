@@ -23,16 +23,22 @@ import java.util.Optional;
 /**
  * A fuel-fired brick kiln with an energy balance:
  * <pre>C dT/dt = P_burner − UA (T − T_env) − P_charge</pre>
- * The burner (20 kW) is thermostatically limited to hold 1300 K. A charge is processed only above 1100 K
- * and absorbs 15 kW while it heats and reacts (≈120 kJ per item; a game approximation). Insulation lowers
+ * The burner (20 kW) is thermostatically limited to hold 1750 K. Each charge needs its own temperature
+ * (smelting 1100 K, quicklime 1170 K, steel 1173 K, Portland cement 1720 K) and absorbs 15 kW while it heats
+ * and reacts (≈120 kJ per item; a game approximation). An additive slot supplies carbon (coal/charcoal) for
+ * carburising iron into steel, or clay for cement. Insulation lowers
  * UA, so an insulated kiln reaches temperature, smelts faster and uses far less fuel per item — the same
  * reason real kilns and furnaces are insulated.
  */
 public class InsulatedKilnBlockEntity extends MachineBlockEntity implements Measurable {
-    public static final int SLOT_IN = 0, SLOT_FUEL = 1, SLOT_OUT = 2, SLOT_INSULATION = 3;
+    public static final int SLOT_IN = 0, SLOT_FUEL = 1, SLOT_OUT = 2, SLOT_INSULATION = 3, SLOT_ADDITIVE = 4;
     public static final double HEAT_CAPACITY = 2000;      // J/K of the kiln chamber lining
     public static final double BURNER_W = 20_000;
-    public static final double SETPOINT_K = 1300, PROCESS_K = 1100;
+    public static final double SETPOINT_K = 1750, PROCESS_K = 1100;
+    /** Steel: carburising iron at about 900 °C; ≈0.8 g of carbon enters each 100 g ingot and ≈10 g of packing charcoal burns. */
+    public static final double STEEL_K = 1173, STEEL_CARBON_G = 10.8;
+    /** Portland cement clinker forms at about 1450 °C (1723 K); ≈1 part clay to 3 parts limestone. */
+    public static final double CEMENT_K = 1720, CEMENT_CLAY_G = 33;
     public static final double CHARGE_W = 15_000, ITEM_ENERGY_J = 120_000;
     public static final double UA_BRICK = 22;               // W/K, uninsulated brick walls
     public static final double WALL_AREA = 0.5, LAYER_THICKNESS = 0.01;
@@ -45,21 +51,26 @@ public class InsulatedKilnBlockEntity extends MachineBlockEntity implements Meas
     private double fuelUsedJ;
     private int itemsMade;
     private double quicklimeG;
+    private double carbonG;
+    private double clayG;
+    private String status = "";
 
     public InsulatedKilnBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.INSULATED_KILN.get(), pos, state, 4);
+        super(ModBlockEntities.INSULATED_KILN.get(), pos, state, 5);
     }
 
     @Override
     public List<SlotDef> slots() {
-        return List.of(new SlotDef(SLOT_IN, 16, 50, false), new SlotDef(SLOT_FUEL, 16, 104, false),
-                new SlotDef(SLOT_OUT, 228, 78, true), new SlotDef(SLOT_INSULATION, 228, 30, false));
+        return List.of(new SlotDef(SLOT_IN, 16, 32, false, "Charge"), new SlotDef(SLOT_ADDITIVE, 16, 68, false, "Additive"),
+                new SlotDef(SLOT_FUEL, 16, 104, false, "Fuel"), new SlotDef(SLOT_OUT, 228, 104, true, "Output"),
+                new SlotDef(SLOT_INSULATION, 228, 32, false, "Insulation"));
     }
 
     @Override
     public boolean isItemValid(int slot, ItemStack stack) {
         if (slot == SLOT_FUEL) return Fuel.energyJ(stack) > 0;
         if (slot == SLOT_INSULATION) return insulationConductivity(stack) > 0;
+        if (slot == SLOT_ADDITIVE) return carbonOf(stack) > 0 || stack.is(Items.CLAY_BALL);
         return super.isItemValid(slot, stack);
     }
 
@@ -101,8 +112,38 @@ public class InsulatedKilnBlockEntity extends MachineBlockEntity implements Meas
         return lossCoefficient() * (temperatureK() - ambient());
     }
 
+    /** Grams of carbon in a carbon additive (coal 85 g, charcoal 95 g per item in the material model). */
+    private static double carbonOf(ItemStack s) {
+        if (s.is(Items.COAL)) return 85;
+        if (s.is(Items.CHARCOAL)) return 95;
+        return 0;
+    }
+
+    private boolean steelRecipe(ItemStack input) {
+        return input.is(Items.IRON_INGOT) && (carbonG >= STEEL_CARBON_G || carbonOf(items.getStackInSlot(SLOT_ADDITIVE)) > 0);
+    }
+
+    private boolean cementRecipe(ItemStack input) {
+        return input.is(Items.CALCITE) && (clayG >= CEMENT_CLAY_G || items.getStackInSlot(SLOT_ADDITIVE).is(Items.CLAY_BALL));
+    }
+
+    /** Temperature the current charge needs. */
+    public double requiredK() {
+        ItemStack input = items.getStackInSlot(SLOT_IN);
+        if (cementRecipe(input)) return CEMENT_K;
+        if (steelRecipe(input)) return STEEL_K;
+        if (input.is(ModItems.CALCITE_POWDER.get()) || input.is(Items.CALCITE)) return 1170;
+        return PROCESS_K;
+    }
+
+    public String status() {
+        return status;
+    }
+
     private ItemStack resultFor(ItemStack input) {
         if (input.isEmpty()) return ItemStack.EMPTY;
+        if (cementRecipe(input)) return new ItemStack(ModItems.PORTLAND_CEMENT.get());
+        if (steelRecipe(input)) return new ItemStack(ModItems.STEEL_INGOT.get());
         if (input.is(ModItems.CALCITE_POWDER.get()) || input.is(Items.CALCITE)) return new ItemStack(ModItems.QUICKLIME.get());
         Optional<SmeltingRecipe> r = level.getRecipeManager().getRecipeFor(RecipeType.SMELTING, new SimpleContainer(input), level);
         return r.map(rec -> rec.getResultItem(level.registryAccess()).copy()).orElse(ItemStack.EMPTY);
@@ -116,7 +157,9 @@ public class InsulatedKilnBlockEntity extends MachineBlockEntity implements Meas
         double t = temperatureK();
         ItemStack input = items.getStackInSlot(SLOT_IN);
         ItemStack result = resultFor(input);
-        boolean processing = !result.isEmpty() && t >= PROCESS_K && canOutput(result);
+        double needed = requiredK();
+        boolean processing = !result.isEmpty() && t >= needed && canOutput(result);
+        status = result.isEmpty() ? "" : t < needed ? String.format(java.util.Locale.ROOT, "needs %.0f K", needed) : "processing";
         double loss = lossCoefficient() * (t - ambient());
         double demand = loss + (processing ? CHARGE_W : 0) + HEAT_CAPACITY * Math.max(0, SETPOINT_K - t) / dt;
         boolean wantsHeat = !result.isEmpty() || t > ambient() + 50;
@@ -139,7 +182,7 @@ public class InsulatedKilnBlockEntity extends MachineBlockEntity implements Meas
                 fuelUsedJ += burner * dt;
             }
         }
-        double charge = processing ? Math.min(CHARGE_W, Math.max(0, burner - loss + HEAT_CAPACITY * (t - PROCESS_K) / dt)) : 0;
+        double charge = processing ? Math.min(CHARGE_W, Math.max(0, burner - loss + HEAT_CAPACITY * (t - needed) / dt)) : 0;
         t += (burner - loss - charge) * dt / HEAT_CAPACITY;
         temperatureK = Math.max(ambient(), t);
         if (processing) {
@@ -160,8 +203,35 @@ public class InsulatedKilnBlockEntity extends MachineBlockEntity implements Meas
         return out.isEmpty() || (ItemStack.isSameItemSameTags(out, result) && out.getCount() + result.getCount() <= out.getMaxStackSize());
     }
 
+    private boolean consumeAdditive(boolean carbon) {
+        ItemStack a = items.getStackInSlot(SLOT_ADDITIVE);
+        if (carbon && carbonOf(a) > 0) {
+            carbonG += carbonOf(a);
+        } else if (!carbon && a.is(Items.CLAY_BALL)) {
+            clayG += 100;
+        } else {
+            return false;
+        }
+        a.shrink(1);
+        items.setStackInSlot(SLOT_ADDITIVE, a);
+        return true;
+    }
+
     private void finishItem(ItemStack input, ItemStack result) {
         ServerLevel sl = serverLevel();
+        if (result.is(ModItems.STEEL_INGOT.get()) || result.is(ModItems.PORTLAND_CEMENT.get())) {
+            boolean steel = result.is(ModItems.STEEL_INGOT.get());
+            double need = steel ? STEEL_CARBON_G : CEMENT_CLAY_G;
+            if ((steel ? carbonG : clayG) < need && !consumeAdditive(steel)) return;
+            if (steel) carbonG -= need;
+            else clayG -= need;
+            input.shrink(1);
+            items.setStackInSlot(SLOT_IN, input);
+            output(SLOT_OUT, result);
+            itemsMade++;
+            if (sl != null) JournalService.grant(sl, lastUser, steel ? "craft:steel" : "craft:cement");
+            return;
+        }
         boolean lime = input.is(ModItems.CALCITE_POWDER.get()) || input.is(Items.CALCITE);
         String inputId = Sci.itemId(input.getItem());
         if (lime) {
@@ -205,6 +275,9 @@ public class InsulatedKilnBlockEntity extends MachineBlockEntity implements Meas
         tag.putDouble("FuelUsed", fuelUsedJ);
         tag.putInt("Made", itemsMade);
         tag.putDouble("Lime", quicklimeG);
+        tag.putDouble("Carbon", carbonG);
+        tag.putDouble("Clay", clayG);
+        tag.putString("Status", status);
     }
 
     @Override
@@ -216,5 +289,8 @@ public class InsulatedKilnBlockEntity extends MachineBlockEntity implements Meas
         fuelUsedJ = tag.getDouble("FuelUsed");
         itemsMade = tag.getInt("Made");
         quicklimeG = tag.getDouble("Lime");
+        carbonG = tag.getDouble("Carbon");
+        clayG = tag.getDouble("Clay");
+        status = tag.getString("Status");
     }
 }

@@ -48,7 +48,7 @@ public class MaterialAnalyzerBlockEntity extends MachineBlockEntity {
 
     @Override
     public List<SlotDef> slots() {
-        return List.of(new SlotDef(0, 16, 60, false));
+        return List.of(new SlotDef(0, 16, 60, false, "Sample"));
     }
 
     @Override

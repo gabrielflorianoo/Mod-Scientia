@@ -34,7 +34,8 @@ public final class ReactionEngine {
     public record Event(Reaction reaction, double extentMol, double heatReleasedJ) {
     }
 
-    public record StepResult(List<Event> events, double escapedGasGrams, List<String> escapedGases) {
+    /** @param escapedMoles moles of each gas that escaped from an open vessel during the step */
+    public record StepResult(List<Event> events, double escapedGasGrams, List<String> escapedGases, java.util.Map<String, Double> escapedMoles) {
         public boolean anyReaction() {
             return !events.isEmpty();
         }
@@ -91,6 +92,7 @@ public final class ReactionEngine {
         }
         double escaped = 0;
         List<String> gases = new ArrayList<>();
+        java.util.Map<String, Double> escapedMoles = new java.util.LinkedHashMap<>();
         if (!c.closed()) {
             double litres = m.waterLitres(substances);
             for (String id : List.copyOf(m.amounts().keySet())) {
@@ -103,10 +105,11 @@ public final class ReactionEngine {
                     escaped += excess * substances.molarMass(id);
                     m.remove(id, excess);
                     gases.add(id);
+                    escapedMoles.put(id, excess);
                 }
             }
         }
-        return new StepResult(events, escaped, gases);
+        return new StepResult(events, escaped, gases, escapedMoles);
     }
 
     /** A substance is treated as gaseous above its boiling point (or if it is a gas at 25 °C with no boiling data). */

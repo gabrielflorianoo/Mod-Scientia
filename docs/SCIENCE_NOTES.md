@@ -174,6 +174,19 @@ of brine electrolysis (an industrial process described at textbook level) used t
 hydrochloric acid; hazards are stated in the substance data. In-game safety never implies real-world
 safety — see the `hazard` and `simplification` fields.
 
+## Applied processes and hazards
+
+- **Steel** — REAL composition (≈0.8 % C, density 7.85 g/cm³); carburisation simplified to a fixed
+  carbon mass at ≥ 900 °C (austenite region).
+- **Portland cement** — REAL clinker phases (C₃S, C₂S) from limestone + clay at ≈ 1450 °C; hydration
+  and curing times are GAME.
+- **New reactions** — Fe + 2HCl → FeCl₂ + H₂; Fe₂O₃ + 6HCl → 2FeCl₃ + 3H₂O; CuO + 2HCl → CuCl₂ + H₂O;
+  2NaOH + CO₂ → Na₂CO₃ + H₂O. Non-reactions (e.g. Cu + HCl) are explained with the reactivity series.
+- **Hazards** — burst pressure (4.5 bar) and thermal-shock threshold (ΔT 150 K) are representative of
+  ordinary laboratory glassware; wire limits are SIMPLIFIED; damage values are GAME.
+- **Oxygen breathing** — resting human consumption ≈ 0.25 L O₂/min ≈ 0.0112 mol/min (REAL order of magnitude).
+- **Salt de-icing** — NaCl–water eutectic −21.1 °C (REAL).
+
 ## Known scientific limitations
 
 - No activity coefficients, temperature-dependent equilibrium constants, or kinetics beyond a rate constant.

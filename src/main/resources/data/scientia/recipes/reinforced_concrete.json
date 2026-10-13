@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "CCC",
+    "CSC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:light_gray_concrete"
+    },
+    "S": {
+      "item": "scientia:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "scientia:reinforced_concrete",
+    "count": 8
+  }
+}

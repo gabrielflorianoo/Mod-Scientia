@@ -29,7 +29,7 @@ public class ThermalGeneratorBlockEntity extends ElectricalSourceBlockEntity {
 
     @Override
     public List<SlotDef> slots() {
-        return List.of(new SlotDef(0, 16, 100, false));
+        return List.of(new SlotDef(0, 16, 100, false, "Fuel"));
     }
 
     @Override

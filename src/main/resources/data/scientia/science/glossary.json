@@ -288,5 +288,40 @@
   "term": "Emission spectrum",
   "category": "optics",
   "definition": "The set of wavelengths emitted by excited atoms; unique for each element."
+ },
+ {
+  "term": "Reactivity series",
+  "category": "chemistry",
+  "definition": "Metals listed from most to least reactive (K, Na, Ca, Mg, Al, Zn, Fe, Sn, Pb, H, Cu, Ag, Au). Metals above hydrogen release H₂ from dilute acids; those below do not."
+ },
+ {
+  "term": "Alloy steel",
+  "category": "chemistry",
+  "definition": "Iron containing a small amount of carbon (typically 0.1–2 %); much harder than pure iron."
+ },
+ {
+  "term": "Portland cement",
+  "category": "chemistry",
+  "definition": "A powder of calcium silicates made by heating limestone and clay to about 1450 °C; reacts with water to bind concrete."
+ },
+ {
+  "term": "Freezing-point depression",
+  "category": "thermal",
+  "definition": "Dissolved particles lower the freezing point of a solvent (ΔT_f = i K_f b); salt melts ice down to about −21 °C."
+ },
+ {
+  "term": "Overpressure",
+  "category": "method",
+  "definition": "Pressure above what a container can withstand. Gas-producing reactions must never be run in sealed glassware."
+ },
+ {
+  "term": "Ampacity",
+  "category": "electricity",
+  "definition": "The maximum current a conductor can carry continuously without overheating; about 10–16 A for 1 mm² copper wire."
+ },
+ {
+  "term": "Thermal shock",
+  "category": "thermal",
+  "definition": "Cracking caused by a sudden temperature change that makes one part of a material expand faster than another."
  }
 ]

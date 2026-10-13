@@ -123,6 +123,23 @@ public class MachineBlock extends BaseEntityBlock {
         super.onRemove(state, level, pos, newState, moving);
     }
 
+    /** Hot surfaces: an active heater, kiln or generator burns entities standing on it (like a magma block). */
+    @Override
+    public void stepOn(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull net.minecraft.world.entity.Entity entity) {
+        if (!level.isClientSide && state.getValue(ACTIVE) && !entity.isSteppingCarefully()
+                && entity instanceof net.minecraft.world.entity.LivingEntity living
+                && (level.getBlockEntity(pos) instanceof com.scientia.blockentity.LabHeaterBlockEntity
+                || level.getBlockEntity(pos) instanceof com.scientia.blockentity.InsulatedKilnBlockEntity
+                || level.getBlockEntity(pos) instanceof com.scientia.blockentity.ThermalGeneratorBlockEntity)) {
+            living.hurt(level.damageSources().hotFloor(), 1.0f);
+            if (living instanceof ServerPlayer sp) {
+                com.scientia.util.Hazards.lesson(sp, "hot_surface", "You stood on a hot surface",
+                        "Hot plates and kilns stay hot long after they look safe. Treat every heater as hot.");
+            }
+        }
+        super.stepOn(level, pos, state, entity);
+    }
+
     /** Sets the ACTIVE flag (used by models and lighting) only when it actually changes. */
     public static void setActive(Level level, BlockPos pos, boolean active) {
         BlockState s = level.getBlockState(pos);

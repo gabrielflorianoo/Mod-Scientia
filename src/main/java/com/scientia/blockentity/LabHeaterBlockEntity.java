@@ -64,7 +64,7 @@ public class LabHeaterBlockEntity extends MachineBlockEntity implements Measurab
 
     @Override
     public List<SlotDef> slots() {
-        return List.of(new SlotDef(SLOT_FUEL, 16, 100, false), new SlotDef(SLOT_JACKET, 16, 76, false), new SlotDef(SLOT_OUT, 228, 100, true));
+        return List.of(new SlotDef(SLOT_FUEL, 16, 104, false, "Fuel"), new SlotDef(SLOT_JACKET, 16, 60, false, "Jacket"), new SlotDef(SLOT_OUT, 228, 104, true, "Solids"));
     }
 
     @Override
@@ -116,6 +116,11 @@ public class LabHeaterBlockEntity extends MachineBlockEntity implements Measurab
                 Mixture taken = Liquids.takeLiquid(contents, BeakerItem.CAPACITY_ML * 0.997);
                 if (taken.isEmpty()) return InteractionResult.PASS;
                 replaceHeld(player, hand, held, BeakerItem.filled(held.getItem(), taken));
+                if (temperatureK() > 333.15) {
+                    player.hurt(level.damageSources().hotFloor(), temperatureK() > 363.15 ? 3f : 1.5f);
+                    com.scientia.util.Hazards.lesson(player, "scald", String.format(java.util.Locale.ROOT, "Scalded by liquid at %.0f °C", temperatureK() - 273.15),
+                            "Water above about 60 °C burns skin in seconds. Switch the heater off and let it cool, or use tongs and heat-proof gloves.");
+                }
                 level.playSound(null, worldPosition, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 0.7f, 1);
             } else {
                 return InteractionResult.PASS;

@@ -44,7 +44,10 @@ public final class CircuitManager {
     private static final Map<ServerLevel, CircuitManager> MANAGERS = new WeakHashMap<>();
     private static final double SHORT_CIRCUIT_AMPS = 40;
 
+    /** Wires above their ampacity overheat; sustained overload melts them. */
+    public static final double WIRE_WARN_AMPS = 25, WIRE_FUSE_AMPS = 60;
     private final Set<BlockPos> sources = new HashSet<>();
+    private final Map<BlockPos, Integer> overload = new HashMap<>();
     private Map<BlockPos, Reading> readings = new HashMap<>();
 
     public static CircuitManager get(ServerLevel level) {
@@ -89,14 +92,60 @@ public final class CircuitManager {
                 continue;
             }
             if (visited.contains(src)) continue;
-            Network net = Network.discover(level, src, ScientiaConfig.MAX_CIRCUIT_SIZE.get());
-            visited.addAll(net.members);
-            net.solveAndApply(level, dt, next);
+            Network network = Network.discover(level, src, ScientiaConfig.MAX_CIRCUIT_SIZE.get());
+            visited.addAll(network.members);
+            network.solveAndApply(level, dt, next);
+            checkOverloads(level, network, next, interval);
         }
         for (BlockPos p : readings.keySet()) {
             if (!next.containsKey(p) && level.isLoaded(p)) applyUnpowered(level, p);
         }
         readings = next;
+    }
+
+    /**
+     * Joule heating (P = I²R): wires carrying more than ~25 A (1 mm² copper is rated ~10–16 A) overheat and melt
+     * after a few seconds, faster above 60 A; lamps run far above their rating burn out their filament.
+     */
+    private void checkOverloads(ServerLevel level, Network network, Map<BlockPos, Reading> readings, int interval) {
+        for (BlockPos p : network.members) {
+            Reading r = readings.get(p);
+            if (r == null) continue;
+            BlockState s = level.getBlockState(p);
+            if (r.role() == ElectricalBlock.Role.WIRE) {
+                double amps = network.wireCurrents.getOrDefault(p, 0.0);
+                if (amps > WIRE_WARN_AMPS) {
+                    int t = overload.merge(p, interval, Integer::sum);
+                    int limit = amps > WIRE_FUSE_AMPS ? 20 : 100;
+                    if (t % 20 < interval) level.sendParticles(net.minecraft.core.particles.ParticleTypes.SMOKE, p.getX() + 0.5, p.getY() + 0.6, p.getZ() + 0.5, 2, 0.1, 0.1, 0.1, 0.0);
+                    if (t >= limit) {
+                        overload.remove(p);
+                        com.scientia.util.Hazards.burnOut(level, p, amps > WIRE_FUSE_AMPS);
+                        com.scientia.util.Hazards.lessonNearby(level, p, 12, "wire_burnout",
+                                String.format(Locale.ROOT, "A copper wire melted carrying %.0f A", amps),
+                                "Power lost in a wire is P = I²R. A 1 mm² copper wire is rated for about 10–16 A; a short circuit drives far more "
+                                        + "current through the battery's tiny internal resistance. Add a load (lamp, resistor) or a fuse.");
+                    }
+                } else {
+                    overload.remove(p);
+                }
+            } else if (s.getBlock() instanceof FilamentLampBlock && !s.getValue(FilamentLampBlock.BROKEN)) {
+                if (Math.abs(r.power()) > 2 * FilamentLampBlock.RATED_POWER) {
+                    int t = overload.merge(p, interval, Integer::sum);
+                    if (t >= 10) {
+                        overload.remove(p);
+                        level.setBlock(p, s.setValue(FilamentLampBlock.BROKEN, true).setValue(FilamentLampBlock.LEVEL, 0), 3);
+                        level.playSound(null, p, net.minecraft.sounds.SoundEvents.GLASS_BREAK, net.minecraft.sounds.SoundSource.BLOCKS, 0.4f, 1.8f);
+                        com.scientia.util.Hazards.lessonNearby(level, p, 12, "filament_burnout",
+                                String.format(Locale.ROOT, "The lamp burnt out at %.1f W (rated 6 W)", Math.abs(r.power())),
+                                "Power grows with the square of voltage (P = V²/R): doubling the voltage quadruples the power and the filament melts. "
+                                        + "Match the lamp's voltage rating, or add resistance in series.");
+                    }
+                } else {
+                    overload.remove(p);
+                }
+            }
+        }
     }
 
     private static void applyUnpowered(ServerLevel level, BlockPos p) {
@@ -114,6 +163,8 @@ public final class CircuitManager {
     static final class Network {
         final List<BlockPos> members = new ArrayList<>();
         final Set<BlockPos> memberSet = new HashSet<>();
+        /** Largest current (A) through any link of each wire block in the last solve. */
+        final Map<BlockPos, Double> wireCurrents = new HashMap<>();
         final BlockPos start;
         boolean truncated;
 
@@ -157,6 +208,7 @@ public final class CircuitManager {
             final Map<BlockPos, Integer> wireNode = new HashMap<>();
             final Map<BlockPos, int[]> terminals = new HashMap<>();
             final Map<BlockPos, Circuit.Component> elements = new HashMap<>();
+            final List<Object[]> wireLinks = new ArrayList<>();
             int ground = -1;
 
             Built(ServerLevel level, Set<BlockPos> excluded) {
@@ -171,7 +223,7 @@ public final class CircuitManager {
                 for (BlockPos p : wireNode.keySet()) {
                     for (Direction d : new Direction[]{Direction.EAST, Direction.SOUTH, Direction.UP}) {
                         Integer q = wireNode.get(p.relative(d));
-                        if (q != null) circuit.resistor(wireNode.get(p), q, rWire, p);
+                        if (q != null) wireLinks.add(new Object[]{p, p.relative(d), circuit.resistor(wireNode.get(p), q, rWire, p)});
                     }
                 }
                 for (BlockPos p : members) {
@@ -184,7 +236,9 @@ public final class CircuitManager {
                     if (excluded.contains(p)) continue;
                     BlockEntity be = level.getBlockEntity(p);
                     switch (eb.role(s)) {
-                        case LOAD -> elements.put(p, circuit.resistor(a, b, eb.resistance(s, level, p), p));
+                        case LOAD -> {
+                            if (eb.conducts(s)) elements.put(p, circuit.resistor(a, b, eb.resistance(s, level, p), p));
+                        }
                         case SWITCH -> {
                             if (eb.conducts(s)) elements.put(p, circuit.resistor(a, b, eb.resistance(s, level, p), p));
                         }
@@ -238,6 +292,12 @@ public final class CircuitManager {
                     }
                 }
                 if (!changed) break;
+            }
+            wireCurrents.clear();
+            for (Object[] link : built.wireLinks) {
+                double amps = Math.abs(sol.current((Circuit.Component) link[2]));
+                wireCurrents.merge((BlockPos) link[0], amps, Math::max);
+                wireCurrents.merge((BlockPos) link[1], amps, Math::max);
             }
             List<BlockPos> litLamps = new ArrayList<>();
             double maxSourceCurrent = 0;

@@ -69,9 +69,87 @@ public class BeakerItem extends Item {
         return m;
     }
 
+    /**
+     * An acidic solution (pH &lt; 4, e.g. vinegar or hydrochloric acid) dissolves the green patina — basic copper
+     * carbonate, Cu₂CO₃(OH)₂ — returning oxidised copper blocks one stage. About 4 mmol of H⁺ are used per stage:
+     * Cu₂CO₃(OH)₂ + 4 H⁺ → 2 Cu²⁺ + CO₂ + 3 H₂O.
+     */
+    @Override
+    public @NotNull net.minecraft.world.InteractionResult useOn(net.minecraft.world.item.context.UseOnContext ctx) {
+        ItemStack stack = ctx.getItemInHand();
+        Level level = ctx.getLevel();
+        var state = level.getBlockState(ctx.getClickedPos());
+        if (isEmpty(stack) || !(state.getBlock() instanceof net.minecraft.world.level.block.WeatheringCopper)) return net.minecraft.world.InteractionResult.PASS;
+        var previous = net.minecraft.world.level.block.WeatheringCopper.getPrevious(state);
+        if (previous.isEmpty()) return net.minecraft.world.InteractionResult.PASS;
+        if (level.isClientSide) return net.minecraft.world.InteractionResult.SUCCESS;
+        Mixture m = Sci.contentsOf(stack);
+        double ph = com.scientia.core.chem.AcidBaseSolver.pH(m, Sci.db().substances());
+        Player player = ctx.getPlayer();
+        double needH = 0.004;
+        double acid = m.get("hydrogen_chloride") + m.get("acetic_acid");
+        if (Double.isNaN(ph) || ph >= 4 || acid < needH) {
+            if (player != null) player.displayClientMessage(Component.literal(String.format(Locale.ROOT,
+                    "Nothing happens: the patina (basic copper carbonate) only dissolves in acid. This solution has pH %s.",
+                    Double.isNaN(ph) ? "—" : String.format(Locale.ROOT, "%.1f", ph))).withStyle(ChatFormatting.GRAY), false);
+            return net.minecraft.world.InteractionResult.CONSUME;
+        }
+        // Use strong acid first, then acetic acid; products stay in the beaker as dissolved salts and CO2 escapes.
+        double fromHcl = Math.min(m.get("hydrogen_chloride"), needH);
+        m.remove("hydrogen_chloride", fromHcl);
+        m.remove("acetic_acid", needH - fromHcl);
+        m.add("water", needH * 0.75);
+        setContents(stack, m);
+        level.setBlockAndUpdate(ctx.getClickedPos(), previous.get());
+        level.playSound(null, ctx.getClickedPos(), SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 0.6f, 1.4f);
+        if (player != null) player.displayClientMessage(Component.literal(
+                "The acid dissolved the green patina: Cu₂CO₃(OH)₂ + 4 H⁺ → 2 Cu²⁺ + CO₂ + 3 H₂O.").withStyle(ChatFormatting.AQUA), true);
+        return net.minecraft.world.InteractionResult.CONSUME;
+    }
+
+    private static void setContents(ItemStack s, Mixture m) {
+        Sci.setContents(s, m);
+    }
+
+    /** Sneak + use: drinking from laboratory glassware, with realistic consequences. */
+    private InteractionResultHolder<ItemStack> drink(Level level, Player player, ItemStack stack) {
+        if (level.isClientSide || !(player instanceof net.minecraft.server.level.ServerPlayer sp)) return InteractionResultHolder.success(stack);
+        Mixture m = Sci.contentsOf(stack);
+        var subs = Sci.db().substances();
+        double ph = com.scientia.core.chem.AcidBaseSolver.pH(m, subs);
+        double waterG = Sci.waterGrams(m);
+        double salt = waterG > 0 ? m.massOf("sodium_chloride", subs) / (waterG + m.massOf("sodium_chloride", subs)) : 0;
+        boolean toxic = m.contains("copper_ii_chloride") || m.contains("copper_ii_oxide") || m.contains("iron_iii_chloride") || m.contains("chlorine");
+        level.playSound(null, sp.blockPosition(), SoundEvents.GENERIC_DRINK, SoundSource.PLAYERS, 1f, 1f);
+        if (!Double.isNaN(ph) && (ph < 2.5 || ph > 11.5)) {
+            sp.hurt(level.damageSources().magic(), 6f);
+            sp.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.CONFUSION, 200, 0));
+            com.scientia.util.Hazards.lesson(sp, "chemical_burn", String.format(Locale.ROOT, "You drank a solution of pH %.1f", ph),
+                    ph < 7 ? "Strong acids burn the mouth and throat by denaturing proteins. Never taste anything in a laboratory."
+                            : "Strong bases (alkalis) are even more damaging than acids: they dissolve fats and tissue. Never taste anything in a laboratory.");
+        } else if (toxic) {
+            sp.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.POISON, 200, 0));
+            com.scientia.util.Hazards.lesson(sp, "poisoning", "You drank a toxic solution",
+                    "Dissolved copper and iron(III) salts are toxic in quantity. Laboratory glassware is never for drinking.");
+        } else if (salt > 0.01) {
+            sp.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.HUNGER, 600, 1));
+            com.scientia.util.Hazards.lesson(sp, "dehydration", String.format(Locale.ROOT, "You drank water with %.1f %% salt", salt * 100),
+                    "Seawater is saltier than blood: the kidneys need more water to remove the salt than you drank, so it dehydrates you. Distil it first.");
+        } else if (m.amounts().size() == 1 && m.contains("water")) {
+            sp.displayClientMessage(Component.literal("Just water — but in a real lab, never drink from lab glassware: it may be contaminated.").withStyle(ChatFormatting.GRAY), false);
+        } else {
+            sp.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.CONFUSION, 160, 0));
+            com.scientia.util.Hazards.lesson(sp, "ingestion", "You drank an unknown laboratory solution",
+                    "Unknown chemicals can be harmful even when they look like water. Label everything; never taste.");
+        }
+        if (player.isCreative()) return InteractionResultHolder.consume(stack);
+        return InteractionResultHolder.consume(new ItemStack(this));
+    }
+
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
+        if (!isEmpty(stack) && player.isShiftKeyDown()) return drink(level, player, stack);
         if (!isEmpty(stack)) return InteractionResultHolder.pass(stack);
         BlockHitResult hit = getPlayerPOVHitResult(level, player, ClipContext.Fluid.SOURCE_ONLY);
         if (hit.getType() != HitResult.Type.BLOCK) return InteractionResultHolder.pass(stack);

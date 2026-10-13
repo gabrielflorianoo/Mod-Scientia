@@ -208,7 +208,12 @@ public class JournalScreen extends Screen {
         JournalData j = ClientJournal.get();
         String stats = j.research().size() + "/" + Sci.db().research().all().size() + " research · " + j.experiments().size() + "/"
                 + Sci.db().experiments().size() + " experiments · " + j.elements().size() + " elements";
-        g.drawString(font, stats, x0 + 8, y0 + 24, UiKit.muted(), false);
+        // Compact stats line; it must end before the filter/plot button and the search box on the right.
+        g.pose().pushPose();
+        g.pose().translate(x0 + 8, y0 + 25, 0);
+        g.pose().scale(0.75f, 0.75f, 1f);
+        g.drawString(font, font.plainSubstrByWidth(stats, (int) ((w - 216) / 0.75f)), 0, 0, UiKit.muted(), false);
+        g.pose().popPose();
         switch (tab) {
             case RESEARCH -> research(g, mouseX, mouseY);
             case ELEMENTS -> elements(g, mouseX, mouseY, partial);

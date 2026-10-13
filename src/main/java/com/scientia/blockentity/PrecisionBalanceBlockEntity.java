@@ -36,7 +36,7 @@ public class PrecisionBalanceBlockEntity extends MachineBlockEntity implements M
 
     @Override
     public List<SlotDef> slots() {
-        return List.of(new SlotDef(0, 120, 70, false));
+        return List.of(new SlotDef(0, 16, 60, false, "Pan"));
     }
 
     @Override

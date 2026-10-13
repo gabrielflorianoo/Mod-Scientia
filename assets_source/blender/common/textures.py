@@ -23,6 +23,7 @@ FONT = {
     "V": ["101", "101", "101", "101", "010"], "+": ["000", "010", "111", "010", "000"],
     "-": ["000", "000", "111", "000", "000"], "A": ["010", "101", "111", "101", "101"],
     "H": ["101", "101", "111", "101", "101"], "p": ["000", "110", "101", "110", "100"],
+    "P": ["110", "101", "110", "100", "100"], "C": ["011", "100", "100", "100", "011"],
 }
 
 
@@ -389,6 +390,53 @@ def _powder(color, crystals=False):
     return t
 
 
+STEEL = (176, 188, 200, 255)
+STEEL_DARK = (110, 120, 132, 255)
+HANDLE = (110, 78, 46, 255)
+
+
+def _steel_ingot():
+    t = R.canvas(16, 16)
+    pts = [(2, 10), (5, 6), (14, 6), (11, 10)]
+    R.blend(t, R.polygon_mask(16, 16, pts), STEEL)
+    R.blend(t, R.polygon_mask(16, 16, [(2, 10), (11, 10), (11, 12), (2, 12)]), STEEL_DARK)
+    R.blend(t, R.polygon_mask(16, 16, [(11, 10), (14, 6), (14, 8), (11, 12)]), (90, 100, 110, 255))
+    R.line(t, 5.5, 6.6, 13.2, 6.6, (225, 232, 238, 255), 0.8)
+    return t
+
+
+def _tool(kind):
+    t = R.canvas(16, 16)
+    R.line(t, 3, 13, 10, 6, HANDLE, 1.6)  # handle (diagonal, like vanilla tools)
+    if kind == "pickaxe":
+        R.line(t, 4, 4, 12, 4, STEEL, 2.0); R.line(t, 4, 4, 3, 7, STEEL, 1.6); R.line(t, 12, 4, 13, 7, STEEL, 1.6)
+        R.line(t, 9, 6, 10, 4, STEEL_DARK, 1.2)
+    elif kind == "axe":
+        R.blend(t, R.polygon_mask(16, 16, [(8, 3), (13, 3), (13, 8), (10, 8)]), STEEL)
+        R.line(t, 13, 3, 13, 8, (225, 232, 238, 255), 0.8)
+    elif kind == "shovel":
+        R.blend(t, R.ellipse_mask(16, 16, 11.5, 4.5, 2.6, 2.0, -0.78), STEEL)
+    elif kind == "sword":
+        t = R.canvas(16, 16)
+        R.line(t, 3, 13, 5, 11, HANDLE, 1.6)
+        R.line(t, 3.5, 9.5, 6.5, 12.5, STEEL_DARK, 1.4)  # guard
+        R.line(t, 5, 11, 13, 3, STEEL, 2.0)
+        R.line(t, 6, 10, 13, 3, (225, 232, 238, 255), 0.7)
+    elif kind == "hoe":
+        R.line(t, 8, 4, 12, 4, STEEL, 2.0); R.line(t, 8, 4, 8, 6, STEEL, 1.6)
+    return t
+
+
+def _cement():
+    t = R.canvas(16, 16)
+    R.rect(t, 3, 3, 13, 15, (196, 170, 120, 255))       # paper sack
+    R.rect(t, 3, 3, 13, 4, (170, 145, 100, 255))
+    R.rect(t, 4, 7, 12, 11, (120, 124, 130, 255))       # label
+    text(t, 5, 7, "PC", (240, 240, 240, 255))
+    R.rect(t, 5, 12, 11, 13, (150, 128, 90, 255))
+    return t
+
+
 ITEMS = {
     "beaker": lambda: _beaker(False), "beaker_filled": lambda: _beaker(True),
     "thermometer": _thermometer, "multimeter": _multimeter, "ph_meter": _ph_meter,
@@ -398,6 +446,9 @@ ITEMS = {
     "salt_crystals": lambda: _powder(0xF4F6F8, True), "calcite_powder": lambda: _powder(0xEDE9DF),
     "quicklime": lambda: _powder(0xE9E7E0, True), "slaked_lime": lambda: _powder(0xF7F7F2),
     "copper_oxide_powder": lambda: _powder(0x26221F),
+    "steel_ingot": _steel_ingot, "portland_cement": _cement,
+    "steel_pickaxe": lambda: _tool("pickaxe"), "steel_axe": lambda: _tool("axe"), "steel_shovel": lambda: _tool("shovel"),
+    "steel_sword": lambda: _tool("sword"), "steel_hoe": lambda: _tool("hoe"),
 }
 
 
@@ -533,6 +584,16 @@ def standalone():
     insul = R.canvas(16, 16)
     _shade(insul, 0x2B2F36, 0.04, 8)
     out["block/wire_insulation"] = insul
+    rc = R.canvas(16, 16)
+    _shade(rc, 0x8E9196, 0.07, 9, 6)
+    n = R.noise(16, 16, 33)
+    rc[..., :3] *= (0.92 + 0.12 * n[..., None])
+    for (x, y) in ((3, 3), (11, 4), (6, 9), (13, 12), (2, 13)):
+        R.rect(rc, x, y, x + 1, y + 1, (70, 72, 76, 255))
+    for y in (4, 12):  # rebar shadows
+        rc[y, :, :3] *= 0.86
+    _bevel(rc, 0.05, 0.08)
+    out["block/reinforced_concrete"] = rc
     return out
 
 

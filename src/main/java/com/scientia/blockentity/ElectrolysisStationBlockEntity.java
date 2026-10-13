@@ -9,6 +9,7 @@ import com.scientia.item.BeakerItem;
 import com.scientia.item.GasCanisterItem;
 import com.scientia.journal.JournalService;
 import com.scientia.registry.ModBlockEntities;
+import com.scientia.util.Hazards;
 import com.scientia.util.Liquids;
 import com.scientia.util.Sci;
 import net.minecraft.core.BlockPos;
@@ -33,6 +34,8 @@ public class ElectrolysisStationBlockEntity extends MachineBlockEntity implement
     public static final double COUNTER_EMF = 1.48, RESISTANCE = 2.0;
     /** 0.01 mol ≈ 224 mL at STP: at ~5 A, Faraday's law gives one hydrogen canister in about 6.5 minutes. */
     public static final double CANISTER_MOL = 0.01;
+    /** The collection tubes hold about 0.02 mol of gas; more chlorine than that escapes. */
+    public static final double CHLORINE_STORE_MOL = 0.02;
     public static final List<String> GASES = List.of("hydrogen", "oxygen", "chlorine");
 
     private final Mixture electrolyte = new Mixture();
@@ -45,8 +48,8 @@ public class ElectrolysisStationBlockEntity extends MachineBlockEntity implement
 
     @Override
     public List<SlotDef> slots() {
-        return List.of(new SlotDef(SLOT_IN, 16, 50, false), new SlotDef(SLOT_OUT, 16, 104, true),
-                new SlotDef(SLOT_CANISTER, 228, 50, false), new SlotDef(SLOT_FILLED, 228, 104, true));
+        return List.of(new SlotDef(SLOT_IN, 16, 60, false, "Beaker"), new SlotDef(SLOT_OUT, 16, 104, true, "Out"),
+                new SlotDef(SLOT_CANISTER, 228, 60, false, "Canister"), new SlotDef(SLOT_FILLED, 228, 104, true, "Gas"));
     }
 
     @Override
@@ -79,6 +82,17 @@ public class ElectrolysisStationBlockEntity extends MachineBlockEntity implement
             }
         }
         ServerLevel sl = serverLevel();
+        if (sl != null && gas.get("chlorine") > CHLORINE_STORE_MOL) {
+            // No canister to collect it: the gas space overflows and chlorine leaks out.
+            double leak = gas.get("chlorine");
+            gas.remove("chlorine", leak);
+            Hazards.toxicGas(sl, worldPosition, "Chlorine", leak);
+        }
+        if (sl != null && gas.get("hydrogen") > 0.1 && Hazards.ignitionNear(sl, worldPosition)) {
+            double h = gas.get("hydrogen");
+            gas.remove("hydrogen", h);
+            Hazards.hydrogenFlash(sl, worldPosition, h);
+        }
         if (sl != null) {
             for (ReactionEngine.Event e : r.events()) {
                 JournalService.grant(sl, lastUser, "reaction:" + e.reaction().id());

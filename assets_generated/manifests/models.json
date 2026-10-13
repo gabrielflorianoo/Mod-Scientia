@@ -476,6 +476,27 @@
     "graphite"
    ]
   },
+  "filament_lamp_broken": {
+   "vertices": 176,
+   "faces": 158,
+   "min": [
+    0.267063,
+    0.1875,
+    -0.000625
+   ],
+   "max": [
+    0.732937,
+    0.925,
+    1.000625
+   ],
+   "translucent": true,
+   "tiles": [
+    "brass",
+    "filament",
+    "glass_frost",
+    "graphite"
+   ]
+  },
   "battery": {
    "vertices": 112,
    "faces": 106,

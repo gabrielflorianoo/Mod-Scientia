@@ -37,6 +37,7 @@ BLOCKS = {
     "thermal_generator": ("Thermal Generator", "thermal_generator", "machine"),
     "solar_panel": ("Solar Panel", "solar_panel", "machine"),
     "electrolysis_station": ("Electrolysis Station", "electrolysis_station", "machine"),
+    "reinforced_concrete": ("Reinforced Concrete", "reinforced_concrete", "cube"),
 }
 WOODEN = {"scientific_workbench", "motion_track"}
 GLASSY = {"graduated_cylinder", "condenser", "reaction_vessel", "filament_lamp", "electrolysis_station"}
@@ -47,7 +48,11 @@ ITEMS = {
     "mortar_and_pestle": "Mortar and Pestle", "salt_crystals": "Salt Crystals (NaCl, 10 g)",
     "calcite_powder": "Calcite Powder (CaCO₃, 10 g)", "quicklime": "Quicklime (CaO, 10 g)",
     "slaked_lime": "Slaked Lime (Ca(OH)₂, 10 g)", "copper_oxide_powder": "Copper(II) Oxide (CuO, 10 g)",
+    "steel_ingot": "Steel Ingot", "portland_cement": "Portland Cement",
+    "steel_pickaxe": "Steel Pickaxe", "steel_axe": "Steel Axe", "steel_shovel": "Steel Shovel",
+    "steel_sword": "Steel Sword", "steel_hoe": "Steel Hoe",
 }
+TOOLS = {"steel_pickaxe", "steel_axe", "steel_shovel", "steel_sword", "steel_hoe"}
 FILLED = {"beaker", "gas_canister"}
 
 LANG_EXTRA = {
@@ -80,7 +85,6 @@ LANG_EXTRA = {
     "scientia.msg.recorded_volume": "Reading %s mL − initial %s mL = displaced volume %s mL",
     "scientia.msg.floating": "The sample floats, so it displaced only its own weight of water. Density from this volume will be wrong.",
     "scientia.msg.full": "The beaker is full.",
-    "scientia.msg.pressure_relief": "Pressure relief: the stopper popped out and gas escaped!",
     "scientia.msg.run_mass": "Mass before %s g → after %s g (change %s g)",
     "scientia.msg.gas_escaped": "Mass decreased because gas escaped from the open vessel.",
     "scientia.msg.open_pressure": "The vessel is open: pressure equals the atmosphere (101.3 kPa).",
@@ -148,7 +152,10 @@ def blockstates():
         elif kind == "lamp":
             for f, xy in FACING6.items():
                 for lvl in range(16):
-                    variants[f"facing={f},level={lvl}"] = rot("filament_lamp_on" if lvl else "filament_lamp_off", xy)
+                    variants[f"broken=false,facing={f},level={lvl}"] = rot("filament_lamp_on" if lvl else "filament_lamp_off", xy)
+                    variants[f"broken=true,facing={f},level={lvl}"] = rot("filament_lamp_broken", xy)
+        elif kind == "cube":
+            variants[""] = {"model": f"scientia:block/{block}"}
         elif kind == "wire":
             parts = [{"apply": {"model": "scientia:block/copper_wire_core"}}]
             for d, xy in FACING6.items():
@@ -169,6 +176,8 @@ def wire_models():
                                                                                     cube([6.5, 6.5, 6.5], [9.5, 9.5, 9.5], "#wire")]})
     write(os.path.join(md, "copper_wire_side.json"), {"textures": tex, "elements": [cube([6.5, 6.5, 0], [9.5, 9.5, 6], "#insulation"),
                                                                                     cube([7, 7, -0.01], [9, 9, 0.5], "#wire")]})
+    write(os.path.join(md, "reinforced_concrete.json"), {"parent": "minecraft:block/cube_all",
+                                                         "textures": {"all": "scientia:block/reinforced_concrete"}})
     write(os.path.join(md, "copper_wire_inventory.json"), {
         "parent": "block/block", "textures": tex,
         "elements": [cube([6, 6, 0], [10, 10, 16], "#insulation"), cube([7, 7, -0.01], [9, 9, 16.01], "#wire")]})
@@ -183,7 +192,7 @@ def item_models():
         if item in FILLED:
             data["overrides"] = [{"predicate": {"scientia:filled": 1}, "model": f"scientia:item/{item}_filled"}]
             write(os.path.join(im, item + "_filled.json"), {"parent": "minecraft:item/generated", "textures": {"layer0": f"scientia:item/{item}_filled"}})
-        if item in ("thermometer", "multimeter", "ph_meter", "calculator"):
+        if item in ("thermometer", "multimeter", "ph_meter", "calculator") or item in TOOLS:
             data["parent"] = "minecraft:item/handheld"
         write(os.path.join(im, item + ".json"), data)
 
@@ -197,6 +206,7 @@ def loot_and_tags():
     pick = sorted(b for b in BLOCKS if b not in WOODEN)
     write(os.path.join(DATA, "minecraft/tags/blocks/mineable/pickaxe.json"), {"replace": False, "values": [f"scientia:{b}" for b in pick]})
     write(os.path.join(DATA, "minecraft/tags/blocks/mineable/axe.json"), {"replace": False, "values": [f"scientia:{b}" for b in sorted(WOODEN)]})
+    write(os.path.join(DATA, "minecraft/tags/blocks/needs_iron_tool.json"), {"replace": False, "values": ["scientia:reinforced_concrete"]})
 
 
 def recipes():
@@ -230,6 +240,22 @@ def recipes():
                                                     "I": "minecraft:iron_ingot"}, "optical_bench")
     shaped("motion_track", ["  R", " RP", "PPP"], {"R": "minecraft:rail", "P": "#minecraft:planks"}, "motion_track")
     shapeless("calcite_powder", ["minecraft:calcite", "scientia:mortar_and_pestle"], "calcite_powder", 10)
+    # Steel tools: same shapes as vanilla tools.
+    S, T = "scientia:steel_ingot", "minecraft:stick"
+    shaped("steel_pickaxe", ["SSS", " T ", " T "], {"S": S, "T": T}, "steel_pickaxe")
+    shaped("steel_axe", ["SS", "ST", " T"], {"S": S, "T": T}, "steel_axe")
+    shaped("steel_shovel", ["S", "T", "T"], {"S": S, "T": T}, "steel_shovel")
+    shaped("steel_sword", ["S", "S", "T"], {"S": S, "T": T}, "steel_sword")
+    shaped("steel_hoe", ["SS", " T", " T"], {"S": S, "T": T}, "steel_hoe")
+    # Concrete: about 1 part cement : 2 sand : 3 gravel by volume (here 1 : 4 : 4 items) → concrete powder that
+    # sets in water exactly as vanilla concrete does.
+    write(os.path.join(rd, "concrete_from_cement.json"), {"type": "minecraft:crafting_shapeless", "category": "building",
+        "ingredients": [{"item": "scientia:portland_cement"}] + [{"tag": "minecraft:sand"}] * 4 + [{"item": "minecraft:gravel"}] * 4,
+        "result": {"item": "minecraft:light_gray_concrete_powder", "count": 8}})
+    # Reinforced concrete: steel bars (rebar) carry tension, concrete carries compression.
+    write(os.path.join(rd, "reinforced_concrete.json"), {"type": "minecraft:crafting_shaped", "category": "building",
+        "pattern": ["CCC", "CSC", "CCC"], "key": {"C": {"item": "minecraft:light_gray_concrete"}, "S": {"item": "scientia:steel_ingot"}},
+        "result": {"item": "scientia:reinforced_concrete", "count": 8}})
     # Vinegar (≈5 % acetic acid): a gameplay shortcut for fermenting fruit sugars (yeast → ethanol, then
     # acetic acid bacteria → acetic acid). 250 mL ≈ 238.6 g water + 12.6 g acetic acid.
     shapeless("vinegar_beaker", ["scientia:beaker", "minecraft:apple", "minecraft:apple", "minecraft:sugar"], "beaker", 1,

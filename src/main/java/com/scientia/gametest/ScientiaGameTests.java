@@ -64,7 +64,7 @@ public final class ScientiaGameTests {
     public static void balanceMeasuresIngot(GameTestHelper h) {
         BlockPos pos = new BlockPos(1, 1, 1);
         h.setBlock(pos, ModBlocks.PRECISION_BALANCE.get().defaultBlockState());
-        PrecisionBalanceBlockEntity be = h.getBlockEntity(pos);
+        PrecisionBalanceBlockEntity be = (PrecisionBalanceBlockEntity) h.getBlockEntity(pos);
         be.items().setStackInSlot(0, new ItemStack(Items.IRON_INGOT));
         double m = be.reading();
         h.assertTrue(m >= 96 && m <= 104, "iron ingot sample mass should be 100 g ± 4 %, was " + m);
@@ -76,7 +76,7 @@ public final class ScientiaGameTests {
     public static void sealedVesselConservesMass(GameTestHelper h) {
         BlockPos pos = new BlockPos(1, 1, 1);
         h.setBlock(pos, ModBlocks.REACTION_VESSEL.get().defaultBlockState());
-        ReactionVesselBlockEntity be = h.getBlockEntity(pos);
+        ReactionVesselBlockEntity be = (ReactionVesselBlockEntity) h.getBlockEntity(pos);
         Mixture vinegar = new Mixture();
         vinegar.add("water", 13.244);
         vinegar.add("acetic_acid", 0.2098);
